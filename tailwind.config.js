@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        'header': '1185px',
-      }
+        header: "1185px",
+      },
     },
   },
   plugins: [],
