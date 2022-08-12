@@ -20,8 +20,10 @@ export default function Aboute() {
         >
           <Header />
         </div>
+          <div  className={`absolute w-[1187px] h-[347px] left-[368px] top-[3975px]`}>
+        <Footer />
 
-        <Footer left={368} top={3975} />
+          </div>
       </div>
     </>
   );
