@@ -4,10 +4,10 @@ import Cart from "./components/Cart";
 
 export default function Header() {
   return (
-    <header className="w-[1185px] h-[68px] absolute top-4">
+    <header className="w-[1185px] h-[68px]">
       <nav
         id="menu"
-        className="absolute flex flex-row items-start gap-[70px] p-o top-[47px] left-[671px] w-[422px] h-[28px]"
+        className="absolute flex flex-row items-start gap-[70px] p-o top-[47px] left-[303px] w-[422px] h-[28px]"
       >
         <div id="Frame_1" className="w-[47px] h-[28px] gap-[53px] p-0">
           О нас
@@ -22,22 +22,26 @@ export default function Header() {
           FAQ
         </div>
       </nav>
-      <div className="absolute left-[368px] top-4 z-[999]">
+      <div className="absolute left-[0px] top-[4px] z-[999]">
         <Image src={"/image/logo1_1.png"} width={101} height={62} />
       </div>
 
       <div className="absolute top-[-4px] left-0 w-[1920px] h-[5382] invisible"></div>
       <select
         id="lang"
-        className="absolute w-[129px] h-[45px] text-center top-[39px] left-[1149px] rounded-[50px]"
+        className="absolute w-[129px] h-[45px] text-center top-[35px] left-[781px] rounded-[50px]"
       >
         <option value={"Русскмй"}>Русский</option>
       </select>
+      
       <img
         src={"/image/group.svg"}
-        className="absolute top-[51px] left-[1444px] w-[22px] h-[22px]"
+        className="absolute top-[47px] left-[1076px] w-[22px] h-[22px]"
       />
+      <div className="w-[34px] h-[57px] absolute top-[44px] left-[1151px]">
       <Cart />
+
+      </div>
     </header>
   );
 }

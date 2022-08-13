@@ -21,9 +21,7 @@ export default function Contact() {
       </div>
       <div className="absolute top-[240px]">
         <Button type={"Static"}>
-          <p className="eading-[28px] text-[16px] text-[#FFFFFF] font-medium">
             Перезвоните мне
-          </p>{" "}
         </Button>
       </div>
     </div>
