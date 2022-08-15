@@ -20,9 +20,7 @@ export default function Contact() {
         </p>
       </div>
       <div className="absolute top-[240px]">
-        <Button type={"Static"}>
-            Перезвоните мне
-        </Button>
+        <Button type={"Static"}>Перезвоните мне</Button>
       </div>
     </div>
   );

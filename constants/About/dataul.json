@@ -1,0 +1,55 @@
+{
+  "services": [
+    {
+      "name": "ИТ Консалтинг",
+      "photoUrl": "",
+      "Roundblur": { "img": "", "color": "" },
+      "text": { "title": "", "description": "" }
+    },
+    {
+      "name": "ИТ Аутсорсинг (удаленно)",
+      "photoUrl": "",
+      "Roundblur": { "img": "", "color": "" },
+      "text": { "title": "", "description": "" }
+    },
+    {
+      "name": "Аренда выделенных серверов",
+      "photoUrl": "",
+      "Roundblur": { "img": "", "color": "" },
+      "text": { "title": "", "description": "" }
+    },
+    {
+      "name": "Облачный сервер",
+      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
+      "Roundblur": { "img": "/image/cloud-computing_1.svg", "color": "blue" },
+      "text": {
+        "title": "Миграция в облако",
+        "description": "Перенос ваших физических серверов за пределы страны в облачные или выделенные сервера в надежных датацентрах мира. 99.9% доступности, энергонезависимость, высокие каналы связи."
+      }
+    },
+    {
+      "name": "Кибербезопасность",
+      "photoUrl": "",
+      "Roundblur": { "img": "", "color": "" },
+      "text": { "title": "", "description": "" }
+    },
+    {
+      "name": "Автоматизация",
+      "photoUrl": "",
+      "Roundblur": { "img": "", "color": "" },
+      "text": { "title": "", "description": "" }
+    },
+    {
+      "name": "Продажа софта по безопасности",
+      "photoUrl": "",
+      "Roundblur": { "img": "", "color": "" },
+      "text": { "title": "", "description": "" }
+    },
+    {
+      "name": "Продажа подписок на облачный софт",
+      "photoUrl": "",
+      "Roundblur": { "img": "", "color": "" },
+      "text": { "title": "", "description": "" }
+    }
+  ]
+}

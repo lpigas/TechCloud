@@ -7,7 +7,10 @@ const styles = {
 
 export default function Static({ children, onClick, type }) {
   return (
-    <button className={`leading-[28px] text-[16px] text-[#FFFFFF] font-medium ${styles[type]}`} onClick={onClick}>
+    <button
+      className={`leading-[28px] text-[16px] text-[#FFFFFF] font-medium ${styles[type]}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

@@ -33,14 +33,13 @@ export default function Header() {
       >
         <option value={"Русскмй"}>Русский</option>
       </select>
-      
+
       <img
         src={"/image/group.svg"}
         className="absolute top-[47px] left-[1076px] w-[22px] h-[22px]"
       />
       <div className="w-[34px] h-[57px] absolute top-[44px] left-[1151px]">
-      <Cart />
-
+        <Cart />
       </div>
     </header>
   );
