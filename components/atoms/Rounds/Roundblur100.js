@@ -12,6 +12,14 @@ const style = {
     background:
       "linear-gradient(218.07deg, rgba(253, 122, 85, 0.2) 16.55%, rgba(253, 122, 85, 0) 87.99%)",
   },
+  lightblue: {
+    background:
+      "linear-gradient(138.81deg, rgba(109, 191, 255, 0.5) 5.83%, rgba(109, 191, 255, 0) 100%)",
+  },
+  pink: {
+    background:
+      "linear-gradient(138.81deg, rgba(255, 142, 255, 0.265) 5.83%, rgba(255, 142, 255, 0.06) 100%)",
+  },
 };
 
 export default function Roundblur100({ children, color }) {

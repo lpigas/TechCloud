@@ -2,11 +2,11 @@ import React from "react";
 import Roundblur52 from "../../../../components/atoms/Rounds/Roundblur52";
 import Button from "../../../../components/atoms/Buttons/Button/Button";
 
-export default function Bottom() {
+export default function Bottom({ title, buttonName }) {
   return (
-    <div className="w-[1185px] h-[515px] absolute top-[2125px] left-[368px] bg-[#F0F0FA] rounded-[80px]">
+    <div className="w-[1185px] h-[515px] bg-[#F0F0FA] rounded-[80px]">
       <div className="absolute top-[139px] left-[399px] font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50]">
-        Стать клиентом
+        {title}
       </div>
       <div className="absolute left-[364px] top-[115px]">
         <Roundblur52 color={"violet"} />
@@ -16,7 +16,7 @@ export default function Bottom() {
         услугу или продукт
       </div>
       <div className="absolute top-[330px] left-[454px]">
-        <Button type={"Static"}>Стать клиентом</Button>
+        <Button type={"Static"}>{buttonName}</Button>
       </div>
     </div>
   );

@@ -17,7 +17,9 @@ export default function Center() {
         <FullAboutUs />
         <FullService />
         <Partners />
-        <Bottom />
+        <div className="absolute top-[2125px] left-[368px]">
+          <Bottom title={"Стать клиентом"} buttonName={"Стать клиентом"} />
+        </div>
       </div>
     </div>
   );

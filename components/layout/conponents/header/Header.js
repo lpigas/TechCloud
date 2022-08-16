@@ -1,8 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Cart from "./components/Cart";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const router = useRouter();
   return (
     <header className="w-[1185px] h-[68px]">
       <nav
@@ -12,18 +15,31 @@ export default function Header() {
         <div id="Frame_1" className="w-[47px] h-[28px] gap-[53px] p-0">
           О нас
         </div>
-        <div id="Frame_2" className="w-[73px] h-[28px] gap-[53px] p-0">
+        <Link
+          href={"/Shop"}
+          id="Frame_2"
+          className="w-[73px] h-[28px] gap-[53px] p-0"
+        >
           Магазин
-        </div>
-        <div id="Frame_3" className="w-[57px] h-[28px] gap-[53px] p-0">
+        </Link>
+        <Link
+          href={"/Services"}
+          id="Frame_3"
+          className="w-[57px] h-[28px] gap-[53px] p-0"
+        >
           Услуги
-        </div>
+        </Link>
         <div id="Frame_4" className="w-[47px] h-[28px] gap-[53px] p-0">
           FAQ
         </div>
       </nav>
       <div className="absolute left-[0px] top-[4px] z-[999]">
-        <Image src={"/image/logo1_1.png"} width={101} height={62} />
+        <Image
+          onClick={() => router.push("/")}
+          src={"/image/logo1_1.png"}
+          width={101}
+          height={62}
+        />
       </div>
 
       <div className="absolute top-[-4px] left-0 w-[1920px] h-[5382] invisible"></div>
