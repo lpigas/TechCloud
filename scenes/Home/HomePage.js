@@ -31,7 +31,9 @@ export default function Aboute() {
           </div>
         </div>
         <Main />
-        <Center />
+        <div className="absolute top-[1079px] left-0">
+          <Center />
+        </div>
 
         <div
           id="home__footer"

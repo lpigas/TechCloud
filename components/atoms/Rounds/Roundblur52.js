@@ -20,23 +20,23 @@ const stylesMini = {
   },
   violet: {
     background:
-      "linear-gradient(180deg, #7166F9 0%, rgba(113, 102, 249, 0.45) 100%);",
+      "linear-gradient(180deg, #7166F9 0%, rgba(113, 102, 249, 0.45) 100%)",
   },
   orange: {
     background:
-      "linear-gradient(180deg, #FD7A55 0%, rgba(253, 122, 85, 0.45) 100%);",
+      "linear-gradient(180deg, #FD7A55 0%, rgba(253, 122, 85, 0.45) 100%)",
   },
 };
 
-export default function Roundblur52({ children, color }) {
+export default function Roundblur52({ color }) {
   return (
     <div
       style={stylesBig[color]}
-      className={`w-[52px] h-[52px] rounded-[20px] backdrop-blur-[4px] flex items-center justify-center`}
+      className={`w-[52px] h-[52px] rounded-[20px] backdrop-blur-[4px] flex items-center justify-center z-50`}
     >
       <div
         style={stylesMini[color]}
-        className={`w-[26px] h-[26px] rounded-[10px]`}
+        className={`w-[26px] h-[26px] rounded-[10px] z-50`}
       />
     </div>
   );

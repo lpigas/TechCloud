@@ -12,7 +12,7 @@ export default function FullService() {
   const [changedLi, setChangedLi] = useState("");
 
   return (
-    <div className="w-[1286px] h-[822px] absolute top-[1873px] left-[367px] ">
+    <div className="w-[1286px] h-[822px] absolute top-[794px] left-[367px] ">
       <p className="absolute top-[17px] left-0 font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
         Наши услуги
       </p>

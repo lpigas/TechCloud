@@ -1,12 +1,14 @@
 import React from "react";
+import Bottom from "./Bottom/Bottom";
 import FullAboutUs from "./Center/FullAboutUs";
 import FullService from "./Center/FullService";
+import Partners from "./Partners/Partners";
 
 export default function Center() {
   return (
     <div>
       <div
-        className="w-[1936px] h-[2778px]"
+        className="w-[1920px] h-[2779px]"
         style={{
           background:
             "linear-gradient(90deg, #F9F9FC 0%, #FCFCFD 33.33%, #FBFBFD 53.12%, #F6F6FA 100%)",
@@ -14,6 +16,8 @@ export default function Center() {
       >
         <FullAboutUs />
         <FullService />
+        <Partners />
+        <Bottom />
       </div>
     </div>
   );

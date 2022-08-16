@@ -6,7 +6,7 @@ import MiniLogos from "./MinilogoBlock/MiniLogos";
 
 export default function FullAboutUs() {
   return (
-    <div className="w-[1271px] h-[446px] absolute top-[1223px] left-[333px]">
+    <div className="w-[1271px] h-[446px] absolute top-[144px] left-[333px]">
       <div className="absolute top-[24px] left-[35px]">
         <About_1 />
       </div>
