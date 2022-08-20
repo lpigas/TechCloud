@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import Roundblur100 from "../../atoms/Rounds/Roundblur100";
 import RoundBlur50 from "../../atoms/Rounds/RoundBlur50";
@@ -5,11 +6,11 @@ import RoundBlur50 from "../../atoms/Rounds/RoundBlur50";
 export default function ServicesForms({
   color,
   imageRound,
-  top,
-  left,
   bigImage,
   title,
+  url,
 }) {
+  const router = useRouter()
   return (
     <div className={`w-[578px] h-[409px] bg-[#FFFFFF] rounded-[20px]`}>
       <div className={`absolute top-[47px] left-[303px]`}>
@@ -26,7 +27,7 @@ export default function ServicesForms({
         {" "}
         {title}
       </div>
-      <div className="flex absolute top-[338px] left-[305px] items-center">
+      <div onClick={()=> router.push(url)} className="cursor-pointer flex absolute top-[338px] left-[305px] items-center">
         <p className="mx-4 ">Подробнее об услуге</p>
         <img src="/image/Arrows/Arrow_3.svg" width={"16.5"} />
       </div>

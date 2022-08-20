@@ -7,7 +7,7 @@ export default function Services() {
       <div className="font-medium not-italic text-[24px] leading-[28px] w-[276px] h-[28px] text-[#3E3F50]">
         Услуги
       </div>
-      <div className="absolute top-[50px] font-normal not-italic text-[18px] leading-[36px] w-[276px] h-[252px] text-[#616E87]">
+      <div className="mt-[22px] top-[50px] font-normal not-italic text-[18px] leading-[36px] w-[276px] h-[252px] text-[#616E87]">
         <p>
           <Link href={""}> ИТ Консалтинг</Link>
         </p>
@@ -18,7 +18,7 @@ export default function Services() {
           <Link href={""}>Аренда выделенных серверов</Link>
         </p>
         <p>
-          <Link href={""}>Облачный сервер </Link>
+          <Link href={"/Services/Cloudserver"}>Облачный сервер </Link>
         </p>
         <p>
           <Link href={""}>Кибербезопасность </Link>

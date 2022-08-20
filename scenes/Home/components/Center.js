@@ -1,5 +1,5 @@
 import React from "react";
-import Bottom from "./Bottom/Bottom";
+import Bottom from "../../../components/moleculs/Recall/Bottom";
 import FullAboutUs from "./Center/FullAboutUs";
 import FullService from "./Center/FullService";
 import Partners from "./Partners/Partners";

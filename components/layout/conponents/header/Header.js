@@ -33,12 +33,13 @@ export default function Header() {
           FAQ
         </div>
       </nav>
-      <div className="absolute left-[0px] top-[4px] z-[999]">
+      <div className="absolute left-[0px] top-[16px] z-[999]">
         <Image
           onClick={() => router.push("/")}
           src={"/image/logo1_1.png"}
           width={101}
           height={62}
+          className={'mt-2'}
         />
       </div>
 

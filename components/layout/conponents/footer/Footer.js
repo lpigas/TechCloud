@@ -7,23 +7,23 @@ import Contact from "./components/Contact";
 
 export default function Footer({ left, top }) {
   return (
-    <footer>
-      <div>
+    <footer className="flex w-full">
+      <div className="flex flex-col w-[101px] justify-between">
         <Image src={"/image/logo1_1.png"} width={101} height={62} />
-      </div>
-
-      <div id="Oferta" className={`absolute w-[173px] h-[91px] top-[257px]`}>
         <Oferta />
       </div>
-      <div id="AboutUs" className="absolute left-[201px] top-0">
+      <div className="flex w-full justify-center">
+      <div id="AboutUs" className="">
         <CloudTech />
       </div>
-      <div id="Services" className="absolute left-[504px] top-0">
+      <div id="Services" className="">
         <Services />
       </div>
-      <div id="Contact" className="absolute left-[911px] top-0">
+      <div id="Contact" className="">
         <Contact />
       </div>
+      </div>
+
     </footer>
   );
 }

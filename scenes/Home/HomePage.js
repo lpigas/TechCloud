@@ -5,12 +5,13 @@ import Header from "../../components/layout/conponents/header/Header";
 import TitleBlock from "./TitleBlock";
 import Main from "./components/Main";
 import Center from "./components/Center";
+import Bottom from "../../components/moleculs/Recall/Bottom";
 
-export default function Aboute() {
+export default function Aboute({props}) {
   return (
     <>
       <Head>
-        <title>Aboute</title>
+        <title>About</title>
       </Head>
       <div className="relative w-[1920px] h-[4396px]">
         <div
@@ -18,7 +19,7 @@ export default function Aboute() {
           style={{
             background: "linear-gradient(90deg, #F6F8FC 0%, #ECF0FA 100%)",
           }}
-          className="absolute top-[8px] left-0 w-[1920px] h-[1080px] from-[#90deg, #F6F8FC_0%, #ECF0FA_100%]"
+          className="absolute top-[0px] left-0 w-[1920px] h-[1080px] from-[#90deg, #F6F8FC_0%, #ECF0FA_100%]"
         >
           <div id="home__header" className="absolute left-[368px] top-[-4px]">
             <Header />
@@ -32,9 +33,8 @@ export default function Aboute() {
         </div>
         <Main />
         <div className="absolute top-[1079px] left-0">
-          <Center />
+        <Center />
         </div>
-
         <div
           id="home__footer"
           className={`absolute w-[1187px] h-[347px] left-[368px] top-[3975px]`}
