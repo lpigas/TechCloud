@@ -12,31 +12,31 @@ export default function FullService() {
   const [changedLi, setChangedLi] = useState("");
 
   return (
-    <div className="w-[1286px] h-[822px] absolute top-[794px] left-[367px] ">
-      <p className="absolute top-[17px] left-0 font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
+    <div className="w-[1286px]">
+      <p className="flex font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
         Наши услуги
+        <div className="mt-[-10px] ml-[-10px]">
+          <Roundblur52 color={"orange"} />
+        </div>
       </p>
-      <div className="absolute top-[0] left-[303px]">
-        <Roundblur52 color={"orange"} />
-      </div>
-      <div className="w-[377px] h-[516px] absolute top-[132px] left-[39px]">
-        <Service_ul
-          services={services}
-          changed={changedLi}
-          setChanged={setChangedLi}
-        />
-      </div>
-      <div className="absolute top-[101px] left-[579px] z-50">
-        <CloudUl data={changedLi} />
-      </div>
-      <div className="absolute w-[814px] h-[543px] top-[132px] left-[606px]">
-        <PhotoUl data={changedLi} />
-      </div>
-      <div className="w-[680px] h-[134px] absolute top-[542px] left-[606px]">
-        <TextUl data={changedLi} />
-      </div>
-      <div className="absolute top-[741px] left-[606px]">
-        <Button type={"Static"}> Оформить заявку</Button>
+      <div className="flex ml-[35px]">
+        <div className="w-[1286px] h-[822px]  flex">
+          <Service_ul
+            services={services}
+            changed={changedLi}
+            setChanged={setChangedLi}
+          />
+          <div className="flex flex-col w-[529px] ml-[128px] z-50">
+            <div className=" relative">
+              <CloudUl data={changedLi} />
+            </div>
+            <PhotoUl data={changedLi} />
+            <TextUl data={changedLi} />
+            <div className=" mt-[65px]">
+              <Button type={"Static"}> Оформить заявку</Button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

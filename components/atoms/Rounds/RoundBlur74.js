@@ -39,7 +39,7 @@ export default function Roundblur74({ color, children }) {
         className={`w-[37px] h-[37px] rounded-[15px] z-50 flex items-center justify-center`}
       >
         {children}
-        </div>
+      </div>
     </div>
   );
 }

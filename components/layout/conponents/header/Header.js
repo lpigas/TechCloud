@@ -3,60 +3,67 @@ import Image from "next/image";
 import Cart from "./components/Cart";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
-export default function Header() {
+export default function Header({ title }) {
   const router = useRouter();
   return (
-    <header className="w-[1185px] h-[68px]">
+    <header className="flex h-[68px]">
+      <Head>
+        <title>{title}</title>
+      </Head>
       <nav
         id="menu"
-        className="absolute flex flex-row items-start gap-[70px] p-o top-[47px] left-[303px] w-[422px] h-[28px]"
+        className="flex ml-[368px] mr-[168px] h-full items-center gap-[70px] p-0 w-[985px]"
       >
-        <div id="Frame_1" className="w-[47px] h-[28px] gap-[53px] p-0">
+        <div className="flex z-[999]">
+          <Image
+            onClick={() => router.push("/")}
+            src={"/image/logo1_1.png"}
+            width={101}
+            height={62}
+            className={"mt-2"}
+          />
+        </div>
+        <div
+          id="Frame_1"
+          className="ml-[202px] w-[47px] h-[28px] gap-[53px] p-0"
+        >
           О нас
         </div>
         <Link
-          href={"/Shop"}
+          href={"/shop"}
           id="Frame_2"
           className="w-[73px] h-[28px] gap-[53px] p-0"
         >
           Магазин
         </Link>
         <Link
-          href={"/Services"}
+          href={"/services"}
           id="Frame_3"
           className="w-[57px] h-[28px] gap-[53px] p-0"
         >
           Услуги
         </Link>
-        <div id="Frame_4" className="w-[47px] h-[28px] gap-[53px] p-0">
+        <Link
+          href={"/FAQ"}
+          id="Frame_4"
+          className="w-[47px] h-[28px] gap-[53px] mt-1"
+        >
           FAQ
-        </div>
+        </Link>
+        <select
+          id="lang"
+          className=" w-[129px] h-[45px] text-center rounded-[50px]"
+        >
+          <option value={"Русский"}>Русский</option>
+        </select>
       </nav>
-      <div className="absolute left-[0px] top-[16px] z-[999]">
-        <Image
-          onClick={() => router.push("/")}
-          src={"/image/logo1_1.png"}
-          width={101}
-          height={62}
-          className={'mt-2'}
-        />
-      </div>
-
-      <div className="absolute top-[-4px] left-0 w-[1920px] h-[5382] invisible"></div>
-      <select
-        id="lang"
-        className="absolute w-[129px] h-[45px] text-center top-[35px] left-[781px] rounded-[50px]"
-      >
-        <option value={"Русскмй"}>Русский</option>
-      </select>
-
-      <img
-        src={"/image/group.svg"}
-        className="absolute top-[47px] left-[1076px] w-[22px] h-[22px]"
-      />
-      <div className="w-[34px] h-[57px] absolute top-[44px] left-[1151px]">
-        <Cart />
+      <div className="items-center flex">
+        <img src={"/image/group.svg"} className="w-[22px] m-[53px] h-[22px]" />
+        <div className="w-[34px] mt-[26px] h-[57px]">
+          <Cart />
+        </div>
       </div>
     </header>
   );

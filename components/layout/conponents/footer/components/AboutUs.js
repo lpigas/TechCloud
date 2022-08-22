@@ -8,10 +8,10 @@ export default function AboutUs() {
         <Link href={""}>О нас</Link>
       </p>
       <p>
-        <Link href={""}>Мвгвзмн</Link>
+        <Link href={"/shop"}>Мвгвзин</Link>
       </p>
       <p>
-        <Link href={""}>FAQ</Link>
+        <Link href={"/FAQ"}>FAQ</Link>
       </p>
     </div>
   );

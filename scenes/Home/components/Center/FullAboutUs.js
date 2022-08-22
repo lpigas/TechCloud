@@ -6,17 +6,17 @@ import MiniLogos from "./MinilogoBlock/MiniLogos";
 
 export default function FullAboutUs() {
   return (
-    <div className="w-[1271px] h-[446px] absolute top-[144px] left-[333px]">
-      <div className="absolute top-[24px] left-[35px]">
+    <div className="w-full mt-[171px] mb-[42px] flex-col justify-center h-[446px]">
+      <div className="">
         <About_1 />
       </div>
-      <div className="top-[1223px]">
+      <div className="absolute top-[1190px] left-[320px]">
         <Roundblur52 color={"violet"} />
       </div>
-      <div className="w-[882px] h-[136px] absolute top-[121px] left-[35px]">
+      <div className="w-[882px] h-[136px] top-[121px] left-[35px]">
         <About_2 />
       </div>
-      <div className="absolute top-[326px] left-[35px]">
+      <div className="top-[326px] left-[35px]">
         <MiniLogos />
       </div>
     </div>

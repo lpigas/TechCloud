@@ -18,7 +18,7 @@ export default function Services() {
           <Link href={""}>Аренда выделенных серверов</Link>
         </p>
         <p>
-          <Link href={"/Services/Cloudserver"}>Облачный сервер </Link>
+          <Link href={"/services/sloudserver"}>Облачный сервер </Link>
         </p>
         <p>
           <Link href={""}>Кибербезопасность </Link>

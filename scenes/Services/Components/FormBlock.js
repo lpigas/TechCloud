@@ -1,82 +1,35 @@
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 import ServicesForms from "../../../components/moleculs/Forms/ServicesForms";
 
-export default function FormBlock() {
-  // console.log(formData)
+export default function FormBlock({ data }) {
+  const router = useRouter();
+
+  const changePage = (item) => {
+    if (typeof window !== "undefined") {
+      const data = window.localStorage.setItem(
+        "InfoData",
+        JSON.stringify(item)
+      );
+    }
+    router.push("/services/servicesInfo");
+  };
+
   return (
-    <>
-      <div className={`absolute top-[378px] left-[368px]`}>
-        <ServicesForms
-          title={"ИТ Консалтинг"}
-          color={"violet"}
-          imageRound={"/image/Form/Logos/consalting_1.svg"}
-          bigImage={"/image/Form/bigImage/consaltingB.png"}
-          url={''}
-        />
-      </div>
-      <div className={`absolute top-[378px] left-[974px]`}>
-        <ServicesForms
-          title={"ИТ Аутсорсинг (удаленно)"}
-          color={"orange"}
-          imageRound={"/image/Form/Logos/outsorc_1.svg"}
-          bigImage={"/image/Form/bigImage/outsorc.png"}
-          url={''}
-        />
-      </div>
-      <div className={`absolute top-[812px] left-[368px]`}>
-        <ServicesForms
-          title={"Аренда выделенных серверов"}
-          color={"blue"}
-          imageRound={"/image/Form/Logos/servers.svg"}
-          bigImage={"/image/Form/bigImage/servers.png"}
-          url={''}
-        />
-      </div>
-      <div className={`absolute top-[812px] left-[974px]`}>
-        <ServicesForms
-          title={"Облачный сервер"}
-          color={"lightblue"}
-          imageRound={"/image/Form/Logos/cloud.svg"}
-          bigImage={"/image/Form/bigImage/clouds.png"}
-          url={'/Services/Cloudserver'}
-        />
-      </div>
-      <div className={`absolute top-[1248px] left-[368px]`}>
-        <ServicesForms
-          title={"Кибербезопасность"}
-          color={"pink"}
-          imageRound={"/image/Form/Logos/security.svg"}
-          bigImage={"/image/Form/bigImage/security.png"}
-          url={''}
-        />
-      </div>
-      <div className={`absolute top-[1248px] left-[974px]`}>
-        <ServicesForms
-          title={"Автоматизация бизнес задач под ваши нужды"}
-          color={"violet"}
-          imageRound={"/image/Form/Logos/automatic_1.svg"}
-          bigImage={"/image/Form/bigImage/automatic.png"}
-          url={''}
-        />
-      </div>
-      <div className={`absolute top-[1684px] left-[368px]`}>
-        <ServicesForms
-          title={"Продажа софта по безопасности"}
-          color={"orange"}
-          imageRound={"/image/Form/Logos/soft_1.svg"}
-          bigImage={"/image/Form/bigImage/soft.png"}
-          url={''}
-        />
-      </div>
-      <div className={`absolute top-[1684px] left-[974px]`}>
-        <ServicesForms
-          title={"Продажа подписок на облачный софт"}
-          color={"blue"}
-          imageRound={"/image/Form/Logos/cloud-soft_1.svg"}
-          bigImage={"/image/Form/bigImage/cloud_soft.png"}
-          url={''}
-        />
-      </div>
-    </>
+    <div className="w-[1212px] flex ml-[368px]  mt-[87px] flex-wrap">
+      {data &&
+        data.map((item) => (
+          <div key={item._id} className={` top-[378px] left-[368px]`}>
+            <ServicesForms
+              title={item.services.title.name}
+              color={item.services.title.Roundblur.color}
+              imageRound={item.services.title.Roundblur.img}
+              bigImage={item.services.title.photoUrl}
+              onClick={changePage}
+              data={item}
+            />
+          </div>
+        ))}
+    </div>
   );
 }

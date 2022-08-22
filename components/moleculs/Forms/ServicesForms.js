@@ -8,28 +8,36 @@ export default function ServicesForms({
   imageRound,
   bigImage,
   title,
-  url,
+  onClick,
+  data,
 }) {
-  const router = useRouter()
+  const router = useRouter();
   return (
-    <div className={`w-[578px] h-[409px] bg-[#FFFFFF] rounded-[20px]`}>
-      <div className={`absolute top-[47px] left-[303px]`}>
-        <Roundblur100 color={color}>
-          <RoundBlur50 color={color}>
-            <img src={imageRound} />
-          </RoundBlur50>
-        </Roundblur100>
-      </div>
-      <div className="w-[275px] h-[409px]">
+    <div
+      className={`w-[578px] h-[409px] flex mr-[28px] mb-[27px] bg-[#FFFFFF] rounded-[20px]`}
+    >
+      <div className="min-w-[275px] min-h-[409px]">
         <img src={bigImage} />
       </div>
-      <div className="absolute top-[190px] left-[303px] font-medium not-italic text-[20px] leading-[28px] text-[#3E3F50]">
-        {" "}
+
+      <div className="font-medium ml-[30px] not-italic h-[409px] flex flex-col justify-between text-[20px] leading-[28px] text-[#3E3F50]">
+        <div className={`mt-[47px] ml-[-1px] mb-[43px]`}>
+          <Roundblur100 color={color}>
+            <RoundBlur50 color={color}>
+              <img src={imageRound} />
+            </RoundBlur50>
+          </Roundblur100>
+        </div>{" "}
         {title}
-      </div>
-      <div onClick={()=> router.push(url)} className="cursor-pointer flex absolute top-[338px] left-[305px] items-center">
-        <p className="mx-4 ">Подробнее об услуге</p>
-        <img src="/image/Arrows/Arrow_3.svg" width={"16.5"} />
+        <div
+          onClick={() => onClick(data)}
+          className="cursor-pointer flex mb-4 items-end"
+        >
+          <p className="flex">
+            Подробнее об услуге
+            <img src="/image/Arrows/Arrow_3.svg" width={"16.5"} />
+          </p>
+        </div>
       </div>
     </div>
   );

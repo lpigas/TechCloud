@@ -1,17 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function Shop({message}) {
-    // alert(message)
+export default function Shop({ data }) {
   return (
     <div>
-    <h1>{message}</h1>
-</div>
-  )
-}
-
-
-export function getServerSideProps() {
-    return {
-        props: { message: 1 },
-    };
+      <h1>{"1"}</h1>
+    </div>
+  );
 }

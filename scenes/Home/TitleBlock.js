@@ -6,17 +6,17 @@ import Roundblur52 from "../../components/atoms/Rounds/Roundblur52";
 
 export default function TitleBlock() {
   return (
-    <div>
-      <div className="absolute top-[0px] left-[913px]">
+    <div className="w-[983px] h-[346px] flex flex-col items-center">
+      <div className="absolute top-[184px] left-[1372px]">
         <Roundblur52 color={"blue"} />
       </div>
-      <div className="absolute w-[983px] h-[174px] top-[15px] left-0">
+      <div className=" w-[983px] h-[174px]">
         <TitleFirst></TitleFirst>
       </div>
-      <div className="absolute w-[579px] h-[56px] top-[177px] left-[201px]">
+      <div className=" w-[579px] h-[56px]">
         <Text2 />
       </div>
-      <div className="absolute top-[276px] left-[353px]">
+      <div className="mt-[44px]">
         <Button type={"Static"}> Задать вопрос</Button>
       </div>
     </div>
