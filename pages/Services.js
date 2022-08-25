@@ -5,7 +5,8 @@ import ServicesPage from "../scenes/Services/ServicesPage";
 export default function Services({ data }) {
   return (
     <>
-      <ServicesPage data={data} />
+    fdnksjfhskdjfhjhk
+      {/* <ServicesPage data={data} /> */}
     </>
   );
 }
