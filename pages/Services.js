@@ -2,7 +2,7 @@ import React from "react";
 import ServicesPage from "../scenes/Services/ServicesPage";
 
 
-export default function ervices({ data }) {
+export default function services({ data }) {
   return (
     <>
 
