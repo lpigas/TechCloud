@@ -1,5 +1,5 @@
 import React from "react";
-import Roundblur74 from "../../atoms/Rounds/Roundblur74";
+import Roundblur74 from "../../atoms/Rounds/RoundBlur74";
 
 export default function ServicesDescr({ description, num }) {
   return (
