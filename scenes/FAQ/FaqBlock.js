@@ -1,12 +1,13 @@
 import React from "react";
 
 export default function FaqBlock({ data, opened, setOpened }) {
-  console.log(data);
   return (
     <div
       className={`w-[882px] mb-[13px] p-0 ${
-        opened !== data.title ? "min-h-[85px]" : "min-h-[281px]"
-      } rounded-[10px] bg-[#F9F9FC] border-[10px] border-[#F9F9FC] flex justify-between`}
+        opened !== data.title
+          ? "min-h-[85px] bg-[#F9F9FC] border-[#F9F9FC]"
+          : "min-h-[281px] bg-white border-white"
+      } rounded-[10px] border-[10px] flex justify-between`}
     >
       <p className="ml-[39px] mt-[20px] font-normal not-italic text-[20px] leading-[24px] text-[#3E3F50]">
         {data.title}

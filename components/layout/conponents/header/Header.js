@@ -60,7 +60,12 @@ export default function Header({ title }) {
         </select>
       </nav>
       <div className="items-center flex">
-        <img src={"/image/group.svg"} className="w-[22px] m-[53px] h-[22px]" />
+        <a href="/login">
+          <img
+            src={"/image/group.svg"}
+            className="w-[22px] m-[53px] h-[22px]"
+          />
+        </a>
         <div className="w-[34px] mt-[26px] h-[57px]">
           <Cart />
         </div>
