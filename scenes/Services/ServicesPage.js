@@ -6,7 +6,7 @@ import Bottom from "../../components/moleculs/Recall/Bottom";
 import Head from "next/head";
 import React from "react";
 
-export default function FullServices({ data }) {
+export default function ServicesPage({ data }) {
   const partname = [{ service_name: "Услуги", service_url: "/services" }];
 
   // console.log(data)
