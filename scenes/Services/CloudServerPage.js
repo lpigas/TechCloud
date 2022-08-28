@@ -17,7 +17,7 @@ export default function CloudServerPage({}) {
       setServiceInfo(JSON.parse(window.localStorage.getItem("InfoData")));
     }
   }, []);
-  console.log(serviceInfo);
+
 
   return (
     <>

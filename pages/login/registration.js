@@ -12,8 +12,8 @@ export default function registration() {
     password: "",
     name: "",
     sername: "",
-    phone: { cod: "", tel: "" },
-    mail: "",
+    phone: "",
+    email: "",
     country: "",
     city: "",
   });

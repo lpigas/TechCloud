@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TextUl({ data }) {
   return (
-    <div>
+    <div className="flex">
       {data && (
         <div className="wrap">
           <h1 className="font-medium not-italic text-[24px] leading-[28px] text-[#3E3F50] z-10">

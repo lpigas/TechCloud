@@ -17,19 +17,24 @@ export default function LoginBlock({
           Введите Ваш логин и пароль:
         </p>
 
-        <form className="mt-[33px]">
+        <form className="mt-[33px]" method="POST" action="/api/login">
           <input
-            type={"text"}
-            placeholder={"Login"}
+            type={"email"}
+            placeholder={"E-mail"}
+            name='email'
             className="border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
+            required
             onChange={(e) =>
-              setEnterLogin({ ...enterLogin, login: e.target.value })
+              setEnterLogin({ ...enterLogin, email: e.target.value })
             }
           />
           <div className="flex">
             <input
               type={`${view === "text" ? "text" : "password"}`}
               placeholder={"Password"}
+              name='Password'
+              required
+              minLength={1}
               className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
               onChange={(e) =>
                 setEnterLogin({ ...enterLogin, password: e.target.value })
@@ -42,7 +47,8 @@ export default function LoginBlock({
             />
           </div>
           <div className="mt-[48px]">
-            <Button type={"Static"}>Войти</Button>
+            {/* <Button type={"Static"}>Войти</Button> */}
+            <input type='submit' value={'enter'}></input>
             <div className="flex w-[377px] h-[40px] mt-[44px] items-center">
               <div className="font-normal not-italic text-[20px] leading-[23px] text-[#7166F9]">
                 Я забыл пароль

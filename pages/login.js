@@ -4,9 +4,11 @@ import Footer from "../components/layout/conponents/footer/Footer";
 import TitleBlock from "../scenes/Services/Components/TitleBlock";
 import LoginBlock from "../scenes/Login/LoginBlock";
 
+
 export default function login() {
+
   const [viewPassword, setViewPassword] = useState("");
-  const [enterLogin, setEnterLogin] = useState({ login: "", password: "" });
+  const [enterLogin, setEnterLogin] = useState({ email: "", password: "" });
 
   return (
     <>
@@ -27,15 +29,16 @@ export default function login() {
                   service_name: "Вход в личный кабинет",
                 },
               ]}
-            />
+              />
           </div>
+
           <div className="mt-[76px] ml-[368px]">
             <LoginBlock
               view={viewPassword}
               setView={setViewPassword}
               enterLogin={enterLogin}
               setEnterLogin={setEnterLogin}
-            />
+              />
           </div>
         </div>
         <div id="home__footer" className={` w-[1187px] h-[347px] m-auto`}>

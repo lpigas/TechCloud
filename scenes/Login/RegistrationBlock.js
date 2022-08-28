@@ -12,13 +12,11 @@ export default function RegistrationBlock({
 }) {
   console.log(newUser);
   const [countrys, setCountrys] = useState();
-  const [tel, setTel] = useState();
   const getCountrys = async () => {
     try {
       const data = await fetch("https://restcountries.com/v3.1/all");
       const gets = await data.json();
       const all = [];
-      const telData = [];
       gets
         .sort((a, b) => a.name.common.localeCompare(b.name.common))
         .map((item) =>
@@ -29,13 +27,6 @@ export default function RegistrationBlock({
           })
         );
       setCountrys(all);
-      gets.map((item) =>
-        telData.push({
-          value: item.idd.root + item.idd.suffixes,
-          label: item.flag + item.idd.root + item.idd.suffixes,
-        })
-      );
-      setTel(telData);
     } catch (e) {
       console.log(e);
     }
@@ -43,6 +34,9 @@ export default function RegistrationBlock({
   useEffect(() => {
     getCountrys();
   }, []);
+
+
+  console.log(newUser)
   return (
     <div className="w-[882px] min-h-[487px] mt-[118px] flex bg-[#FFFFFF] rounded-[50px]">
       <div className="mt-[71px] ml-[101px]">
@@ -97,7 +91,7 @@ export default function RegistrationBlock({
           <InputMask
             type={"tel"}
             placeholder={"+38 (099) 912-32-31"}
-            value={newUser.tel}
+            value={newUser.phone}
             mask={`+99(999) 999-99-99`}
             maskChar="_"
             alwaysShowMask={false}
@@ -106,7 +100,7 @@ export default function RegistrationBlock({
             onChange={(e) =>
               setNewUser({
                 ...newUser,
-                phone: { cod: newUser.phone.cod, tel: e.target.value },
+                phone:  e.target.value 
               })
             }
           />
@@ -118,12 +112,12 @@ export default function RegistrationBlock({
             minLength={2}
             className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
             onChange={(e) =>
-              setNewUser({ ...newUser, sername: e.target.value })
+              setNewUser({ ...newUser, email: e.target.value })
             }
           />
           <Select
             id="react-select-2-live-region"
-            onChange={(e) => setNewUser({ ...newUser, sername: e.value })}
+            onChange={(e) => setNewUser({ ...newUser, country: e.value })}
             classNamePrefix=" p-[120px]"
             className="mt-[12px] border-box w-[379px] bg-[#FFFFFF] rounded-[10px]"
             pageSize={20}
@@ -137,7 +131,7 @@ export default function RegistrationBlock({
             minLength={2}
             className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
             onChange={(e) =>
-              setNewUser({ ...newUser, sername: e.target.value })
+              setNewUser({ ...newUser, city: e.target.value })
             }
           />
 

@@ -12,32 +12,41 @@ export default function FullService() {
   const [changedLi, setChangedLi] = useState("");
 
   return (
-    <div className="w-[1286px]">
+    <div className="w-[1286px] flex min-h-[822px] flex-col">
       <p className="flex font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
         Наши услуги
         <div className="mt-[-10px] ml-[-10px]">
           <Roundblur52 color={"orange"} />
         </div>
       </p>
-      <div className="flex ml-[35px]">
-        <div className="w-[1286px] h-[822px]  flex">
-          <Service_ul
+
+ <div className="flex flex-row">
+
+      <div className="w-[377px] h-[516px] mt-[60px]">
+      <Service_ul
             services={services}
             changed={changedLi}
             setChanged={setChangedLi}
           />
-          <div className="flex flex-col w-[529px] ml-[128px] z-50">
+
+      </div>
+      <div className=" w-[579px] ml-[128px] h-[516px] z-50">
             <div className=" relative">
               <CloudUl data={changedLi} />
             </div>
+            <div className="h-[355px]">
             <PhotoUl data={changedLi} />
+
+            </div>
+            <div className="h-[106px] mt-[55px]">
+
             <TextUl data={changedLi} />
+            </div>
             <div className=" mt-[65px]">
               <Button type={"Static"}> Оформить заявку</Button>
             </div>
           </div>
-        </div>
-      </div>
+ </div>
     </div>
   );
 }

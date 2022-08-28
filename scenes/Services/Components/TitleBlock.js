@@ -29,7 +29,7 @@ export default function TitleBlock({ partname }) {
               </div>
             ))}
         </div>
-        <div className="mt-[38px] flex font-bold not-italic text-[65px] w-[814px] leading-[70px] text-[#3E3F50]">
+        <div className="mt-[38px] flex font-bold not-italic text-[65px] w-[1014px] leading-[70px] text-[#3E3F50]">
           <div className="mt-[-20px] mr-[-16px]">
             <Roundblur52 color={"blue"} />
           </div>

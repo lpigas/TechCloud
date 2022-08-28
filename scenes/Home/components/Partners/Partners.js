@@ -18,11 +18,11 @@ export default function Partners() {
   }, 3000);
 
   return (
-    <div className="w-[1222px] h-[223px] mt-[-200px] flex">
-      <div className="absolute  left-[305px] top-[2365px]">
+    <div className="w-[1222px] h-[223px] mt-[145px] flex">
+      <div className="ml-[-30px] z-50">
         <Roundblur52 color={"blue"} />
       </div>
-      <p className="font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
+      <p className="ml-[-15px] z-0 mt-[20px] font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] ">
         Партнеры
       </p>
       <div className="flex w-full ml-[-255px]">

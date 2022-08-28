@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Service_ul({ services, changed, setChanged }) {
   return (
-    <ul>
+    <ul className="">
       {services.map((item) => (
         <div
           key={item.name}
