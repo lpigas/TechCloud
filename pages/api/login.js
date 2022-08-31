@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 const { connectToDatabase } = require("../../lib/mongodb");
 const ObjectId = require("mongodb").ObjectId;
-const bcode = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 
 
 
@@ -11,21 +11,32 @@ export default async function(req,res){
         return res.status(400).json({message:"No enter login or password"})
 
     }
-const {email, password} = req.body
+const {email, password} = JSON.parse(req.body)
 let { db } = await connectToDatabase();
 
-const isRegistred = await db.collection('users').findOne({email:email});
+const user = await db.collection('users').findOne({email:email});
 
-if(!isRegistred){
+if(!user){
     return res.status(400).json({message: 'You are not registred'})
 }
-const newPassword = bcode
+
+const newPassword = await bcrypt.hash(password, 10)
+
+const isMath = await bcrypt.compare(password, user.password)
+if(!isMath){
+    return res.status(400).json({message: 'Wrong password'})
+}
+
+
+
 
 res.json({
-    message: [isRegistred,],
+    message:newPassword,
     token: jwt.sign({
         email,
-        admin: email==='q@mail.ua' && password==='1',
+        password:newPassword,
+        name: user.name,
+        role: user.role,
     }, process.env.SECRET_KEY)
 })
 }

@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../components/atoms/Buttons/Button/Button";
+import jwt from 'jsonwebtoken'
 
 export default function LoginBlock({
   view,
@@ -9,6 +10,32 @@ export default function LoginBlock({
   setEnterLogin,
 }) {
   const router = useRouter();
+  const [token, setToken] = useState('')
+  const [message, setMessage] = useState()
+  async function  getToken (){
+
+      const get = await fetch(`${process.env.API_HOST}login`, {
+        method: "POST",
+        body: JSON.stringify(enterLogin)
+      });
+      // // reload the page
+      const gets = await get.json();
+      // console.log(gets.message)
+      const token = gets.token
+      setToken(token)
+      if (!token){
+        setMessage(gets.message)
+      }else{
+        const fullinfo = jwt.decode(token)
+        setMessage(`Hello dear ${fullinfo.name} you are login`)
+        if (typeof window !== "undefined") {
+          const data = window.localStorage.setItem("token", JSON.stringify(token));
+        }
+        fullinfo.role === 'admin' ? router.push(process.env.ADMIN_PATH) : router.push(process.env.USER_PATH)
+      }
+  }
+
+
 
   return (
     <div className="w-[882px] h-[487px] flex bg-[#FFFFFF] rounded-[50px]">
@@ -17,13 +44,14 @@ export default function LoginBlock({
           Введите Ваш логин и пароль:
         </p>
 
-        <form className="mt-[33px]" method="POST" action="/api/login">
+        <form className="mt-[33px]">
           <input
             type={"email"}
             placeholder={"E-mail"}
             name='email'
             className="border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
             required
+            value={enterLogin.email}
             onChange={(e) =>
               setEnterLogin({ ...enterLogin, email: e.target.value })
             }
@@ -32,8 +60,9 @@ export default function LoginBlock({
             <input
               type={`${view === "text" ? "text" : "password"}`}
               placeholder={"Password"}
-              name='Password'
+              name='password'
               required
+              value={enterLogin.password}
               minLength={1}
               className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
               onChange={(e) =>
@@ -46,9 +75,13 @@ export default function LoginBlock({
               onClick={() => setView(view === "text" ? "" : "text")}
             />
           </div>
+          {message &&
+          <div className={`font-normal mt-[12px] not-italic text-[20px] leading-[23px] ${!message.includes("Hello")? 'text-red-500' : 'text-green-500'}`}>
+              {message}
+          </div>
+          }
           <div className="mt-[48px]">
-            {/* <Button type={"Static"}>Войти</Button> */}
-            <input type='submit' value={'enter'}></input>
+            {/* <input type='submit' value={'enter'}></input> */}
             <div className="flex w-[377px] h-[40px] mt-[44px] items-center">
               <div className="font-normal not-italic text-[20px] leading-[23px] text-[#7166F9]">
                 Я забыл пароль
@@ -63,6 +96,7 @@ export default function LoginBlock({
             </div>
           </div>
         </form>
+            <Button type={"Static"} onClick={getToken}>Войти</Button>
       </div>
     </div>
   );
