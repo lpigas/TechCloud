@@ -4,21 +4,19 @@ import Cart from "./components/Cart";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 
 export default function Header({ title }) {
   const router = useRouter();
-  const [loginData, setLoginData] = useState()
-  useEffect(()=>{
+  const [loginData, setLoginData] = useState();
+  useEffect(() => {
     if (typeof window !== "undefined") {
-      const token = JSON.parse(window.localStorage.getItem("token"))
-      setLoginData(jwt.decode(token))
+      const token = JSON.parse(window.localStorage.getItem("token"));
+      setLoginData(jwt.decode(token));
     }
+  }, []);
 
-  },[])
-
-console.log(loginData)
-
+  console.log(loginData);
 
   return (
     <header className="flex h-[68px]">
@@ -73,7 +71,15 @@ console.log(loginData)
         </select>
       </nav>
       <div className="items-center flex">
-        <a href={`${!loginData ? '/login' : loginData.role=== 'admin'? process.env.ADMIN_PATH : process.env.USER_PATH}`}>
+        <a
+          href={`${
+            !loginData
+              ? "/login"
+              : loginData.role === "admin"
+              ? process.env.ADMIN_PATH
+              : process.env.USER_PATH
+          }`}
+        >
           <img
             src={"/image/group.svg"}
             className="w-[22px] m-[53px] h-[22px]"

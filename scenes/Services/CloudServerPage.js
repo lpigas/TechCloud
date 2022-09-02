@@ -18,7 +18,6 @@ export default function CloudServerPage({}) {
     }
   }, []);
 
-
   return (
     <>
       <div

@@ -20,33 +20,29 @@ export default function FullService() {
         </div>
       </p>
 
- <div className="flex flex-row">
-
-      <div className="w-[377px] h-[516px] mt-[60px]">
-      <Service_ul
+      <div className="flex flex-row">
+        <div className="w-[377px] h-[516px] mt-[60px]">
+          <Service_ul
             services={services}
             changed={changedLi}
             setChanged={setChangedLi}
           />
-
-      </div>
-      <div className=" w-[579px] ml-[128px] h-[516px] z-50">
-            <div className=" relative">
-              <CloudUl data={changedLi} />
-            </div>
-            <div className="h-[355px]">
-            <PhotoUl data={changedLi} />
-
-            </div>
-            <div className="h-[106px] mt-[55px]">
-
-            <TextUl data={changedLi} />
-            </div>
-            <div className=" mt-[65px]">
-              <Button type={"Static"}> Оформить заявку</Button>
-            </div>
+        </div>
+        <div className=" w-[579px] ml-[128px] h-[516px] z-50">
+          <div className=" relative">
+            <CloudUl data={changedLi} />
           </div>
- </div>
+          <div className="h-[355px]">
+            <PhotoUl data={changedLi} />
+          </div>
+          <div className="h-[106px] mt-[55px]">
+            <TextUl data={changedLi} />
+          </div>
+          <div className=" mt-[65px]">
+            <Button type={"Static"}> Оформить заявку</Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

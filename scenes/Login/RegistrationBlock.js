@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Button from "../../components/atoms/Buttons/Button/Button";
 import InputMask from "react-input-mask";
@@ -35,8 +34,7 @@ export default function RegistrationBlock({
     getCountrys();
   }, []);
 
-
-  console.log(newUser)
+  console.log(newUser);
   return (
     <div className="w-[882px] min-h-[487px] mt-[118px] flex bg-[#FFFFFF] rounded-[50px]">
       <div className="mt-[71px] ml-[101px]">
@@ -100,7 +98,7 @@ export default function RegistrationBlock({
             onChange={(e) =>
               setNewUser({
                 ...newUser,
-                phone:  e.target.value 
+                phone: e.target.value,
               })
             }
           />
@@ -111,9 +109,7 @@ export default function RegistrationBlock({
             required
             minLength={2}
             className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
-            onChange={(e) =>
-              setNewUser({ ...newUser, email: e.target.value })
-            }
+            onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
           />
           <Select
             id="react-select-2-live-region"
@@ -130,9 +126,7 @@ export default function RegistrationBlock({
             placeholder={"City"}
             minLength={2}
             className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
-            onChange={(e) =>
-              setNewUser({ ...newUser, city: e.target.value })
-            }
+            onChange={(e) => setNewUser({ ...newUser, city: e.target.value })}
           />
 
           <div className="mt-[48px]">
