@@ -11,12 +11,13 @@ import Tickets from "../../scenes/Acount/Components/Tickets";
 export default function user() {
   const [highlighted, setHighlighted] = useState("Персональная информация");
   const router = useRouter();
-  const [user, setUser] = useState({
-    name: "",
-    sername: "",
-    phone: "",
-    email: "",
+  const [user, setUser] = useState();
+  const [changePassword, setChangePassword] = useState({
+    old: "",
+    newpass: "",
+    secondNewpass: "",
   });
+
   const partname = [{ service_name: "Личный кабинет", service_url: "" }];
   const getTokendata = () => {
     if (typeof window !== "undefined") {
@@ -29,12 +30,15 @@ export default function user() {
       setUser({
         name: userdata.name,
         sername: userdata.sername,
-        urfis: userdata.urfus,
+        urfis: userdata.urfis,
         phone: userdata.phone,
         email: userdata.email,
         balance: userdata.balance,
         country: userdata.country,
         city: userdata.city,
+        token: userdata.token,
+        orders: userdata.orders,
+        tickets: userdata.tickets,
       });
     }
   };
@@ -42,9 +46,6 @@ export default function user() {
   useEffect(() => {
     getTokendata();
   }, []);
-  const reset = () => {
-    getTokendata();
-  };
 
   return (
     <div className="min-h-[2388px] w-[1920px]">
@@ -54,22 +55,31 @@ export default function user() {
           background: "linear-gradient(90deg, #F6F8FC 0%, #ECF0FA 100%)",
         }}
       >
-        <Header title={user.name} />
-        <TitleBlock partname={partname} />
-        <div className="flex mt-[79px] min-h-[1591px]">
-          <Side
-            user={user}
-            highlighted={highlighted}
-            setHighlighted={setHighlighted}
-          />
-          {highlighted === "Персональная информация" ? (
-            <Personal user={user} setUser={setUser} reset={reset} />
-          ) : highlighted === "История заказов" ? (
-            <Orders />
-          ) : (
-            <Tickets />
-          )}
-        </div>
+        {user && (
+          <>
+            <Header title={user.name} />
+            <TitleBlock partname={partname} />
+            <div className="flex mt-[79px] min-h-[1591px]">
+              <Side
+                user={user}
+                highlighted={highlighted}
+                setHighlighted={setHighlighted}
+              />
+              {highlighted === "Персональная информация" ? (
+                <Personal
+                  user={user}
+                  setUser={setUser}
+                  changePassword={changePassword}
+                  setChangePassword={setChangePassword}
+                />
+              ) : highlighted === "История заказов" ? (
+                <Orders />
+              ) : (
+                <Tickets />
+              )}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

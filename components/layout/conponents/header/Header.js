@@ -16,8 +16,6 @@ export default function Header({ title }) {
     }
   }, []);
 
-  console.log(loginData);
-
   return (
     <header className="flex h-[68px]">
       <Head>
