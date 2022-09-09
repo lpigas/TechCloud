@@ -26,7 +26,9 @@ export default function ServicesPage({ data }) {
         </div>
         <div className="block h-[126px]" />
       </div>
-      <Footer />
+      <div className={` w-[1187px] h-[347px] m-auto`}>
+        <Footer />
+      </div>
     </>
   );
 }

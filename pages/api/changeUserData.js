@@ -10,17 +10,8 @@ export default async function (req, res) {
       );
   };
 
-  const {
-    oldemail,
-    email,
-    name,
-    sername,
-    urfis,
-    phone,
-    country,
-    city,
-    oldtoken,
-  } = JSON.parse(req.body);
+  const { oldemail, email, name, sername, urfis, phone, country, city } =
+    JSON.parse(req.body);
   const validationEmail = validateEmail(email);
   if (!validationEmail) {
     return res.json({ status: 404, message: "Не верный формат Email" });

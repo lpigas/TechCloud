@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 
 export default function Footer({ left, top }) {
   return (
-    <footer className="flex m-auto mt-[120px] mb-[74px] w-[1187px]">
+    <footer className="flex m-auto ml-[45px] mt-[120px] mb-[74px] w-[1187px]">
       <div className="flex flex-col w-[101px] justify-between">
         <Image src={"/image/logo1_1.png"} width={101} height={62} />
         <Oferta />

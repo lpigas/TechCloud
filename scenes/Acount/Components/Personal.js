@@ -64,12 +64,10 @@ export default function Personal({
       return setMessageChangeUser("Не установлена фамилия пользователя");
     } else if (user.phone.length < 13) {
       return setMessageChangeUser("Не установлен телефон пользователя");
-    } else if (!(user.email.includes("@") && user.email.includes("."))) {
-      return setMessageChangeUser("Не email");
     }
 
     try {
-      const data = await fetch("/api/changeUserData", {
+      const data = await fetch(`${process.env.API_HOST}changeUserData`, {
         method: "POST",
         body: JSON.stringify({
           oldemail: user.email,
@@ -96,8 +94,6 @@ export default function Personal({
     }
     window.location.reload();
   };
-
-  console.log(user);
 
   return (
     <div className="bg-[#F9F9FC] w-full">

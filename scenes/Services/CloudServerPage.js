@@ -34,7 +34,9 @@ export default function CloudServerPage({}) {
         </div>
         {serviceInfo && <CenterCloud data={serviceInfo.services} />}
       </div>
-      <Footer />
+      <div className={` w-[1187px] h-[347px] m-auto`}>
+        <Footer />
+      </div>
     </>
   );
 }
