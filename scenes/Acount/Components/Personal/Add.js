@@ -8,7 +8,7 @@ export default function Qdd({ uploadData, setUploadData, loadNewMessage }) {
       <textarea
         type={"text-aria"}
         value={uploadData.text}
-        className={`w-[770px] min-h-[80px]  overflow-x-scroll bg-[#FFFFFF] rounded-[15px]`}
+        className={`w-[770px] min-h-[80px] p-4 overflow-x-scroll bg-[#FFFFFF] rounded-[15px]`}
         onChange={(e) => setUploadData({ ...uploadData, text: e.target.value })}
       ></textarea>
       <div className="mt-[42px] flex justify-between items-center">

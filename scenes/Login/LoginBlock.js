@@ -33,9 +33,8 @@ export default function LoginBlock({
           JSON.stringify(token)
         );
       }
-      fullinfo.role === "admin"
-        ? router.push(process.env.ADMIN_PATH)
-        : router.push(process.env.USER_PATH);
+      fullinfo.role === "user"
+        &&router.push(process.env.USER_PATH)
     }
   }
 
