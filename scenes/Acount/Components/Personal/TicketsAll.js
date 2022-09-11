@@ -5,7 +5,7 @@ import TicketsTable from "../../../../components/moleculs/Tables/TicketsTable";
 export default function TicketsAll({ allTickets, setOpenTicket, openTicket }) {
   // console.log(openTicket)
   return (
-    <div className="w-[778px] h-[371px]">
+    <div className="w-[778px] h-[871px] overflow-scroll ">
       <div className="flex justify-between">
         <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
           Мои обращения
@@ -18,7 +18,7 @@ export default function TicketsAll({ allTickets, setOpenTicket, openTicket }) {
         <TitleTickets />
       </div>
       <div>
-        {allTickets.map((ticket, index) => (
+        {allTickets.map(ticket => (
           <TicketsTable
             key={Math.random()}
             ticketinfo={ticket}

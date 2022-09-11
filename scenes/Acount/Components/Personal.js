@@ -56,11 +56,11 @@ export default function Personal({
   }, [messageChangeUser]);
 
   const changeUserData = async () => {
-    if (user.urfis.length < 1) {
+    if (user.urfis&&user.urfis.length < 1) {
       return setMessageChangeUser("Не установлен тип пользователя");
-    } else if (user.name.length < 2) {
+    } else if (user.name && user.name.length < 2) {
       return setMessageChangeUser("Не установлено имя пользователя");
-    } else if (user.sername.length < 2) {
+    } else if (user.sername && user.sername.length < 2) {
       return setMessageChangeUser("Не установлена фамилия пользователя");
     } else if (user.phone.length < 13) {
       return setMessageChangeUser("Не установлен телефон пользователя");
@@ -82,21 +82,24 @@ export default function Personal({
       });
       const datas = await data.json();
       const token = datas.token;
-      if (typeof window !== "undefined") {
+      if (token && typeof window !== "undefined") {
         const data = window.localStorage.setItem(
           "token",
           JSON.stringify(token)
         );
       }
-      setMessageChangeUser(datas.message);
+      if (typeof window !== "undefined") {
+        setMessageChangeUser(datas.message);
+        const token = JSON.parse(window.localStorage.getItem("token"));}
+        datas.message === 'ok' && window.location.reload();
     } catch (error) {
       console.log(error);
     }
-    window.location.reload();
+
   };
 
   return (
-    <div className="bg-[#F9F9FC] w-full">
+    <div className="bg-[#F9F9FC] w-full pb-10">
       <div className="mt-[83px] ml-[128px] w-[781px] h-[788px]">
         <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
           Персональная информация

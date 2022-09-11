@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Upload({ uploadData, setUploadData }) {
   const [imageSrc, setImageSrc] = useState();
   const classes = useStyles();
+
 
   /**
    * handleOnChange
@@ -84,7 +84,7 @@ export default function Upload({ uploadData, setUploadData }) {
       </form>
       <label htmlFor="contained-button-file" className="flex">
         <img src="/image/Arrows/attach.svg" />
-        Прикрепить файл
+        {imageSrc?<img src={imageSrc} className='mx-6' width={'45px'} height={45}/> : 'Прикрепить файл'}
       </label>
     </div>
   );

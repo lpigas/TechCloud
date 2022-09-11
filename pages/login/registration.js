@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/layout/conponents/header/Header";
 import Footer from "../../components/layout/conponents/footer/Footer";
 import TitleBlock from "../../scenes/Services/Components/TitleBlock";
@@ -7,8 +7,8 @@ import RegistrationBlock from "../../scenes/Login/RegistrationBlock";
 
 export default function registration() {
   const [viewPassword, setViewPassword] = useState("");
+  const [messageError, setMessageError] = useState()
   const [newUser, setNewUser] = useState({
-    login: "",
     password: "",
     name: "",
     sername: "",
@@ -17,6 +17,27 @@ export default function registration() {
     country: "",
     city: "",
   });
+  const registerNewUser = async() =>{
+    try {
+      const data = await fetch(`/api/registration`,{
+        method:"POST",
+        body: JSON.stringify({newUser:newUser})
+      })
+      const datas = await data.json()
+      console.log(datas.info)
+      datas.message!== 'ok' && setMessageError(datas.message)
+    } catch (error) {
+      
+    }
+  }
+  useEffect(()=>{
+    if(messageError){
+      setTimeout(()=>{
+        setMessageError()
+      }, 5000)
+    }
+  }, [messageError])
+
   return (
     <>
       <div className="w-[1920px] min-h-[1462px]">
@@ -44,6 +65,8 @@ export default function registration() {
               setView={setViewPassword}
               newUser={newUser}
               setNewUser={setNewUser}
+              messageError={messageError}
+              registerNewUser={registerNewUser}
             />
           </div>
         </div>

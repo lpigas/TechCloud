@@ -16,7 +16,7 @@ export default function Side({ user, highlighted, setHighlighted }) {
   };
 
   return (
-    <div className="w-[644px] min-h-[1591px] flex flex-col items-end ">
+    <div className="w-[644px] min-h-[591px] flex flex-col items-end ">
       <div className="mt-[60px] w-[210px] mr-[22px] font-normal not-italic text-[12px] leading-[28px] text-[#3E3F50] z-10">
         Добро пожаловать
       </div>
@@ -29,7 +29,7 @@ export default function Side({ user, highlighted, setHighlighted }) {
             Баланс
           </p>
           <p className="font-bold not-italic text-[42px] mt-[15px] leading-[28px] text-[#3E3F50] z-10">
-            ${balance}
+            balance
           </p>
         </div>
         <div className=" flex w-1/2 items-center flex-col">

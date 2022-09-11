@@ -38,13 +38,11 @@ export default async function (req, res) {
       tickets: user.tickets,
     },
     process.env.SECRET_KEY
-  );
-  await db
-    .collection("users")
-    .updateOne({ email: user.email }, { $set: { token } });
+  )
+  await db.collection("users").updateOne({email: user.email},{$set:{token}})
 
   res.json({
     message: newPassword,
-    token: token,
+    token: token
   });
 }

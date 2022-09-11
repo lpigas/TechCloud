@@ -29,7 +29,7 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
       <div className="flex justify-end mt-[76px] items-center">
         <img src="/image/Arrows/logout.svg" />
         <div
-          className="w-[198px] ml-3 h-[56px] flex items-center font-normal not-italic text-[16px] leading-[28px] text-[#FD7A55]"
+          className="w-[198px] cursor-pointer ml-3 h-[56px] flex items-center font-normal not-italic text-[16px] leading-[28px] text-[#FD7A55]"
           onClick={logout}
         >
           Выйти

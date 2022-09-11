@@ -10,7 +10,7 @@ import Tickets from "../../scenes/Acount/Components/Tickets";
 import Footer from "../../components/layout/conponents/footer/Footer";
 
 export default function user() {
-  const [highlighted, setHighlighted] = useState("");
+  const [highlighted, setHighlighted] = useState("Персональная информация");
   const router = useRouter();
   const [user, setUser] = useState();
   const [ordersData, setOrdersData] = useState();
@@ -50,9 +50,9 @@ export default function user() {
   }, []);
 
   return (
-    <div className="min-h-[2388px] w-[1920px]">
+    <div className="min-h-[388px] w-[1920px]">
       <div
-        className="min-h-[1956px] w-[1920px]"
+        className="min-h-[956px] w-[1920px]"
         style={{
           background: "linear-gradient(90deg, #F6F8FC 0%, #ECF0FA 100%)",
         }}
@@ -61,7 +61,7 @@ export default function user() {
           <>
             <Header title={user.name} />
             <TitleBlock partname={partname} />
-            <div className="flex mt-[79px] min-h-[1591px]">
+            <div className="flex mt-[79px] min-h-[591px]">
               <Side
                 user={user}
                 highlighted={highlighted}
@@ -80,6 +80,7 @@ export default function user() {
                 <Tickets
                   allTickets={ticketsData}
                   email={user.email}
+
                   role={`${user.name} ${user.sername}`}
                 />
               )}

@@ -43,18 +43,18 @@ export default async function (req, res) {
     );
   const token = jwt.sign(
     {
-      email: user.email,
-      password: user.password,
-      name: user.name,
-      sername: user.sername,
-      phone: user.phone,
-      role: user.role,
-      urfis: user.urfis,
-      balance: user.balance,
-      country: user.country,
-      city: user.city,
-      orders: user.orders,
-      tickets: user.tickets,
+      email: user.email|| '',
+      password: user.password|| '',
+      name: user.name|| '',
+      sername: user.sername|| '',
+      phone: user.phone|| '',
+      role: user.role|| '',
+      urfis: user.urfis|| '',
+      balance: user.balance|| '',
+      country: user.country|| '',
+      city: user.city|| '',
+      orders: user.orders|| '',
+      tickets: user.tickets|| '',
     },
     process.env.SECRET_KEY
   );

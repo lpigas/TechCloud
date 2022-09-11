@@ -8,8 +8,10 @@ export default function RegistrationBlock({
   setView,
   newUser,
   setNewUser,
+  messageError,
+  registerNewUser
 }) {
-  console.log(newUser);
+  // console.log(newUser);
   const [countrys, setCountrys] = useState();
   const getCountrys = async () => {
     try {
@@ -34,34 +36,16 @@ export default function RegistrationBlock({
     getCountrys();
   }, []);
 
-  console.log(newUser);
+
   return (
-    <div className="w-[882px] min-h-[487px] mt-[118px] flex bg-[#FFFFFF] rounded-[50px]">
+    <div className="w-[882px] min-h-[487px] mt-[118px] pb-[44px] flex bg-[#FFFFFF] rounded-[50px]">
       <div className="mt-[71px] ml-[101px]">
         <p className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] h-[28px]">
           Введите данные для регистрации:
         </p>
 
-        <form className="mt-[33px]">
-          <input
-            type={"text"}
-            placeholder={"Login"}
-            minLength={2}
-            required
-            className="border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
-            onChange={(e) => setNewUser({ ...newUser, login: e.target.value })}
-          />
+        <form className="mt-[33px]" >
           <div className="flex">
-            <input
-              type={`${view === "text" ? "text" : "password"}`}
-              placeholder={"Password"}
-              minLength={8}
-              required
-              className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
-              onChange={(e) =>
-                setNewUser({ ...newUser, password: e.target.value })
-              }
-            />
             <img
               src="/image/Arrows/view.svg"
               className="ml-[-45px] mt-[25px] w-[22px] h-[22px]"
@@ -111,6 +95,16 @@ export default function RegistrationBlock({
             className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
             onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
           />
+            <input
+              type={`${view === "text" ? "text" : "password"}`}
+              placeholder={"Password"}
+              minLength={8}
+              required
+              className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
+              onChange={(e) =>
+                setNewUser({ ...newUser, password: e.target.value })
+              }
+            />
           <Select
             id="react-select-2-live-region"
             onChange={(e) => setNewUser({ ...newUser, country: e.value })}
@@ -129,11 +123,11 @@ export default function RegistrationBlock({
             onChange={(e) => setNewUser({ ...newUser, city: e.target.value })}
           />
 
-          <div className="mt-[48px]">
-            <Button type={"Static"}>Зарегистрировать</Button>
-            <div className="flex w-[377px] h-[50px] mt-[44px] items-center"></div>
-          </div>
         </form>
+          <div className="mt-[48px]">
+            <Button onClick={registerNewUser} type={"Static"}>Зарегистрировать</Button>
+          </div>
+        {messageError && <div className="mt-10 text-red-500">{messageError}</div>}
       </div>
     </div>
   );

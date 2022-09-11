@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Add from "./Add";
 
 export default function TicketOne({ ticketInfo, email, role }) {
@@ -10,6 +10,7 @@ export default function TicketOne({ ticketInfo, email, role }) {
     time: "",
     role: "",
   });
+  const [messages, setMessages] = useState()
 
   // console.log(ticketInfo)
   const addNewMessage = async () => {
@@ -23,24 +24,31 @@ export default function TicketOne({ ticketInfo, email, role }) {
         }),
       });
       const datas = await data.json();
-      console.log(datas);
+      const token = datas.token
+      setMessages(datas.message)
+      console.log(token)
+      if (typeof window !== "undefined") {
+        console.log(token)
+        const data = window.localStorage.setItem("token", JSON.stringify(token));
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
   const loadNewMessage = () => {
-    const data = new Date().toLocaleDateString();
-    const time = new Date().toLocaleTimeString().slice(0, -3);
-    const normaldata =
-      data.slice(0, data.length - 4) + data.slice(data.length - 2, data.length);
-    setUploadData({ ...uploadData, time: time, date: normaldata });
-
     addNewMessage();
   };
+  useEffect(()=>{
+    messages === 'ok' && window.location.reload()
+
+  },[messages])
+
+
+
   return (
     <>
-      <div className="w-[813px] overflow-scroll">
+      <div className="w-[813px] h-[490px] overflow-scroll">
         <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
           Тикет: {ticketInfo.numTicket}
         </div>
