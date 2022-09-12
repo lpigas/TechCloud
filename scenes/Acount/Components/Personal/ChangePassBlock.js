@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Buttons from "../../../../components/atoms/Buttons/Button/Button";
+import Loader from "../../../../components/atoms/Loader/Loader";
 
 export default function ChangePassBlock({
   changePassword,
   setChangePassword,
   changePass,
   messageChange,
+  openLoaderPass,
 }) {
   const [oldPassView, setOldPassView] = useState("password");
   const [newPassView, setNewPassView] = useState("password");
@@ -77,7 +79,12 @@ export default function ChangePassBlock({
             }
           />
         </div>
-        <div className="mt-[54px] flex">
+        {openLoaderPass && (
+          <div className="mt-2 h-18">
+            <Loader />
+          </div>
+        )}
+        <div className="mt-[54px] flex justify-evenly">
           <Buttons onClick={changePass} type={"Static"}>
             Сохранить
           </Buttons>

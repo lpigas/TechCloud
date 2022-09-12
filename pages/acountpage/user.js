@@ -80,7 +80,6 @@ export default function user() {
                 <Tickets
                   allTickets={ticketsData}
                   email={user.email}
-
                   role={`${user.name} ${user.sername}`}
                 />
               )}

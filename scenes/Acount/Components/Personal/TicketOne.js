@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Loader from "../../../../components/atoms/Loader/Loader";
 import Add from "./Add";
 
 export default function TicketOne({ ticketInfo, email, role }) {
@@ -10,10 +11,12 @@ export default function TicketOne({ ticketInfo, email, role }) {
     time: "",
     role: "",
   });
-  const [messages, setMessages] = useState()
+  const [messages, setMessages] = useState();
+  const [openLoader, setOpenLOader] = useState(false);
 
   // console.log(ticketInfo)
   const addNewMessage = async () => {
+    setOpenLOader(true);
     try {
       const data = await fetch(`${process.env.API_HOST}addmessage`, {
         method: "POST",
@@ -24,27 +27,40 @@ export default function TicketOne({ ticketInfo, email, role }) {
         }),
       });
       const datas = await data.json();
-      const token = datas.token
-      setMessages(datas.message)
-      console.log(token)
+      const token = datas.token;
+      setMessages(datas.message);
       if (typeof window !== "undefined") {
-        console.log(token)
-        const data = window.localStorage.setItem("token", JSON.stringify(token));
+        const data = window.localStorage.setItem(
+          "token",
+          JSON.stringify(token)
+        );
       }
     } catch (error) {
       console.log(error);
     }
+    setOpenLOader(false);
   };
 
   const loadNewMessage = () => {
+    const data = new Date().toLocaleDateString();
+    const time = new Date().toLocaleTimeString().slice(0, -3);
+    const normaldata =
+      data.slice(0, data.length - 4) + data.slice(data.length - 2, data.length);
+    ticketInfo.correspondence.push({
+      ...uploadData,
+      time: time,
+      data: normaldata,
+      role: role,
+    });
     addNewMessage();
+    setUploadData({
+      img: "",
+      text: "",
+      date: "",
+      time: "",
+      role: "",
+    });
   };
-  useEffect(()=>{
-    messages === 'ok' && window.location.reload()
-
-  },[messages])
-
-
 
   return (
     <>
@@ -118,6 +134,7 @@ export default function TicketOne({ ticketInfo, email, role }) {
           uploadData={uploadData}
           setUploadData={setUploadData}
           loadNewMessage={loadNewMessage}
+          openLoader={openLoader}
         />
       </div>
     </>

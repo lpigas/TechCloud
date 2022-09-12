@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TicketsTable({ ticketinfo,  setTicketOpen }) {
+export default function TicketsTable({ ticketinfo, setTicketOpen }) {
   // console.log(ticketinfo.numTicket)
   return (
     <table className="w-[778px] bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[30px] min-h-[118px]">
@@ -29,16 +29,14 @@ export default function TicketsTable({ ticketinfo,  setTicketOpen }) {
                   src="/image/Arrows/arrowdown.svg"
                   width={16}
                   height={28}
-                  onClick={() =>
-                    setTicketOpen(ticketinfo)
-                  }
+                  onClick={() => setTicketOpen(ticketinfo)}
                 />
               </a>
             ) : ticketinfo.status === "wait" ? (
               <a
                 className={`flex justify-between not-italic text-[16px] leading-[28px] text-[#FD5555]`}
               >
-                Решается 
+                Решается
                 <img
                   className="mr-[10px]"
                   src="/image/Arrows/arrowdown.svg"

@@ -33,7 +33,16 @@ export default async function (req, res) {
   }
 
   const { db } = await connectToDatabase();
-  const user = await db.collection("users").findOne({ email: email });
+  const candidate =
+    email !== oldemail &&
+    (await db.collection("users").findOne({ email: email }));
+  if (candidate) {
+    return res.json({
+      status: 404,
+      message: "Данный email уже зарегистрирован",
+    });
+  }
+  const user = await db.collection("users").findOne({ email: oldemail });
 
   await db
     .collection("users")
@@ -41,20 +50,21 @@ export default async function (req, res) {
       { email: oldemail },
       { $set: { email, name, sername, urfis, phone, country, city } }
     );
+  const newUserData = await db.collection("users").findOne({ email: email });
   const token = jwt.sign(
     {
-      email: user.email|| '',
-      password: user.password|| '',
-      name: user.name|| '',
-      sername: user.sername|| '',
-      phone: user.phone|| '',
-      role: user.role|| '',
-      urfis: user.urfis|| '',
-      balance: user.balance|| '',
-      country: user.country|| '',
-      city: user.city|| '',
-      orders: user.orders|| '',
-      tickets: user.tickets|| '',
+      email: newUserData.email || "",
+      password: newUserData.password || "",
+      name: newUserData.name || "",
+      sername: newUserData.sername || "",
+      phone: newUserData.phone || "",
+      role: newUserData.role || "",
+      urfis: newUserData.urfis || "",
+      balance: newUserData.balance || "",
+      country: newUserData.country || "",
+      city: newUserData.city || "",
+      orders: newUserData.orders || "",
+      tickets: newUserData.tickets || "",
     },
     process.env.SECRET_KEY
   );

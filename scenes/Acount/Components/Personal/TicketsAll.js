@@ -18,7 +18,7 @@ export default function TicketsAll({ allTickets, setOpenTicket, openTicket }) {
         <TitleTickets />
       </div>
       <div>
-        {allTickets.map(ticket => (
+        {allTickets.map((ticket) => (
           <TicketsTable
             key={Math.random()}
             ticketinfo={ticket}

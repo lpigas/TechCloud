@@ -17,13 +17,18 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
             highlighted === item.menuname && "bg-[#E1E1F3]"
           }`}
         >
-          <div className="flex items-baseline">
+          <div className="flex items-center">
             <img width={18} height={18} src={item.img} />
-            <div className="w-[198px] ml-3 h-[56px] flex-wrap font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50]">
+            <div className="w-[198px] flex items-center ml-3 h-[56px] flex-wrap font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50]">
               {item.menuname}{" "}
             </div>
           </div>
-          <img width={7} height={14} src={"/image/Arrows/arrowright.svg"} />
+          <img
+            width={7}
+            height={14}
+            className={"m-3"}
+            src={"/image/Arrows/arrowright.svg"}
+          />
         </div>
       ))}
       <div className="flex justify-end mt-[76px] items-center">

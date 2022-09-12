@@ -4,10 +4,20 @@ const ObjectId = require("mongodb").ObjectId;
 const bcrypt = require("bcryptjs");
 
 export default async function (req, res) {
-  if (!req.body) {
-    return res.status(400).json({ message: "No enter login or password" });
-  }
   const { email, password } = JSON.parse(req.body);
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+  if (!validateEmail(email)) {
+    return res.status(400).json({ message: "No enter or valid login" });
+  }
+  if (password.length < 1) {
+    return res.status(400).json({ message: "No enter password" });
+  }
   let { db } = await connectToDatabase();
 
   const user = await db.collection("users").findOne({ email: email });
@@ -38,11 +48,13 @@ export default async function (req, res) {
       tickets: user.tickets,
     },
     process.env.SECRET_KEY
-  )
-  await db.collection("users").updateOne({email: user.email},{$set:{token}})
+  );
+  await db
+    .collection("users")
+    .updateOne({ email: user.email }, { $set: { token } });
 
   res.json({
     message: newPassword,
-    token: token
+    token: token,
   });
 }

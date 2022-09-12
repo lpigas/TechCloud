@@ -9,9 +9,12 @@ export default function Personal({
   changePassword,
   setChangePassword,
 }) {
+  const [openLoader, setOpenLoader] = useState(false);
+  const [openLoaderPass, setOpenLoaderPass] = useState(false);
   const [newUserData, setNewUserData] = useState(user);
   const [messageChange, setMessageChange] = useState();
   const [messageChangeUser, setMessageChangeUser] = useState();
+  const [token, setToken] = useState();
   const changePass = async () => {
     if (changePassword.old.length === 0) {
       return setMessageChange("Старый пароль не заполен");
@@ -20,6 +23,7 @@ export default function Personal({
     } else if (changePassword.newpass !== changePassword.secondNewpass) {
       return setMessageChange("Пароли не совпадают");
     }
+    setOpenLoaderPass(true);
     setMessageChange();
     try {
       const data = await fetch(`${process.env.API_HOST}changeUserPass`, {
@@ -37,6 +41,7 @@ export default function Personal({
     } catch (error) {
       console.log(error);
     }
+    setOpenLoaderPass(false);
   };
 
   useEffect(() => {
@@ -56,15 +61,16 @@ export default function Personal({
   }, [messageChangeUser]);
 
   const changeUserData = async () => {
-    if (user.urfis&&user.urfis.length < 1) {
+    if (newUserData.urfis && newUserData.urfis.length < 1) {
       return setMessageChangeUser("Не установлен тип пользователя");
-    } else if (user.name && user.name.length < 2) {
+    } else if (newUserData.name && newUserData.name.length < 2) {
       return setMessageChangeUser("Не установлено имя пользователя");
-    } else if (user.sername && user.sername.length < 2) {
+    } else if (newUserData.sername && newUserData.sername.length < 2) {
       return setMessageChangeUser("Не установлена фамилия пользователя");
-    } else if (user.phone.length < 13) {
+    } else if (newUserData.phone.length < 13) {
       return setMessageChangeUser("Не установлен телефон пользователя");
     }
+    setOpenLoader(true);
 
     try {
       const data = await fetch(`${process.env.API_HOST}changeUserData`, {
@@ -81,22 +87,26 @@ export default function Personal({
         }),
       });
       const datas = await data.json();
-      const token = datas.token;
-      if (token && typeof window !== "undefined") {
+      setToken(datas.token);
+
+      setMessageChangeUser(datas.message !== "ok" && datas.message);
+    } catch (error) {
+      console.log(error);
+    }
+    setOpenLoader(false);
+  };
+  useEffect(() => {
+    if (token) {
+      if (typeof window !== "undefined") {
         const data = window.localStorage.setItem(
           "token",
           JSON.stringify(token)
         );
+        setMessageChange("ok");
       }
-      if (typeof window !== "undefined") {
-        setMessageChangeUser(datas.message);
-        const token = JSON.parse(window.localStorage.getItem("token"));}
-        datas.message === 'ok' && window.location.reload();
-    } catch (error) {
-      console.log(error);
+      window.location.reload();
     }
-
-  };
+  }, [token]);
 
   return (
     <div className="bg-[#F9F9FC] w-full pb-10">
@@ -110,6 +120,7 @@ export default function Personal({
               user={newUserData}
               setUser={setNewUserData}
               changeUserData={changeUserData}
+              openLoader={openLoader}
               messageChangeUser={messageChangeUser}
             />
           )}
@@ -126,6 +137,7 @@ export default function Personal({
               setChangePassword={setChangePassword}
               changePass={changePass}
               messageChange={messageChange}
+              openLoaderPass={openLoaderPass}
             />
           )}
         </div>

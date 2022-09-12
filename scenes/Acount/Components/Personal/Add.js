@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import UploadButtons from "../../../../components/atoms/Buttons/Button/Upload";
 import Button from "../../../../components/atoms/Buttons/Button/Button";
+import Loader from "../../../../components/atoms/Loader/Loader";
 
-export default function Qdd({ uploadData, setUploadData, loadNewMessage }) {
+export default function Qdd({
+  uploadData,
+  setUploadData,
+  loadNewMessage,
+  openLoader,
+}) {
   return (
     <div>
       <textarea
@@ -13,6 +19,7 @@ export default function Qdd({ uploadData, setUploadData, loadNewMessage }) {
       ></textarea>
       <div className="mt-[42px] flex justify-between items-center">
         <UploadButtons uploadData={uploadData} setUploadData={setUploadData} />
+        {openLoader && <Loader />}
         <Button onClick={loadNewMessage} type={"Static"}>
           {" "}
           Отправить

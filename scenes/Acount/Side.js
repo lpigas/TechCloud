@@ -23,17 +23,17 @@ export default function Side({ user, highlighted, setHighlighted }) {
       <div className="w-[210px] min-h-[56px] break-words mr-[22px] font-bold not-italic text-[24px] leading-[28px] text-[#3E3F50] z-10">
         {user.name} {user.sername}
       </div>
-      <div className="w-[224px] mt-[3px] mr-[22px] min-h-[107px] flex flex-row bg-[#ffffff] rounded-[15px] ">
+      <div className="w-[224px] my-[35px] mr-[22px] min-h-[107px] flex flex-row bg-[#ffffff] rounded-[15px] ">
         <div className=" flex w-1/2 items-center flex-col">
           <p className="font-normal not-italic text-[16px] mt-[15px] leading-[28px] text-[#3E3F50]">
             Баланс
           </p>
           <p className="font-bold not-italic text-[42px] mt-[15px] leading-[28px] text-[#3E3F50] z-10">
-            balance
+            {balance}
           </p>
         </div>
         <div className=" flex w-1/2 items-center flex-col">
-          <a className="font-bold mt-[15px] cursor-pointer not-italic text-[16px] leading-[28px] text-[#7166F9]">
+          <a className="font-bold mt-[5px] cursor-pointer not-italic text-[16px] leading-[28px] text-[#7166F9]">
             Пополнить
           </a>
           <img src="/image/Arrows/Vector.svg" className="mt-[25px] ml-8"></img>

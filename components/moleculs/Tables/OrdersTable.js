@@ -13,7 +13,14 @@ export default function OrdersTable({
   );
 
   return (
-    <table className="w-[778px] bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[30px] min-h-[118px]">
+    <table
+      onClick={() =>
+        openOrder && openOrder === allOrderdata.numOrder
+          ? setOpenOrder()
+          : setOpenOrder(allOrderdata.numOrder)
+      }
+      className="w-[778px] bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[30px] min-h-[118px]"
+    >
       <tbody className="w-full p-10">
         <tr className="w-full h-[118px]">
           <td className="pl-[33px] w-1/5 font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50]">

@@ -16,7 +16,6 @@ export default function Upload({ uploadData, setUploadData }) {
   const [imageSrc, setImageSrc] = useState();
   const classes = useStyles();
 
-
   /**
    * handleOnChange
    * @description Triggers when the file input changes (ex: when a file is selected)
@@ -84,7 +83,16 @@ export default function Upload({ uploadData, setUploadData }) {
       </form>
       <label htmlFor="contained-button-file" className="flex">
         <img src="/image/Arrows/attach.svg" />
-        {imageSrc?<img src={imageSrc} className='mx-6' width={'45px'} height={45}/> : 'Прикрепить файл'}
+        {uploadData.img ? (
+          <img
+            src={uploadData.img}
+            className="mx-6"
+            width={"45px"}
+            height={45}
+          />
+        ) : (
+          "Прикрепить файл"
+        )}
       </label>
     </div>
   );

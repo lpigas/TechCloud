@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Button from "../../components/atoms/Buttons/Button/Button";
 import jwt from "jsonwebtoken";
+import StandartInput from "../../components/atoms/Input/StandartInput";
 
 export default function LoginBlock({
   view,
@@ -12,14 +13,14 @@ export default function LoginBlock({
   const router = useRouter();
   const [token, setToken] = useState("");
   const [message, setMessage] = useState();
+  const [openLoader, setOpenLoader] = useState(false);
   async function getToken() {
+    setOpenLoader(true);
     const get = await fetch(`${process.env.API_HOST}login`, {
       method: "POST",
       body: JSON.stringify(enterLogin),
     });
-    // // reload the page
     const gets = await get.json();
-    // console.log(gets.message)
     const token = gets.token;
     setToken(token);
     if (!token) {
@@ -33,11 +34,15 @@ export default function LoginBlock({
           JSON.stringify(token)
         );
       }
-      fullinfo.role === "user"
-        &&router.push(process.env.USER_PATH)
+      fullinfo.role === "user" && router.push(process.env.USER_PATH);
     }
+    setOpenLoader(false);
   }
-
+  if (message) {
+    setTimeout(() => {
+      setMessage();
+    }, 3000);
+  }
   return (
     <div className="w-[882px] h-[487px] flex bg-[#FFFFFF] rounded-[50px]">
       <div className="mt-[71px] ml-[101px]">
@@ -45,27 +50,20 @@ export default function LoginBlock({
           Введите Ваш логин и пароль:
         </p>
 
-        <form className="mt-[33px]">
-          <input
+        <form className="mt-[33px] w-[579px]">
+          <StandartInput
             type={"email"}
-            placeholder={"E-mail"}
-            name="email"
-            className="border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
-            required
+            placeholder={`E-mail`}
             value={enterLogin.email}
             onChange={(e) =>
               setEnterLogin({ ...enterLogin, email: e.target.value })
             }
           />
           <div className="flex">
-            <input
+            <StandartInput
               type={`${view === "text" ? "text" : "password"}`}
-              placeholder={"Password"}
-              name="password"
-              required
+              placeholder={`Password`}
               value={enterLogin.password}
-              minLength={1}
-              className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
               onChange={(e) =>
                 setEnterLogin({ ...enterLogin, password: e.target.value })
               }
@@ -85,8 +83,7 @@ export default function LoginBlock({
               {message}
             </div>
           )}
-          <div className="mt-[48px]">
-            {/* <input type='submit' value={'enter'}></input> */}
+          <div className="mt-[48px] mb-7">
             <div className="flex w-[377px] h-[40px] mt-[44px] items-center">
               <div className="font-normal not-italic text-[20px] leading-[23px] text-[#7166F9]">
                 Я забыл пароль
@@ -101,6 +98,11 @@ export default function LoginBlock({
             </div>
           </div>
         </form>
+        {openLoader && (
+          <div className="mt-2">
+            <Loader />
+          </div>
+        )}
         <Button type={"Static"} onClick={getToken}>
           Войти
         </Button>
