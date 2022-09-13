@@ -12,6 +12,7 @@ export default function Tickets({ allTickets, email, role }) {
           <TicketOne ticketInfo={openTicket} email={email} role={role} />
         ) : (
           <TicketsAll
+            email={email}
             allTickets={allTickets}
             setOpenTicket={setOpenTicket}
             openTicket={openTicket}
