@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Button from "../../components/atoms/Buttons/Button/Button";
 import jwt from "jsonwebtoken";
 import StandartInput from "../../components/atoms/Input/StandartInput";
+import Loader from "../../components/atoms/Loader/Loader";
+
 
 export default function LoginBlock({
   view,
