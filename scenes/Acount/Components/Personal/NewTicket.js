@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import StandartInput from "../../../../components/atoms/Input/StandartInput";
 import Select from "react-select";
 import Buttons from "../../../../components/atoms/Buttons/Button/Button";
+import Loader from "../../../../components/atoms/Loader/Loader";
 
 export default function NewTicket({
   allTickets,
@@ -9,6 +10,7 @@ export default function NewTicket({
   setNewTicket,
   onClick,
   message,
+  isLoader
 }) {
   const groupe = [
     { value: "Проблемы с оплатой", label: "Проблемы с оплатой" },
@@ -53,6 +55,9 @@ export default function NewTicket({
         placeholder={"Enter your problem"}
         onChange={(e) => setNewTicket({ ...newTicket, descr: e.target.value })}
       />
+      {isLoader &&
+      <div className="mt-[12px]"> <Loader /> </div>
+      }
       <div className="mt-[25px]">
         <Buttons type={"Static"} onClick={onClick}>
           Сохранить
