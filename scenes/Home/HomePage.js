@@ -2,7 +2,7 @@ import React from "react";
 
 import Footer from "../../components/layout/conponents/footer/Footer";
 import Header from "../../components/layout/conponents/header/Header";
-import TitleBlock from "./TitleBlock";
+import TitleBlock from "./components/TitleBlock";
 import Main from "./components/Main";
 import Center from "./components/Center";
 

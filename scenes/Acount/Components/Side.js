@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import Menu from "./Components/Menu";
+import Menu from "./Menu";
 const bcrypt = require("bcryptjs");
 
 export default function Side({ user, highlighted, setHighlighted }) {

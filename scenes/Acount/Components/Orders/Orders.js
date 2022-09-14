@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import OrdersTable from "../../../components/moleculs/Tables/OrdersTable";
-import Titlerders from "../../../components/atoms/Tables/Titlerders";
+import OrdersTable from "../../../../components/moleculs/Tables/OrdersTable";
+import Titlerders from "../../../../components/atoms/Tables/Titlerders";
 
 export default function Orders({ ordersData }) {
   const [openOrder, setOpenOrder] = useState();

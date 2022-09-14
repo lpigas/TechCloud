@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import TicketOne from "./Personal/TicketOne";
-import TicketsAll from "./Personal/TicketsAll";
+import TicketOne from "./TicketOne";
+import TicketsAll from "./TicketsAll";
 
 export default function Tickets({ allTickets, email, role }) {
   const [openTicket, setOpenTicket] = useState();

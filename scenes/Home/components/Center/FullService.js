@@ -39,7 +39,7 @@ export default function FullService() {
             <TextUl data={changedLi} />
           </div>
           <div className=" mt-[65px]">
-            <Button type={"Static"}> Оформить заявку</Button>
+            <Button type={"static"}> Оформить заявку</Button>
           </div>
         </div>
       </div>

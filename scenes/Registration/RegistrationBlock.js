@@ -117,7 +117,7 @@ export default function RegistrationBlock({
           </div>
         )}
         <div className="mt-[48px]">
-          <Button onClick={registerNewUser} type={"Static"}>
+          <Button onClick={registerNewUser} type={"static"}>
             Зарегистрировать
           </Button>
         </div>

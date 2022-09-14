@@ -10,7 +10,7 @@ export default function NewTicket({
   setNewTicket,
   onClick,
   message,
-  isLoader
+  isLoader,
 }) {
   const groupe = [
     { value: "Проблемы с оплатой", label: "Проблемы с оплатой" },
@@ -55,11 +55,14 @@ export default function NewTicket({
         placeholder={"Enter your problem"}
         onChange={(e) => setNewTicket({ ...newTicket, descr: e.target.value })}
       />
-      {isLoader &&
-      <div className="mt-[12px]"> <Loader /> </div>
-      }
+      {isLoader && (
+        <div className="mt-[12px]">
+          {" "}
+          <Loader />{" "}
+        </div>
+      )}
       <div className="mt-[25px]">
-        <Buttons type={"Static"} onClick={onClick}>
+        <Buttons type={"static"} onClick={onClick}>
           Сохранить
         </Buttons>
       </div>

@@ -15,7 +15,7 @@ export default function Bottom({ title, buttonName }) {
         услугу или продукт
       </div>
       <div className="mt-[36px]">
-        <Button type={"Static"}>{buttonName}</Button>
+        <Button type={"static"}>{buttonName}</Button>
       </div>
     </div>
   );

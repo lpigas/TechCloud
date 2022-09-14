@@ -104,7 +104,7 @@ export default function LoginBlock({
             <Loader />
           </div>
         )}
-        <Button type={"Static"} onClick={getToken}>
+        <Button type={"static"} onClick={getToken}>
           Войти
         </Button>
       </div>

@@ -3,10 +3,10 @@ import jwt from "jsonwebtoken";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import TitleBlock from "../../scenes/Services/Components/TitleBlock";
-import Side from "../../scenes/Acount/Side";
-import Personal from "../../scenes/Acount/Components/Personal";
-import Orders from "../../scenes/Acount/Components/Orders";
-import Tickets from "../../scenes/Acount/Components/Tickets";
+import Side from "../../scenes/Acount/Components/Side";
+import Personal from "../../scenes/Acount/Personal";
+import Orders from "../../scenes/Acount/Components/Orders/Orders";
+import Tickets from "../../scenes/Acount/Components/Tickets/Tickets";
 import Footer from "../../components/layout/conponents/footer/Footer";
 
 export default function user() {

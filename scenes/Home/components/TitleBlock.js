@@ -1,8 +1,8 @@
 import React from "react";
-import Text2 from "./components/Text/Text2";
-import TitleFirst from "./components/TitleFirst";
-import Button from "../../components/atoms/Buttons/Button/Button";
-import Roundblur52 from "../../components/atoms/Rounds/Roundblur52";
+import Text2 from "./Text/Text2";
+import TitleFirst from "./TitleFirst";
+import Button from "../../../components/atoms/Buttons/Button/Button";
+import Roundblur52 from "../../../components/atoms/Rounds/Roundblur52";
 
 export default function TitleBlock() {
   return (
@@ -17,7 +17,7 @@ export default function TitleBlock() {
         <Text2 />
       </div>
       <div className="mt-[44px]">
-        <Button type={"Static"}> Задать вопрос</Button>
+        <Button type={"static"}> Задать вопрос</Button>
       </div>
     </div>
   );

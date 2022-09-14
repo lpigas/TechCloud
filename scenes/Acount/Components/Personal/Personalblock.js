@@ -130,7 +130,7 @@ export default function Personalblock({
           </div>
         )}
         <div className="mt-[54px] flex">
-          <Buttons onClick={changeUserData} type={"Static"}>
+          <Buttons onClick={changeUserData} type={"static"}>
             Сохранить
           </Buttons>
           <div className="ml-4"></div>

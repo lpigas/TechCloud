@@ -20,7 +20,7 @@ export default function Contact() {
         </p>
       </div>
       <div className="mt-[22px]">
-        <Button type={"Static"}>Перезвоните мне</Button>
+        <Button type={"static"}>Перезвоните мне</Button>
       </div>
     </div>
   );

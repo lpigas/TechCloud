@@ -20,7 +20,7 @@ export default function Qdd({
       <div className="mt-[42px] flex justify-between items-center">
         <UploadButtons uploadData={uploadData} setUploadData={setUploadData} />
         {openLoader && <Loader />}
-        <Button onClick={loadNewMessage} type={"Static"}>
+        <Button onClick={loadNewMessage} type={"static"}>
           {" "}
           Отправить
         </Button>

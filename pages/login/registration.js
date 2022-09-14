@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/layout/conponents/header/Header";
 import Footer from "../../components/layout/conponents/footer/Footer";
 import TitleBlock from "../../scenes/Services/Components/TitleBlock";
-import RegistrationBlock from "../../scenes/Login/RegistrationBlock";
+import RegistrationBlock from "../../scenes/Registration/RegistrationBlock";
 import { useRouter } from "next/router";
 
 export default function registration() {

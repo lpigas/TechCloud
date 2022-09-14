@@ -11,7 +11,7 @@ export default function TicketsAll({
 }) {
   const [openNewTicket, setOpenNewTicket] = useState();
   const [message, setMessage] = useState();
-  const [isLoader, setIsLoader] = useState(false)
+  const [isLoader, setIsLoader] = useState(false);
   const [newTicket, setNewTicket] = useState({
     numTicket: "",
     date: "",
@@ -23,7 +23,7 @@ export default function TicketsAll({
 
   const addNewTicket = async () => {
     allTickets.unshift(newTicket);
-    setIsLoader(true)
+    setIsLoader(true);
     if (newTicket.groupe.length < 1) {
       return setMessage("Нужно выбрать тему обращения");
     }
@@ -43,7 +43,7 @@ export default function TicketsAll({
     } catch (error) {
       console.log(error);
     }
-    setIsLoader(false)
+    setIsLoader(false);
     setNewTicket({
       numTicket: "",
       date: "",

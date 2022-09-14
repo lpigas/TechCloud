@@ -146,7 +146,7 @@ export default function OrdersTable({
               <td colSpan={6}>
                 <a className="flex justify-end pr-[31px]">
                   <Button
-                    type={"Static"}
+                    type={"static"}
                     onClick={() => onClick(allOrderdata.product)}
                   >
                     {" "}

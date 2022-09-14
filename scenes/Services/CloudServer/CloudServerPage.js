@@ -1,11 +1,11 @@
-import Header from "../../components/layout/conponents/header/Header";
-import Footer from "../../components/layout/conponents/footer/Footer";
+import Header from "../../../components/layout/conponents/header/Header";
+import Footer from "../../../components/layout/conponents/footer/Footer";
 
 import React, { useEffect, useState } from "react";
-import TitleBlock from "./Components/TitleBlock";
-import Bottom from "../../components/moleculs/Recall/Bottom";
+import TitleBlock from "../Components/TitleBlock";
+import Bottom from "../../../components/moleculs/Recall/Bottom";
 import { useRouter } from "next/router";
-import CenterCloud from "./CloudServer/CenterCloud";
+import CenterCloud from "./CenterCloud";
 
 export default function CloudServerPage({}) {
   const [serviceInfo, setServiceInfo] = useState();
