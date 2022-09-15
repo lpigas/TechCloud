@@ -6,7 +6,7 @@ export default function Service_ul({ services, changed, setChanged }) {
       {services.map((item) => (
         <div
           key={item.name}
-          className={`w-[478px] h-[67px] ${
+          className={`min-w-[478px] py-[16px] ${
             changed.name === item.name &&
             "bg-[#F0F0FA] rounded-tr-[20px] rounded-br-[20px] border-l-[4px] border-[#7166F9]"
           }`}

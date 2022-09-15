@@ -1,10 +1,10 @@
 import React from "react";
-import HomePage from "../scenes/Home/HomePage";
+import HomeScene from "../scenes/Home/HomeScene";
 
-export default function Aboute({ data }) {
+export default function HomePage({ data }) {
   return (
     <div>
-      <HomePage />
+      <HomeScene />
     </div>
   );
 }

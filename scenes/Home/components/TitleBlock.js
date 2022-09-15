@@ -1,12 +1,12 @@
 import React from "react";
-import Text2 from "./Text/Text2";
+import Text2 from "./text/Text2";
 import TitleFirst from "./TitleFirst";
 import Button from "../../../components/atoms/Buttons/Button/Button";
 import Roundblur52 from "../../../components/atoms/Rounds/Roundblur52";
 
 export default function TitleBlock() {
   return (
-    <div className="w-[983px] h-[346px] flex flex-col items-center">
+    <div className="min-w-[983px] m-auto mt-[100px] flex flex-col items-center">
       <div className="absolute top-[184px] left-[1372px]">
         <Roundblur52 color={"blue"} />
       </div>

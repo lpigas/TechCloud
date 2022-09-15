@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Titlerders() {
   return (
-    <table className="w-[778px] h-[28px]">
+    <table className="min-w-[778px] min-h-[28px]">
       <thead className="w-full">
         <tr className="w-full">
           <td className="pl-[33px] w-1/5 font-normal not-italic text-[16px] leading-[28px] text-[#616E87]">

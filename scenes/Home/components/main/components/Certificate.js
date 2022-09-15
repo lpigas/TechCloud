@@ -1,5 +1,5 @@
 import React from "react";
-import Certificates from "../../../../components/atoms/Certificates/Certificates";
+import Certificates from "../../../../../components/atoms/Certificates/Certificates";
 
 export default function Certificate() {
   return (

@@ -5,24 +5,31 @@ import CloudTech from "./components/CloudTech";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 
-export default function Footer({ left, top }) {
+export default function Footer({}) {
   return (
-    <footer className="flex m-auto ml-[45px] mt-[120px] mb-[74px] w-[1187px]">
-      <div className="flex flex-col w-[101px] justify-between">
-        <Image src={"/image/logo1_1.png"} width={101} height={62} />
-        <Oferta />
-      </div>
-      <div className="flex w-full justify-center">
-        <div id="AboutUs" className="">
-          <CloudTech />
+    <div
+      id="home__footer"
+      className={` max-w-75vw p-4 flex items-center justify-center text-center max-h-75vh m-auto`}
+    >
+      <footer className="flex m-auto mt-[120px] mb-[74px] max-w-[1187px]">
+        <div className="w-full flex m-auto">
+          <div className="flex flex-col justify-between ml-16">
+            <Image src={"/image/logo1_1.png"} width={3} height={62} />
+            <Oferta />
+          </div>
+          <div className="flex w-full ">
+            <div id="AboutUs" className="">
+              <CloudTech />
+            </div>
+            <div id="Services" className="mx-8">
+              <Services />
+            </div>
+            <div id="Contact" className="mx-8">
+              <Contact />
+            </div>
+          </div>
         </div>
-        <div id="Services" className="">
-          <Services />
-        </div>
-        <div id="Contact" className="">
-          <Contact />
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 }

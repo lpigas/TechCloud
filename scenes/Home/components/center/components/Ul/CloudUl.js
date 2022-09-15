@@ -1,6 +1,6 @@
 import React from "react";
-import Roundblur100 from "../../../../../components/atoms/Rounds/Roundblur100";
-import RoundBlur50 from "../../../../../components/atoms/Rounds/RoundBlur50";
+import Roundblur100 from "../../../../../../components/atoms/Rounds/Roundblur100";
+import RoundBlur50 from "../../../../../../components/atoms/Rounds/RoundBlur50";
 
 export default function CloudUl({ data }) {
   return (

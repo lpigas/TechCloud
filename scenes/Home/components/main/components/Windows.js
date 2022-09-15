@@ -1,5 +1,5 @@
 import React from "react";
-import Window from "../../../../components/atoms/window/Window";
+import Window from "../../../../../components/atoms/window/Window";
 
 export default function Windows() {
   return (

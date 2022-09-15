@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Roundblur52 from "../../../../components/atoms/Rounds/Roundblur52";
+import Roundblur52 from "../../../../../components/atoms/Rounds/Roundblur52";
 import CloudUl from "./Ul/CloudUl";
 import Service_ul from "./Ul/Service_ul";
 import PhotoUl from "./Ul/PhotoUl";
 import TextUl from "./Ul/TextUl";
-import dataul from "../../../../constants/About/dataul.json";
-import Button from "../../../../components/atoms/Buttons/Button/Button";
+import dataul from "../../../../../constants/About/dataul.json";
+import Button from "../../../../../components/atoms/Buttons/Button/Button";
 
 export default function FullService() {
   const services = dataul.services;
@@ -13,12 +13,12 @@ export default function FullService() {
 
   return (
     <div className="w-[1286px] flex min-h-[822px] flex-col">
-      <p className="flex font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
+      <div className="flex font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
         Наши услуги
         <div className="mt-[-10px] ml-[-10px]">
           <Roundblur52 color={"orange"} />
         </div>
-      </p>
+      </div>
 
       <div className="flex flex-row">
         <div className="w-[377px] h-[516px] mt-[60px]">

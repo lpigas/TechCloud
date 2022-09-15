@@ -21,70 +21,72 @@ export default function Header({ title }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <nav
-        id="menu"
-        className="flex ml-[368px] mr-[168px] h-full items-center gap-[70px] p-0 w-[985px]"
-      >
-        <div className="flex z-[999]">
-          <Image
-            onClick={() => router.push("/")}
-            src={"/image/logo1_1.png"}
-            width={101}
-            height={62}
-            className={"mt-2"}
-          />
-        </div>
-        <div
-          id="Frame_1"
-          className="ml-[202px] w-[47px] h-[28px] gap-[53px] p-0"
+      <div className="flex mx-auto items-start justify-start">
+        <nav
+          id="menu"
+          className="flex h-full items-center gap-[70px] p-0 min-w-[1185px]"
         >
-          О нас
-        </div>
-        <Link
-          href={"/shop"}
-          id="Frame_2"
-          className="w-[73px] h-[28px] gap-[53px] p-0"
-        >
-          Магазин
-        </Link>
-        <Link
-          href={"/services"}
-          id="Frame_3"
-          className="w-[57px] h-[28px] gap-[53px] p-0"
-        >
-          Услуги
-        </Link>
-        <Link
-          href={"/FAQ"}
-          id="Frame_4"
-          className="w-[47px] h-[28px] gap-[53px] mt-1"
-        >
-          FAQ
-        </Link>
-        <select
-          id="lang"
-          className=" w-[129px] h-[45px] text-center rounded-[50px]"
-        >
-          <option value={"Русский"}>Русский</option>
-        </select>
-      </nav>
-      <div className="items-center flex">
-        <a
-          href={`${
-            !loginData
-              ? "/login"
-              : loginData.role === "admin"
-              ? process.env.ADMIN_PATH
-              : process.env.USER_PATH
-          }`}
-        >
-          <img
-            src={"/image/group.svg"}
-            className="w-[22px] m-[53px] h-[22px]"
-          />
-        </a>
-        <div className="w-[34px] mt-[26px] h-[57px]">
-          <Cart />
+          <div className="flex z-[999]">
+            <Image
+              onClick={() => router.push("/")}
+              src={"/image/logo1_1.png"}
+              width={101}
+              height={62}
+              className={"mt-2"}
+            />
+          </div>
+          <div
+            id="Frame_1"
+            className="ml-[202px] w-[47px] h-[28px] gap-[53px] p-0"
+          >
+            О нас
+          </div>
+          <Link
+            href={"/shop"}
+            id="Frame_2"
+            className="w-[73px] h-[28px] gap-[53px] p-0"
+          >
+            Магазин
+          </Link>
+          <Link
+            href={"/services"}
+            id="Frame_3"
+            className="w-[57px] h-[28px] gap-[53px] p-0"
+          >
+            Услуги
+          </Link>
+          <Link
+            href={"/FAQ"}
+            id="Frame_4"
+            className="w-[47px] h-[28px] gap-[53px] mt-1"
+          >
+            FAQ
+          </Link>
+          <select
+            id="lang"
+            className=" w-[129px] h-[45px] text-center rounded-[50px]"
+          >
+            <option value={"Русский"}>Русский</option>
+          </select>
+        </nav>
+        <div className="items-center flex h-full">
+          <a
+            href={`${
+              !loginData
+                ? "/login"
+                : loginData.role === "admin"
+                ? process.env.ADMIN_PATH
+                : process.env.USER_PATH
+            }`}
+          >
+            <img
+              src={"/image/group.svg"}
+              className="w-[22px] m-[53px] h-[22px]"
+            />
+          </a>
+          <div className="w-[34px] mt-[26px] h-[57px]">
+            <Cart />
+          </div>
         </div>
       </div>
     </header>

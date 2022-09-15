@@ -86,9 +86,7 @@ export default function Upload({ uploadData, setUploadData }) {
         {uploadData.img ? (
           <img
             src={uploadData.img}
-            className="mx-6"
-            width={"45px"}
-            height={45}
+            className="mx-6 min-w-[45px] min-h-[45px]"
           />
         ) : (
           "Прикрепить файл"

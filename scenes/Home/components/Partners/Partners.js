@@ -15,17 +15,19 @@ export default function Partners() {
   };
   setTimeout(() => {
     changeLeft();
-  }, 3000);
+  }, 4000);
 
   return (
-    <div className="w-[1222px] h-[223px] mt-[145px] flex">
-      <div className="ml-[-30px] z-50">
-        <Roundblur52 color={"blue"} />
+    <div className="w-full  mt-[145px] flex flex-col">
+      <div className="flex">
+        <div className="ml-[-30px] z-50">
+          <Roundblur52 color={"blue"} />
+        </div>
+        <div className="ml-[-15px] z-0 mt-[20px] font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] ">
+          Партнеры
+        </div>
       </div>
-      <p className="ml-[-15px] z-0 mt-[20px] font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] ">
-        Партнеры
-      </p>
-      <div className="flex w-full ml-[-255px]">
+      <div className="flex w-full mt-[100px]">
         <img
           src="/image/Buttons/Chevron/Chevron_Left_1.svg"
           width={"15"}

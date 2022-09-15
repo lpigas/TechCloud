@@ -1,8 +1,8 @@
 import React from "react";
-import Vector_bis from "../../../../components/moleculs/minilogos/Vectors/Vector_business";
-import Vector_consalt from "../../../../components/moleculs/minilogos/Vectors/Vector_consalt";
-import Vector_outsorc from "../../../../components/moleculs/minilogos/Vectors/Vector_outsorc";
-import Vector_secur from "../../../../components/moleculs/minilogos/Vectors/Vector_secur";
+import Vector_bis from "../../../../../components/moleculs/minilogos/Vectors/Vector_business";
+import Vector_consalt from "../../../../../components/moleculs/minilogos/Vectors/Vector_consalt";
+import Vector_outsorc from "../../../../../components/moleculs/minilogos/Vectors/Vector_outsorc";
+import Vector_secur from "../../../../../components/moleculs/minilogos/Vectors/Vector_secur";
 
 export default function Vectors() {
   return (
