@@ -5,8 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import jwt from "jsonwebtoken";
+import Select from "react-select";
 
 export default function Header({ title }) {
+  const lang = [{ value: "Русский", label: "Русский" }];
   const router = useRouter();
   const [loginData, setLoginData] = useState();
   useEffect(() => {
@@ -62,12 +64,20 @@ export default function Header({ title }) {
           >
             FAQ
           </Link>
-          <select
+          <Select
+            id="react-select-2-live-region"
+            className="mt-[12px] border-box w-[160px] bg-[#FFFFFF] rounded-[30px]"
+            pageSize={20}
+            defaultInputValue={lang[0].value}
+            defaultValue={"Русский"}
+            options={lang}
+          ></Select>
+          {/* <select
             id="lang"
             className=" w-[129px] h-[45px] text-center rounded-[50px]"
           >
             <option value={"Русский"}>Русский</option>
-          </select>
+          </select> */}
         </nav>
         <div className="items-center flex h-full">
           <a

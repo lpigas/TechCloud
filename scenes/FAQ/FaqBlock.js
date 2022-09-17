@@ -3,6 +3,7 @@ import React from "react";
 export default function FaqBlock({ data, opened, setOpened }) {
   return (
     <div
+      onClick={() => (opened ? setOpened("") : setOpened(data.title))}
       className={`w-[882px] mb-[13px] p-0 ${
         opened !== data.title
           ? "min-h-[85px] bg-[#F9F9FC] border-[#F9F9FC]"

@@ -16,7 +16,7 @@ export default function NewTicket({
     { value: "Проблемы с оплатой", label: "Проблемы с оплатой" },
     { value: "Проблемы с кабинетом", label: "Проблемы с кабинетом" },
   ];
-  const newTicketNum = allTickets[0].numTicket.slice(1);
+  const newTicketNum = allTickets[0] ? allTickets[0].numTicket.slice(1) : 0;
   const data = new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString().slice(0, -3);
   const normaldata =

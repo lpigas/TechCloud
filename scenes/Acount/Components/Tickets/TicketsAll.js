@@ -20,7 +20,7 @@ export default function TicketsAll({
     correspondence: [],
     status: "new",
   });
-
+  // console.log(allTickets)
   const addNewTicket = async () => {
     allTickets.unshift(newTicket);
     setIsLoader(true);
@@ -61,9 +61,9 @@ export default function TicketsAll({
       }, 4000);
   }, [message]);
   return (
-    <div className="w-[778px] h-[871px] overflow-scroll ">
+    <div className="min-w-[778px] max-h-[771px] overflow-scroll">
       {!openNewTicket ? (
-        <div>
+        <div className="h-full overflow-y-scroll">
           <div className="flex justify-between">
             <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
               Мои обращения

@@ -4,7 +4,7 @@ export default function Window() {
   return (
     <img
       src="/image/window/window.svg"
-      className="min-w-[579px] h-[310px]"
+      className="w-full h-fuul"
       alt="window"
     ></img>
   );

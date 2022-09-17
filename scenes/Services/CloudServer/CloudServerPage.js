@@ -1,11 +1,9 @@
-import Header from "../../../components/layout/conponents/header/Header";
-import Footer from "../../../components/layout/conponents/footer/Footer";
-
 import React, { useEffect, useState } from "react";
 import TitleBlock from "../Components/TitleBlock";
 import Bottom from "../../../components/moleculs/Recall/Bottom";
 import { useRouter } from "next/router";
 import CenterCloud from "./CenterCloud";
+import Layout from "../../../components/layout/Layout";
 
 export default function CloudServerPage({}) {
   const [serviceInfo, setServiceInfo] = useState();
@@ -19,24 +17,13 @@ export default function CloudServerPage({}) {
   }, []);
 
   return (
-    <>
-      <div
-        className="w-[1920px] h-[3005px]"
-        style={{
-          background: "linear-gradient(90deg, #F6F8FC 0%, #ECF0FA 100%)",
-        }}
-      >
-        <Header title={serviceInfo && serviceInfo.services.title.name} />
-        {serviceInfo && <TitleBlock partname={serviceInfo.services.partname} />}
+    <Layout minh={3005} title={serviceInfo && serviceInfo.services.title.name}>
+      {serviceInfo && <TitleBlock partname={serviceInfo.services.partname} />}
 
-        <div className="absolute top-[2335px] left-[367px]">
-          <Bottom title={"Нужна помощь?"} buttonName={"Оставить заявку"} />
-        </div>
-        {serviceInfo && <CenterCloud data={serviceInfo.services} />}
+      {serviceInfo && <CenterCloud data={serviceInfo.services} />}
+      <div className=" pb-24">
+        <Bottom title={"Нужна помощь?"} buttonName={"Оставить заявку"} />
       </div>
-      <div className={` w-[1187px] h-[347px] m-auto`}>
-        <Footer />
-      </div>
-    </>
+    </Layout>
   );
 }

@@ -5,30 +5,19 @@ import TitleBlock from "./Components/TitleBlock";
 import Bottom from "../../components/moleculs/Recall/Bottom";
 import Head from "next/head";
 import React from "react";
+import Layout from "../../components/layout/Layout";
 
 export default function ServicesPage({ data }) {
   const partname = [{ service_name: "Услуги", service_url: "/services" }];
 
   // console.log(data)
   return (
-    <>
-      <div
-        className="w-[1920px] min-h-[2561px]"
-        style={{
-          background: "linear-gradient(90deg, #F6F8FC 0%, #ECF0FA 100%)",
-        }}
-      >
-        <Header title={"Услуги"} />
-        <TitleBlock partname={partname} />
-        <FormBlock data={data} />
-        <div className="flex mt-[123px] justify-center">
-          <Bottom title={"Нужна помощь?"} buttonName={"Оставить заявку"} />
-        </div>
-        <div className="block h-[126px]" />
+    <Layout minh={2561} title={"Услуги"}>
+      <TitleBlock partname={partname} />
+      <FormBlock data={data} />
+      <div className="flex mt-[123px] justify-center pb-24">
+        <Bottom title={"Нужна помощь?"} buttonName={"Оставить заявку"} />
       </div>
-      <div className={` w-[1187px] h-[347px] m-auto`}>
-        <Footer />
-      </div>
-    </>
+    </Layout>
   );
 }

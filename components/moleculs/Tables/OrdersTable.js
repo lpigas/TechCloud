@@ -19,7 +19,7 @@ export default function OrdersTable({
           ? setOpenOrder()
           : setOpenOrder(allOrderdata.numOrder)
       }
-      className="w-[778px] bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[30px] min-h-[118px]"
+      className="min-w-[778px] bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[30px] min-h-[118px]"
     >
       <tbody className="w-full p-10">
         <tr className="w-full h-[118px]">
@@ -113,7 +113,7 @@ export default function OrdersTable({
             {allOrderdata.product.map((item) => (
               <tr key={Math.random()}>
                 <td colSpan={5} className="">
-                  <table className="w-[714px] min-h-[118px] m-auto">
+                  <table className="min-w-[714px] min-h-[118px] m-auto">
                     <tbody>
                       <tr>
                         <td className="w-2/12">

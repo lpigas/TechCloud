@@ -2,11 +2,7 @@ import React from "react";
 import ServicesPage from "../scenes/Services/ServicesPage";
 
 export default function services({ data }) {
-  return (
-    <>
-      <ServicesPage data={data} />
-    </>
-  );
+  return <ServicesPage data={data} />;
 }
 export async function getServerSideProps() {
   const { connectToDatabase } = require("../lib/mongodb");

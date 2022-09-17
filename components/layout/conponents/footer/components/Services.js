@@ -19,7 +19,9 @@ export default function Services() {
       <div className="mt-[22px] font-normal text-left  not-italic text-[18px] leading-[36px] text-[#616E87]">
         {links.map((item) => (
           <p key={Math.random()}>
-            <Link href={item.href}>{item.title}</Link>
+            <Link href={item.href.length > 0 ? item.href : "/404"}>
+              {item.title}
+            </Link>
           </p>
         ))}
       </div>
