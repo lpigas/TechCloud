@@ -5,6 +5,7 @@ import Center from "./components/center/Center";
 import Layout from "../../components/layout/Layout";
 
 export default function Aboute({}) {
+  const x = 1
   const conponent = (
     <div className="w-full">
       <Center />{" "}
