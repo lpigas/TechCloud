@@ -2,7 +2,7 @@ import React from "react";
 import Bottom from "../../../../components/moleculs/Recall/Bottom";
 import FullAboutUs from "./components/FullAboutUs";
 import FullService from "./components/FullService";
-import Partners from "../partners/Partners";
+import Partners from "../Partners/Partners";
 
 export default function Center() {
   return (
