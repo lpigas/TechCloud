@@ -13,8 +13,8 @@ export default function Footer({}) {
     >
       <footer className="flex m-auto mt-[120px] mb-[74px] max-w-[1187px]">
         <div className="w-full flex m-auto">
-          <div className="flex flex-col justify-between ml-16">
-            <Image src={"/image/logo1_1.png"} width={3} height={62} />
+          <div className="flex flex-col justify-between ml-16 w-max-35vw">
+            <img src={"/image/logo1_1.png"} width={100} height={100} />
             <Oferta />
           </div>
           <div className="flex w-full ">

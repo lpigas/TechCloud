@@ -21,7 +21,7 @@ export default function CloudServerPage({}) {
       {serviceInfo && <TitleBlock partname={serviceInfo.services.partname} />}
 
       {serviceInfo && <CenterCloud data={serviceInfo.services} />}
-      <div className=" pb-24">
+      <div className="flex justify-center pb-24">
         <Bottom title={"Нужна помощь?"} buttonName={"Оставить заявку"} />
       </div>
     </Layout>

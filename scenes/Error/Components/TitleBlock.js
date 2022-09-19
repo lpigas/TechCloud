@@ -18,7 +18,7 @@ export default function TitleBlock({ partname }) {
         <div className="mt-[15px]">
           <Ilustration />
         </div>
-        <div className="mt-[75px]">
+        <div className="mt-[175px]">
           Попробуйте проверить ссылку на наличие ошибок либо нажмите кнопку
           ниже:
         </div>
