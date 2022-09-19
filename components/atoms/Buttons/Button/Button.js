@@ -1,14 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const styles ={
-  Static: 'w-[276px] h-[70px] rounded-[10px] bg-[#FD7A55] flex items-center justify-center drop-shadow-[0_15px_25px_rgb(#FFB39D)]'
-}
+const styles = {
+  static:
+    "min-w-[276px] p-[16px] min-h-[70px] rounded-[10px] bg-[#FD7A55] flex items-center justify-center drop-shadow-[0_15px_25px_rgba(255,179,157)]",
+};
 
-
-export default function Static({children, onClick, type}) {
+export default function Button({ children, onClick, type }) {
   return (
-    <button className={`${styles[type]}`} onClick={onClick}>
-        {children}
+    <button
+      className={`leading-[28px] text-[16px] text-[#FFFFFF] font-medium ${styles[type]}`}
+      onClick={onClick}
+    >
+      {children}
     </button>
-  )
+  );
 }

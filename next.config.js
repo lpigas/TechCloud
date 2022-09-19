@@ -32,6 +32,9 @@ module.exports = {
     MONGODB_URI: process.env.MONGODB_URI,
     DEV_URL: process.env.DEV_URL,
     PROD_URL: process.env.PROD_URL,
+    SECRET_KEY: process.env.SECRET_KEY,
+    USER_PATH: process.env.USER_PATH,
+    UPLOAD_URL: process.env.UPLOAD_URL,
   },
   images: {
     domains: ["images.prom.ua", "cdn-icons-png.flaticon.com"],
