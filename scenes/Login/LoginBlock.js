@@ -45,7 +45,7 @@ export default function LoginBlock({
     }, 3000);
   }
   return (
-    <div className="w-[882px] h-[487px] flex bg-[#FFFFFF] rounded-[50px]">
+    <div className="min-w-[882px] h-[487px] flex bg-[#FFFFFF] rounded-[50px]">
       <div className="mt-[71px] ml-[101px]">
         <p className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] h-[28px]">
           Введите Ваш логин и пароль:
