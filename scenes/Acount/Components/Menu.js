@@ -8,12 +8,12 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
   ];
 
   return (
-    <div className="w-[644px] min-h-[277px]">
+    <div className="min-h-[277px]">
       {menu.map((item) => (
         <div
           key={Math.random()}
           onClick={() => setHighlighted(item.menuname)}
-          className={`w-[644px] h-[62px] flex justify-end items-center mt-1 ${
+          className={`min-w-[644px] h-[62px] flex justify-end items-center mt-1 ${
             highlighted === item.menuname && "bg-[#E1E1F3]"
           }`}
         >

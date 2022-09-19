@@ -45,9 +45,9 @@ export default function user() {
   }, []);
 
   return (
-    <Layout minh={956} title={user && user.name}>
+    <>
       {user && (
-        <>
+        <Layout title={user && user.name}>
           <TitleBlock partname={partname} />
           <div className="flex mt-[79px] min-h-[591px]">
             <Side
@@ -71,8 +71,8 @@ export default function user() {
               />
             )}
           </div>
-        </>
+        </Layout>
       )}
-    </Layout>
+    </>
   );
 }

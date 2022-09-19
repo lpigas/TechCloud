@@ -15,7 +15,7 @@ export default function ServicesPage({ data }) {
     <Layout minh={2561} title={"Услуги"}>
       <TitleBlock partname={partname} />
       <FormBlock data={data} />
-      <div className="flex mt-[123px] justify-center pb-24">
+      <div className="mt-[123px] pb-24">
         <Bottom title={"Нужна помощь?"} buttonName={"Оставить заявку"} />
       </div>
     </Layout>

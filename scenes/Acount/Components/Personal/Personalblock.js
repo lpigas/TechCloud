@@ -39,8 +39,8 @@ export default function Personalblock({
   }, []);
 
   return (
-    <div className="w-[781px] h-[724px] pt-[56px] pl-[101px] rounded-[50px] bg-[#ffffff]">
-      <div className="w-[579px]">
+    <div className="w-9/10 min-h-[724px] pt-[56px] mr-10 px-[50px] rounded-[50px] bg-[#ffffff]">
+      <div className="">
         <div
           onChange={(e) => setUser({ ...user, urfis: e.target.value })}
           className={"flex flex-col"}
@@ -92,7 +92,7 @@ export default function Personalblock({
           mask={`+99(999) 999-99-99`}
           maskChar="_"
           alwaysShowMask={false}
-          className=" border-box mt-[12px] pl-[12px] w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[1px] border-[#E4E4ED]"
+          className=" border-box mt-[12px] pl-[12px] w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[1px] border-[#E4E4ED]"
           onChange={(e) =>
             setUser({
               ...user,
@@ -129,7 +129,7 @@ export default function Personalblock({
             <Loader />{" "}
           </div>
         )}
-        <div className="mt-[54px] flex">
+        <div className="mt-[54px] flex justify-evenly">
           <Buttons onClick={changeUserData} type={"static"}>
             Сохранить
           </Buttons>

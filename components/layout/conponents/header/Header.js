@@ -19,14 +19,14 @@ export default function Header({ title }) {
   }, []);
 
   return (
-    <header className="flex h-[68px]">
+    <header className="flex h-[68px] min-w-full">
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="flex mx-auto items-start justify-start">
+      <div className="flex mx-auto w-max-60vw flex-col flex-wrap items-start justify-start">
         <nav
           id="menu"
-          className="flex h-full items-center gap-[70px] p-0 min-w-[1185px]"
+          className="flex h-full w-full  items-center gap-[70px] p-0 min-w-[1185px]"
         >
           <div className="flex z-[999]">
             <Image
@@ -72,32 +72,26 @@ export default function Header({ title }) {
             defaultValue={"Русский"}
             options={lang}
           ></Select>
-          {/* <select
-            id="lang"
-            className=" w-[129px] h-[45px] text-center rounded-[50px]"
-          >
-            <option value={"Русский"}>Русский</option>
-          </select> */}
-        </nav>
-        <div className="items-center flex h-full">
-          <a
-            href={`${
-              !loginData
-                ? "/login"
-                : loginData.role === "admin"
-                ? process.env.ADMIN_PATH
-                : process.env.USER_PATH
-            }`}
-          >
-            <img
-              src={"/image/group.svg"}
-              className="w-[22px] m-[53px] h-[22px]"
-            />
-          </a>
-          <div className="w-[34px] mt-[26px] h-[57px]">
-            <Cart />
+          <div className="items-center ml-10 flex h-full">
+            <a
+              href={`${
+                !loginData
+                  ? "/login"
+                  : loginData.role === "admin"
+                  ? process.env.ADMIN_PATH
+                  : process.env.USER_PATH
+              }`}
+            >
+              <img
+                src={"/image/group.svg"}
+                className="w-[22px] m-[53px] h-[22px]"
+              />
+            </a>
+            <div className="w-[34px] mt-[26px] h-[57px]">
+              <Cart />
+            </div>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

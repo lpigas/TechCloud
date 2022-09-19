@@ -18,7 +18,7 @@ export default function Partners() {
   }, 4000);
 
   return (
-    <div className="w-full  mt-[145px] flex flex-col">
+    <div className="sm:hidden lg:flex w-full  mt-[145px]  flex-col">
       <div className="flex">
         <div className="ml-[-30px] z-50">
           <Roundblur52 color={"blue"} />

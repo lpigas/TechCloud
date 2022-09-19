@@ -5,7 +5,7 @@ import Cloud_Serv_1 from "../../../components/moleculs/minilogos/cloud/Cloud_Ser
 
 export default function Ilustration() {
   return (
-    <div className="min-w-[751px] min-h-[351px] flex justify-center items-center">
+    <div className=" min-h-40vh max-h-full flex justify-center items-center">
       <div className="font-bold not-italic text-[165px] leading-[70px] text-[#616E87]">
         404
       </div>

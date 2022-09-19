@@ -18,7 +18,7 @@ export default function login() {
         ]}
       />
 
-      <div className="mt-[76px] ml-[368px]">
+      <div className="mt-[76px] ml-[368px] pb-24">
         <LoginBlock
           view={viewPassword}
           setView={setViewPassword}

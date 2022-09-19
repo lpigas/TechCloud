@@ -9,11 +9,11 @@ export default function FAQ() {
   const [opened, setOpened] = useState("");
 
   return (
-    <Layout title={"FAQ"} minh={1462}>
+    <Layout title={"FAQ"}>
       <div id="home__title" className="flex  w-[983px] h-[246px]">
         <TitleBlock partname={FAQData.FAQpartname} />
       </div>
-      <div className="mt-[31px]">
+      <div className="mt-[31px] pb-10">
         {data &&
           data.map((item) => (
             <div key={item.title} className="flex justify-center">

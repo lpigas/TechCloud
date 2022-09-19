@@ -3,7 +3,7 @@ import Certificates from "../../../../../components/atoms/Certificates/Certifica
 
 export default function Certificate() {
   return (
-    <div className="absolute left-[816px] top-[743px]">
+    <div className="absolute left-[816px] top-[793px]">
       <Certificates />
     </div>
   );

@@ -14,7 +14,7 @@ export default function ServicesForms({
   const router = useRouter();
   return (
     <div
-      className={`w-[578px] h-[409px] flex mr-[28px] mb-[27px] bg-[#FFFFFF] rounded-[20px]`}
+      className={`lg:max-w-50vw lg:min-w-50vh xl:max-w-35vw xl:min-w-35vw  sm:min-w-75vh sm:max-w-75vh flex mr-[28px] mb-[27px] bg-[#FFFFFF] rounded-[20px]`}
     >
       <div className="min-w-[275px] min-h-[409px]">
         <img src={bigImage} />

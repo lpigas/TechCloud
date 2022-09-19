@@ -12,7 +12,7 @@ export default function FullService() {
   const [changedLi, setChangedLi] = useState("");
 
   return (
-    <div className="w-[1286px] flex min-h-[822px] flex-col">
+    <div className="max-w-[1286px] flex min-h-[822px] flex-col">
       <div className="flex font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
         Наши услуги
         <div className="mt-[-10px] ml-[-10px]">

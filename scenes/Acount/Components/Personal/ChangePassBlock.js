@@ -17,8 +17,8 @@ export default function ChangePassBlock({
   };
 
   return (
-    <div className="mt-[36px] w-[781px] h-[431px] bg-white rounded-[50px]">
-      <div className="pt-[57px] ml-[101px]">
+    <div className=" min-h-[324px] pt-[56px] mr-10 px-[50px] bg-white rounded-[50px] pb-10">
+      <div className="">
         <div className="flex">
           <input
             type={`${oldPassView === "text" ? "text" : "password"}`}
@@ -26,7 +26,7 @@ export default function ChangePassBlock({
             name="password"
             required
             value={changePassword.old}
-            className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
+            className="mt-[12px] border-box w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
             onChange={(e) =>
               setChangePassword({ ...changePassword, old: e.target.value })
             }
@@ -45,7 +45,7 @@ export default function ChangePassBlock({
             required
             value={changePassword.newpass}
             minLength={6}
-            className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
+            className="mt-[12px] border-box w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
             onChange={(e) =>
               setChangePassword({ ...changePassword, newpass: e.target.value })
             }
@@ -63,7 +63,7 @@ export default function ChangePassBlock({
             name="password"
             required
             value={changePassword.secondNewpass}
-            className="mt-[12px] border-box w-[579px] h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
+            className="mt-[12px] border-box w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
             onChange={(e) =>
               setChangePassword({
                 ...changePassword,

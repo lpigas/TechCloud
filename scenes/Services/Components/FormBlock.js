@@ -16,10 +16,10 @@ export default function FormBlock({ data }) {
   };
 
   return (
-    <div className="w-[1212px] flex ml-[368px]  mt-[87px] flex-wrap">
+    <div className="flex mx-auto sm:max-w-60vw sm:min-h-full lg:min-w-full justify-center mt-[87px] flex-wrap">
       {data &&
         data.map((item) => (
-          <div key={item._id} className={` top-[378px] left-[368px]`}>
+          <div key={item._id} className={``}>
             <ServicesForms
               title={item.services.title.name}
               color={item.services.title.Roundblur.color}

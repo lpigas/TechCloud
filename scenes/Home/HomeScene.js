@@ -11,9 +11,11 @@ export default function Aboute({}) {
     </div>
   );
   return (
-    <Layout minh={1500} title="Home" component={conponent}>
+    <Layout title="Home" component={conponent}>
       <TitleBlock />
-      <Main />
+      <div className="pb-14">
+        <Main />
+      </div>
     </Layout>
   );
 }
