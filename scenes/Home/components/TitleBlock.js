@@ -5,7 +5,7 @@ import Button from "../../../components/atoms/Buttons/Button/Button";
 import Roundblur52 from "../../../components/atoms/Rounds/Roundblur52";
 
 export default function TitleBlock() {
-  const x=0 + 'aksjdklsjdklajnsd'
+  const x=0
   return (
     <div className="min-w-[983px] m-auto mt-[100px] flex flex-col items-center">
       <div className=" flex">
