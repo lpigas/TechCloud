@@ -5,14 +5,14 @@ import Cloud_Netw from "../../../../../../components/moleculs/minilogos/cloud/Cl
 
 export default function MiniLogos() {
   return (
-    <div className="flex">
-      <div className=" top-0 left-0">
+    <div className="flex flex-wrap gap-4">
+      <div className="">
         <Cloud_Friend />
       </div>
-      <div className=" top-0 left-[808px]">
+      <div className="">
         <Cloud_Netw />
       </div>
-      <div className=" top-0 left-[404px]">
+      <div className="">
         <Cloud_certificate />
       </div>
     </div>

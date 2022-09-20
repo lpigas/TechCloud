@@ -2,7 +2,7 @@ import React from "react";
 
 export default function About_2() {
   return (
-    <div className="font-normal not-italic text-[20px] leading-[34px] text-[#616E87] z-10">
+    <div className="font-normal not-italic text-[20px] leading-[34px] text-[#616E87]">
       предлагает аренду сервера в облаке с отличной и доступной системой
       сопровождения. 1С в облаке, облачный офис, выделенный сервер и интернет
       телефония в аренду, это только 5% от того что мы можем Вам предложить.

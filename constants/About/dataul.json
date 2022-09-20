@@ -2,19 +2,19 @@
   "services": [
     {
       "name": "ИТ Консалтинг",
-      "photoUrl": "/image/PhotoUl/consalting.jpg",
+      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
       "Roundblur": { "img": "/image/Form/Logos/consalting_1.svg", "color": "violet" },
       "text": { "title": "Консалтинг", "description": "Консалтинг" }
     },
     {
       "name": "ИТ Аутсорсинг (удаленно)",
-      "photoUrl": "/image/PhotoUl/outsorc.svg",
+      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
       "Roundblur": { "img": "/image/Form/Logos/outsorc_1.svg", "color": "orange" },
       "text": { "title": "ИТ Аутсорсинг (удаленно)", "description": "ИТ Аутсорсинг (удаленно)" }
     },
     {
       "name": "Аренда выделенных серверов",
-      "photoUrl": "/image/PhotoUl/Rent.jpg",
+      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
       "Roundblur": { "img": "/image/Form/Logos/servers.svg", "color": "blue" },
       "text": { "title": "Аренда выделенных серверов", "description": "Аренда выделенных серверов" }
     },
@@ -29,25 +29,25 @@
     },
     {
       "name": "Кибербезопасность",
-      "photoUrl": "/image/PhotoUl/security.jpg",
+      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
       "Roundblur": { "img": "/image/Form/Logos/security.svg", "color": "pink" },
       "text": { "title": "Кибербезопасность", "description": "Кибербезопасность" }
     },
     {
       "name": "Автоматизация",
-      "photoUrl": "/image/PhotoUl/automatic.jpg",
+      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
       "Roundblur": { "img": "/image/Form/Logos/automatic_1.svg", "color": "violet" },
       "text": { "title": "Автоматизация", "description": "Автоматизация" }
     },
     {
       "name": "Продажа софта по безопасности",
-      "photoUrl": "/image/PhotoUl/soft.jpg",
+      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
       "Roundblur": { "img": "/image/Form/Logos/soft_1.svg", "color": "orange" },
       "text": { "title": "Продажа софта по безопасности", "description": "Продажа софта по безопасности" }
     },
     {
       "name": "Продажа подписок на облачный софт",
-      "photoUrl": "/image/PhotoUl/cloud-soft.jpg",
+      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
       "Roundblur": { "img": "/image/Form/Logos/cloud-soft_1.svg", "color": "lightblue" },
       "text": { "title": "Продажа подписок на облачный софт", "description": "Продажа подписок на облачный софт" }
     }

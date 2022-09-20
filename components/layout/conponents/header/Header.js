@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import jwt from "jsonwebtoken";
 import Select from "react-select";
+import Menu from "../../../atoms/Buttons/Button/Menu"
 
 export default function Header({ title }) {
   const lang = [{ value: "Русский", label: "Русский" }];
@@ -25,14 +26,14 @@ export default function Header({ title }) {
   }, []);
 
   return (
-    <header className="flex h-[68px] min-w-full">
+    <header className="flex  min-w-full">
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="flex mx-auto w-max-60vw flex-col flex-wrap items-start justify-start">
+      <div className="flex mx-auto w-11/12 max-w-[1200px] items-start justify-start">
         <nav
           id="menu"
-          className="flex h-full w-full justify-between items-center min-w-[1185px]"
+          className="md:flex h-full sm:hidden w-full justify-between sm:flex-col md:flex-row  items-center "
         >
           <div className="flex">
             <Image
@@ -43,7 +44,7 @@ export default function Header({ title }) {
               className={"mt-2"}
             />
           </div>
-          <div className="flex justify-between w-4/5 mx-32 items-center">
+          <div className="flex justify-between flex-wrap sm:flex-col md:flex-row  w-4/5 mx-32 items-center">
             {links.map(item=>
           <Link
             key={Math.random()}
@@ -57,13 +58,13 @@ export default function Header({ title }) {
 
 
           <Select
-            id="react-select-2-live-region"
+            id="react-select-22-live-region"
             className="mt-[12px] border-box w-[160px] bg-[#FFFFFF] rounded-[30px]"
             pageSize={20}
             defaultInputValue={lang[0].value}
             defaultValue={"Русский"}
             options={lang}
-          ></Select>
+          />
           </div>
           <div className="items-center flex h-full">
             <a
@@ -86,6 +87,9 @@ export default function Header({ title }) {
             </div>
           </div>
         </nav>
+      <div className="sm:flex md:hidden h-full pb-36 w-full justify-center items-center">
+      <Menu data={links}/>
+      </div>
       </div>
     </header>
   );

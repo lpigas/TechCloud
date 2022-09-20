@@ -4,7 +4,7 @@ import Roundblur70 from "../../../atoms/Rounds/RoundBlur70";
 
 export default function Cloud_Netw() {
   return (
-    <div className="w-[426px] h-[120px] flex wrap items-center">
+    <div className="w-[426px] max-w-full flex items-center">
       <Roundblur120 color={"orange"}>
         <Roundblur70 color={"orange"}>
           <img
