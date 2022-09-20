@@ -10,7 +10,7 @@ export default function FAQ() {
 
   return (
     <Layout title={"FAQ"}>
-      <div id="home__title" className="flex  w-[983px] h-[246px]">
+      <div id="home__title" className="max-w-1/2">
         <TitleBlock partname={FAQData.FAQpartname} />
       </div>
       <div className="mt-[31px] pb-10">

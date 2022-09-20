@@ -46,13 +46,15 @@ export default function LoginBlock({
     }, 3000);
   }
   return (
-    <div className="min-w-[882px] h-[487px] flex bg-[#FFFFFF] rounded-[50px]">
-      <div className="mt-[71px] ml-[101px]">
+    <div className="max-w-1/2 h-[487px] flex bg-[#FFFFFF] rounded-[50px] p-">
+      <div className="w-full mt-[71px] px-16 ">
         <p className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] h-[28px]">
           Введите Ваш логин и пароль:
         </p>
 
-        <form className="mt-[33px] w-[579px]">
+        <form className="mt-[33px] w-full  pr-16">
+          <div className="flex w-full pr-16">
+
           <StandartInput
             type={"email"}
             placeholder={`E-mail`}
@@ -61,7 +63,8 @@ export default function LoginBlock({
               setEnterLogin({ ...enterLogin, email: e.target.value })
             }
           />
-          <div className="flex">
+          </div>
+          <div className="flex w-full pr-16">
             <StandartInput
               type={`${view === "text" ? "text" : "password"}`}
               placeholder={`Password`}

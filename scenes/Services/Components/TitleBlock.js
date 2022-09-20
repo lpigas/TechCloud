@@ -5,8 +5,8 @@ import Roundblur52 from "../../../components/atoms/Rounds/Roundblur52";
 export default function TitleBlock({ partname }) {
   return (
     <div className="flex mb-[87px]">
-      <div className="w-[614px]  ml-[369px]  h-[118px] mt-[87px] z-10 ">
-        <div className="w-[579px] h-[56]  flex">
+      <div className="w-full  ml-[369px]  h-[118px] mt-[87px] z-10 ">
+        <div className="w-full h-[56]  flex">
           <p className="mx-4 flex font-normal not-italic  text-[14px] leading-[28px] text-[#616E87]">
             <Link href={"/"}> Главная </Link>
           </p>
@@ -29,7 +29,7 @@ export default function TitleBlock({ partname }) {
               </div>
             ))}
         </div>
-        <div className="mt-[38px] flex font-bold not-italic text-[65px] w-[1014px] leading-[70px] text-[#3E3F50]">
+        <div className="mt-[38px] flex font-bold not-italic text-[65px] max-w-half leading-[70px] text-[#3E3F50]">
           <div className="mt-[-20px] mr-[-16px]">
             <Roundblur52 color={"blue"} />
           </div>
