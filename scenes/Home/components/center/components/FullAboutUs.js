@@ -1,7 +1,7 @@
 import React from "react";
 import Roundblur52 from "../../../../../components/atoms/Rounds/Roundblur52";
-import About_1 from "../../Text/About_1";
-import About_2 from "../../Text/About_2";
+import About_1 from "../../text/About_1";
+import About_2 from "../../text/About_2";
 import MiniLogos from "./MinilogoBlock/MiniLogos";
 
 export default function FullAboutUs() {

@@ -1,5 +1,4 @@
 import React from "react";
-import Roundblur52 from "../../atoms/Rounds/Roundblur52";
 import Button from "../../atoms/Buttons/Button/Button";
 import Beclient from "../../atoms/Text/Beclient";
 

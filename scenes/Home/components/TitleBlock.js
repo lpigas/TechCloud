@@ -1,5 +1,5 @@
 import React from "react";
-import Text2 from "./Text/Text2";
+import Text2 from "./text/Text2";
 import TitleFirst from "./TitleFirst";
 import Button from "../../../components/atoms/Buttons/Button/Button";
 import Roundblur52 from "../../../components/atoms/Rounds/Roundblur52";
