@@ -9,9 +9,9 @@ export default function Footer({}) {
   return (
     <div
       id="home__footer"
-      className={` max-w-75vw p-4 flex items-center justify-center text-center max-h-75vh m-auto `}
+      className={`mt-[120px] max-w-75vw p-4 flex items-center justify-center text-center max-h-75vh m-auto `}
     >
-      <footer className="flex m-auto mt-[120px] mb-[74px] max-w-[1187px]">
+      <footer className="flex m-auto  mb-[74px] max-w-[1187px]">
         <div className="w-full flex m-auto">
           <div className="flex flex-col justify-between ml-16 w-max-35vw">
             <img src={"/image/logo1_1.png"} width={100} height={100} />
