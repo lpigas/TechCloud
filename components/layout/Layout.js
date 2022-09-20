@@ -8,13 +8,12 @@ const bgColor = {
 
 export default function Layout({
   title,
-  minh,
   children,
   component,
   bgcolor = "standart",
 }) {
   return (
-    <div className="flex flex-col lg:min-w-[1920px] md:min-w-200vh sm:min-w-200vh  ">
+    <div className="flex flex-col lg:min-w-[1920px] md:min-w-[1520px] sm:min-w-[1320px]  ">
       <div
         className={`w-full min-h-full`}
         style={{

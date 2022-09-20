@@ -4,7 +4,7 @@ import RoundBlur50 from "../../../../../../components/atoms/Rounds/RoundBlur50";
 
 export default function CloudUl({ data }) {
   return (
-    <div className="ml-[-20px]">
+    <div className="ml-[20px]">
       {data && (
         <Roundblur100 color={data.Roundblur.color}>
           <RoundBlur50 color={data.Roundblur.color}>

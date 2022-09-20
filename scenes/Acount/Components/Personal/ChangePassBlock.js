@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Buttons from "../../../../components/atoms/Buttons/Button/Button";
+import StandartInput from "../../../../components/atoms/Input/StandartInput";
 import Loader from "../../../../components/atoms/Loader/Loader";
 
 export default function ChangePassBlock({
@@ -19,14 +20,15 @@ export default function ChangePassBlock({
   return (
     <div className=" min-h-[324px] pt-[56px] mr-10 px-[50px] bg-white rounded-[50px] pb-10">
       <div className="">
+        
         <div className="flex">
-          <input
+          <StandartInput
             type={`${oldPassView === "text" ? "text" : "password"}`}
             placeholder={"Введите старый пароль"}
             name="password"
             required
             value={changePassword.old}
-            className="mt-[12px] border-box w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
+            className="border-box mt-[12px] pl-[12px] w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[1px] border-[#E4E4ED]"
             onChange={(e) =>
               setChangePassword({ ...changePassword, old: e.target.value })
             }
@@ -38,14 +40,14 @@ export default function ChangePassBlock({
           />
         </div>
         <div className="flex">
-          <input
+          <StandartInput
             type={`${newPassView === "text" ? "text" : "password"}`}
             placeholder={"Введите новый пароль"}
             name="password"
             required
             value={changePassword.newpass}
             minLength={6}
-            className="mt-[12px] border-box w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
+            className="border-box mt-[12px] pl-[12px] w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[1px] border-[#E4E4ED]"
             onChange={(e) =>
               setChangePassword({ ...changePassword, newpass: e.target.value })
             }
@@ -57,13 +59,13 @@ export default function ChangePassBlock({
           />
         </div>
         <div className="flex">
-          <input
+          <StandartInput
             type={`${secondPassView === "text" ? "text" : "password"}`}
             placeholder={"Повторите новый пароль"}
             name="password"
             required
             value={changePassword.secondNewpass}
-            className="mt-[12px] border-box w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[3px] border-[#E4E4ED]"
+            className="border-box mt-[12px] pl-[12px] w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[1px] border-[#E4E4ED]"
             onChange={(e) =>
               setChangePassword({
                 ...changePassword,

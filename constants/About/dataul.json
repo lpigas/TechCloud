@@ -2,26 +2,26 @@
   "services": [
     {
       "name": "ИТ Консалтинг",
-      "photoUrl": "",
-      "Roundblur": { "img": "", "color": "" },
-      "text": { "title": "", "description": "" }
+      "photoUrl": "/image/PhotoUl/consalting.jpg",
+      "Roundblur": { "img": "/image/Form/Logos/consalting_1.svg", "color": "violet" },
+      "text": { "title": "Консалтинг", "description": "Консалтинг" }
     },
     {
       "name": "ИТ Аутсорсинг (удаленно)",
-      "photoUrl": "",
-      "Roundblur": { "img": "", "color": "" },
-      "text": { "title": "", "description": "" }
+      "photoUrl": "/image/PhotoUl/outsorc.svg",
+      "Roundblur": { "img": "/image/Form/Logos/outsorc_1.svg", "color": "orange" },
+      "text": { "title": "ИТ Аутсорсинг (удаленно)", "description": "ИТ Аутсорсинг (удаленно)" }
     },
     {
       "name": "Аренда выделенных серверов",
-      "photoUrl": "",
-      "Roundblur": { "img": "", "color": "" },
-      "text": { "title": "", "description": "" }
+      "photoUrl": "/image/PhotoUl/Rent.jpg",
+      "Roundblur": { "img": "/image/Form/Logos/servers.svg", "color": "blue" },
+      "text": { "title": "Аренда выделенных серверов", "description": "Аренда выделенных серверов" }
     },
     {
       "name": "Облачный сервер",
       "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/cloud-computing_1.svg", "color": "blue" },
+      "Roundblur": { "img": "/image/cloud-computing_1.svg", "color": "lightblue" },
       "text": {
         "title": "Миграция в облако",
         "description": "Перенос ваших физических серверов за пределы страны в облачные или выделенные сервера в надежных датацентрах мира. 99.9% доступности, энергонезависимость, высокие каналы связи."
@@ -29,27 +29,27 @@
     },
     {
       "name": "Кибербезопасность",
-      "photoUrl": "",
-      "Roundblur": { "img": "", "color": "" },
-      "text": { "title": "", "description": "" }
+      "photoUrl": "/image/PhotoUl/security.jpg",
+      "Roundblur": { "img": "/image/Form/Logos/security.svg", "color": "pink" },
+      "text": { "title": "Кибербезопасность", "description": "Кибербезопасность" }
     },
     {
       "name": "Автоматизация",
-      "photoUrl": "",
-      "Roundblur": { "img": "", "color": "" },
-      "text": { "title": "", "description": "" }
+      "photoUrl": "/image/PhotoUl/automatic.jpg",
+      "Roundblur": { "img": "/image/Form/Logos/automatic_1.svg", "color": "violet" },
+      "text": { "title": "Автоматизация", "description": "Автоматизация" }
     },
     {
       "name": "Продажа софта по безопасности",
-      "photoUrl": "",
-      "Roundblur": { "img": "", "color": "" },
-      "text": { "title": "", "description": "" }
+      "photoUrl": "/image/PhotoUl/soft.jpg",
+      "Roundblur": { "img": "/image/Form/Logos/soft_1.svg", "color": "orange" },
+      "text": { "title": "Продажа софта по безопасности", "description": "Продажа софта по безопасности" }
     },
     {
       "name": "Продажа подписок на облачный софт",
-      "photoUrl": "",
-      "Roundblur": { "img": "", "color": "" },
-      "text": { "title": "", "description": "" }
+      "photoUrl": "/image/PhotoUl/cloud-soft.jpg",
+      "Roundblur": { "img": "/image/Form/Logos/cloud-soft_1.svg", "color": "lightblue" },
+      "text": { "title": "Продажа подписок на облачный софт", "description": "Продажа подписок на облачный софт" }
     }
   ]
 }

@@ -9,10 +9,10 @@ import Button from "../../../../../components/atoms/Buttons/Button/Button";
 
 export default function FullService() {
   const services = dataul.services;
-  const [changedLi, setChangedLi] = useState("");
-
+  const [changedLi, setChangedLi] = useState(services[0]);
+  
   return (
-    <div className="max-w-[1286px] flex min-h-[822px] flex-col">
+    <div className="max-w-full flex min-h-[822px] flex-col">
       <div className="flex font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10">
         Наши услуги
         <div className="mt-[-10px] ml-[-10px]">
@@ -21,21 +21,21 @@ export default function FullService() {
       </div>
 
       <div className="flex flex-row">
-        <div className="w-[377px] h-[516px] mt-[60px]">
+        <div className="mt-[60px]">
           <Service_ul
             services={services}
             changed={changedLi}
             setChanged={setChangedLi}
           />
         </div>
-        <div className=" w-[579px] ml-[128px] h-[516px] z-50">
-          <div className=" relative">
+        <div className=" w-1/2 ml-[128px] min-h-75vh z-50">
+          <div className="flex">
             <CloudUl data={changedLi} />
           </div>
-          <div className="h-[355px]">
+          <div className="">
             <PhotoUl data={changedLi} />
           </div>
-          <div className="h-[106px] mt-[55px]">
+          <div className=" mt-[55px]">
             <TextUl data={changedLi} />
           </div>
           <div className=" mt-[65px]">

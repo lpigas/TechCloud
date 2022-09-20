@@ -27,7 +27,9 @@ export default function Tickets({ email, role }) {
   return (
     <div className="bg-[#F9F9FC] w-full">
       {!allTickets ? (
+        <div className="flex justify-center items-center mt-52">
         <Loader />
+        </div>
       ) : (
         <div className="mt-[83px] ml-[128px] w-[781px] h-[788px]">
           {openTicket ? (

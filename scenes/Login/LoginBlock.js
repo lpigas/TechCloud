@@ -36,6 +36,7 @@ export default function LoginBlock({
         );
       }
       fullinfo.role === "user" && router.push(process.env.USER_PATH);
+      //
     }
     setOpenLoader(false);
   }

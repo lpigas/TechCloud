@@ -9,6 +9,12 @@ import Select from "react-select";
 
 export default function Header({ title }) {
   const lang = [{ value: "Русский", label: "Русский" }];
+  const links = [
+    {link:'/', id:'url_home',title:'О нас'},
+    {link:'/shop', id:'url_shop',title:'Магазин'},
+    {link:'/services', id:'url_services',title:'Услуги'},
+    {link:'/FAQ', id:'url_FAQ',title:'FAQ'},
+  ]
   const router = useRouter();
   const [loginData, setLoginData] = useState();
   useEffect(() => {
@@ -26,9 +32,9 @@ export default function Header({ title }) {
       <div className="flex mx-auto w-max-60vw flex-col flex-wrap items-start justify-start">
         <nav
           id="menu"
-          className="flex h-full w-full  items-center gap-[70px] p-0 min-w-[1185px]"
+          className="flex h-full w-full justify-between items-center min-w-[1185px]"
         >
-          <div className="flex z-[999]">
+          <div className="flex">
             <Image
               onClick={() => router.push("/")}
               src={"/image/logo1_1.png"}
@@ -37,33 +43,18 @@ export default function Header({ title }) {
               className={"mt-2"}
             />
           </div>
-          <div
-            id="Frame_1"
-            className="ml-[202px] w-[47px] h-[28px] gap-[53px] p-0"
-          >
-            О нас
-          </div>
+          <div className="flex justify-between w-4/5 mx-32 items-center">
+            {links.map(item=>
           <Link
-            href={"/shop"}
-            id="Frame_2"
-            className="w-[73px] h-[28px] gap-[53px] p-0"
+            href={item.link}
+            id={item.id}
           >
-            Магазин
+            {item.title}
           </Link>
-          <Link
-            href={"/services"}
-            id="Frame_3"
-            className="w-[57px] h-[28px] gap-[53px] p-0"
-          >
-            Услуги
-          </Link>
-          <Link
-            href={"/FAQ"}
-            id="Frame_4"
-            className="w-[47px] h-[28px] gap-[53px] mt-1"
-          >
-            FAQ
-          </Link>
+
+            )}
+
+
           <Select
             id="react-select-2-live-region"
             className="mt-[12px] border-box w-[160px] bg-[#FFFFFF] rounded-[30px]"
@@ -72,11 +63,13 @@ export default function Header({ title }) {
             defaultValue={"Русский"}
             options={lang}
           ></Select>
-          <div className="items-center ml-10 flex h-full">
+          </div>
+          <div className="items-center flex h-full">
             <a
               href={`${
                 !loginData
                   ? "/login"
+                  ///auth/login
                   : loginData.role === "admin"
                   ? process.env.ADMIN_PATH
                   : process.env.USER_PATH
@@ -84,7 +77,7 @@ export default function Header({ title }) {
             >
               <img
                 src={"/image/group.svg"}
-                className="w-[22px] m-[53px] h-[22px]"
+                className="w-[22px] mr-10 h-[22px]"
               />
             </a>
             <div className="w-[34px] mt-[26px] h-[57px]">
