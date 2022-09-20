@@ -14,20 +14,20 @@ export default function ServicesForms({
   const router = useRouter();
   return (
     <div
-      className={`lg:max-w-50vw lg:min-w-50vh xl:max-w-35vw xl:min-w-35vw  sm:min-w-75vh sm:max-w-75vh flex mr-[28px] mb-[27px] bg-[#FFFFFF] rounded-[20px]`}
+      className={`flex w-full bg-[#ffffff] rounded-[20px]`}
     >
-      <div className="min-w-[275px] min-h-[409px]">
+      <div className="min-h-[409px]">
         <img src={bigImage} />
       </div>
 
-      <div className="font-medium ml-[30px] not-italic h-[409px] flex flex-col justify-between text-[20px] leading-[28px] text-[#3E3F50]">
-        <div className={`mt-[47px] ml-[-1px] mb-[43px]`}>
+      <div className="font-medium break-words ml-[30px]  not-italic h-[409px] flex flex-col justify-between text-[20px] leading-[28px] text-[#3E3F50]">
+        <div className={`mt-[47px]  mb-[43px]`}>
           <Roundblur100 color={color}>
             <RoundBlur50 color={color}>
               <img src={imageRound} />
             </RoundBlur50>
           </Roundblur100>
-        </div>{" "}
+        </div > {" "}
         {title}
         <div
           onClick={() => onClick(data)}
@@ -35,7 +35,7 @@ export default function ServicesForms({
         >
           <p className="flex">
             Подробнее об услуге
-            <img src="/image/Arrows/Arrow_3.svg" width={"16.5"} className="mx-6"/>
+            <img src="/image/Arrows/Arrow_3.svg" width={"16.5"} className="x-6"/>
           </p>
         </div>
       </div>

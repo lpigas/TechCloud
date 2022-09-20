@@ -40,13 +40,13 @@ export default function RegistrationBlock({
   }, []);
 
   return (
-    <div className="w-[882px] min-h-[487px] mt-[118px] pb-[44px] flex bg-[#FFFFFF] rounded-[50px]">
-      <div className="mt-[71px] ml-[101px]">
+    <div className="w-4/5 flex bg-[#FFFFFF] rounded-[50px]">
+      <div className=" p-16">
         <p className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] h-[28px]">
           Введите данные для регистрации:
         </p>
 
-        <form className="mt-[33px] w-[579px]">
+        <form className="mt-[33px] ">
           <StandartInput
             type={`text`}
             placeholder={`Name`}
