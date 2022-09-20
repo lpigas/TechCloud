@@ -4,7 +4,7 @@ export default function FaqBlock({ data, opened, setOpened }) {
   return (
     <div
       onClick={() => (opened ? setOpened("") : setOpened(data.title))}
-      className={`w-1/2 mb-[13px] ${
+      className={`sm:w-full lg:w-1/2 mb-[13px] ${
         opened !== data.title
           ? "min-h-[85px] bg-[#F9F9FC] border-[#F9F9FC]"
           : "min-h-[281px] bg-white border-white"

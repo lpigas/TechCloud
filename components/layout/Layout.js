@@ -13,9 +13,9 @@ export default function Layout({
   bgcolor = "standart",
 }) {
   return (
-    <div className="flex flex-col min-w-full min-h-full  overflow-hidden ">
+    <div className="flex flex-col min-w-full ">
       <div
-        className={`w-full`}
+        className={``}
         style={{
           background: bgColor[bgcolor],
         }}
