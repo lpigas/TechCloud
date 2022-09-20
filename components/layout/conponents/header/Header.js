@@ -46,6 +46,7 @@ export default function Header({ title }) {
           <div className="flex justify-between w-4/5 mx-32 items-center">
             {links.map(item=>
           <Link
+            key={Math.random()}
             href={item.link}
             id={item.id}
           >
