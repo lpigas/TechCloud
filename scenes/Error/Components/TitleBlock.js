@@ -15,7 +15,7 @@ export default function TitleBlock({ partname }) {
           </div>
           {partname && partname[partname.length - 1].service_name}
         </div>
-        <div className="mt-[15px]">
+        <div className="my-[215px]">
           <Ilustration />
         </div>
         <div className="mt-[105px]">

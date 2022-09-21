@@ -40,13 +40,13 @@ export default function RegistrationBlock({
   }, []);
 
   return (
-    <div className="w-4/5 flex bg-[#FFFFFF] rounded-[50px]">
-      <div className=" p-16">
-        <p className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] h-[28px]">
+    <div className="sm:w-full xl:w-3/5 flex bg-[#FFFFFF] justify-around rounded-[50px]">
+      <div className="w-full p-12 flex flex-col  ">
+        <p className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
           Введите данные для регистрации:
         </p>
 
-        <form className="mt-[33px] ">
+        <form className="mt-[33px] w-full ">
           <StandartInput
             type={`text`}
             placeholder={`Name`}
@@ -116,14 +116,14 @@ export default function RegistrationBlock({
             <Loader />
           </div>
         )}
+        {messageError && (
+          <div className="mt-10 text-red-500">{messageError}</div>
+        )}
         <div className="mt-[48px]">
           <Button onClick={registerNewUser} type={"static"}>
             Зарегистрировать
           </Button>
         </div>
-        {messageError && (
-          <div className="mt-10 text-red-500">{messageError}</div>
-        )}
       </div>
     </div>
   );

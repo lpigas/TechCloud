@@ -20,6 +20,7 @@ export default function MenuListComposition({data}) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const router = useRouter()
+  const newData = [...data, {link:'/login', id:'url_login',title:'Login'},{link:'/Cart', id:'url_cart',title:'Корзина'},]
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -50,7 +51,7 @@ export default function MenuListComposition({data}) {
   }, [open]);
 
   return (
-    <div className={classes.root}>
+    <div className={`${classes.root} w-full flex justify-end`}>
       <div className='text-[24px] font-bold'>
         <Button
           ref={anchorRef}
@@ -69,10 +70,16 @@ export default function MenuListComposition({data}) {
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
+
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    {data.map(item =>
-                    <MenuItem onClick={event => handleClose(event, item.link)} key={Math.random()}>{item.title}</MenuItem>
+
+                    {newData.map(item =>
+
+                    <MenuItem onClick={event => handleClose(event, item.link)} key={Math.random()}>
+                        {item.title}
+                      </MenuItem>
                         )}
+
 
                   </MenuList>
                 </ClickAwayListener>

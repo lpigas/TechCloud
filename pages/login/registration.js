@@ -53,7 +53,7 @@ export default function registration() {
           },
         ]}
       />
-        <div className="flex w-1/2 sm:mx-auto lg:ml-[369px] py-[80px]">
+        <div className="w-8/12 max-w-full mb-10 m-auto bg-green-600">
           <RegistrationBlock
             view={viewPassword}
             setView={setViewPassword}

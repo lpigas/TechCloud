@@ -20,8 +20,8 @@ export default function ServicesForms({
         <img src={bigImage} />
       </div>
 
-      <div className="font-medium break-words ml-[30px]  not-italic h-[409px] flex flex-col justify-between text-[20px] leading-[28px] text-[#3E3F50]">
-        <div className={`mt-[47px]  mb-[43px]`}>
+      <div className="font-medium  break-words ml-[30px]  not-italic h-[409px] flex flex-col justify-between text-[20px] leading-[28px] text-[#3E3F50]">
+        <div className={`mt-[47px]  mb-[43px] break-all`}>
           <Roundblur100 color={color}>
             <RoundBlur50 color={color}>
               <img src={imageRound} />
