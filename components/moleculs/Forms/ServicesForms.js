@@ -35,7 +35,7 @@ export default function ServicesForms({
         >
           <p className="flex">
             Подробнее об услуге
-            <img src="/image/Arrows/Arrow_3.svg" width={"16.5"} className="x-6"/>
+            <img src="/image/Arrows/Arrow_3.svg" width={"16.5"} className="mx-6"/>
           </p>
         </div>
       </div>

@@ -5,7 +5,7 @@ import Roundblur52 from "../../../components/atoms/Rounds/Roundblur52";
 export default function TitleBlock({ partname }) {
   return (
     <div className="flex mb-[87px]">
-      <div className="w-full  ml-[369px]  h-[118px] mt-[87px] z-10 ">
+      <div className=" w-4/6  mt-[87px] m-auto z-10 ">
         <div className="w-full h-[56]  flex">
           <p className="mx-4 flex font-normal not-italic  text-[14px] leading-[28px] text-[#616E87]">
             <Link href={"/"}> Главная </Link>
