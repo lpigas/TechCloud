@@ -20,7 +20,7 @@ export default function FullService() {
         Наши услуги
       </div>
 
-      <div className="flex flex-row flex-wrap">
+      <div className="flex flex-col ser:flex-row flex-wrap">
         <div className="mt-[60px]">
           <Service_ul
             services={services}
@@ -28,7 +28,7 @@ export default function FullService() {
             setChanged={setChangedLi}
           />
         </div>
-        <div className=" w-2/5 min-w-[400px] xl:ml-[128px]">
+        <div className=" w-2/5 min-w-[400px] ser:ml-[128px] mt-[50px] ser:mt-0 ">
           <div className="flex">
             <CloudUl data={changedLi} />
           </div>
