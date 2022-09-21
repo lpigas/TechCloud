@@ -4,7 +4,7 @@ import Beclient from "../../atoms/Text/Beclient";
 
 export default function Bottom({ title, buttonName }) {
   return (
-    <div className="p-24  mx-auto bg-[#F0F0FA] lg:max-w-1/2 sm:max-w-half rounded-[80px] flex items-center flex-col ">
+    <div className="p-24  mx-auto bg-[#F0F0FA] lg:max-w-1/2 max-w-90% rounded-[20px] lg:rounded-[80px] flex items-center flex-col ">
       <Beclient title={title} color={"violet"} />
       <div className="mt-[23px] flex-wrap flex text-center font-normal not-italic text-[18px] leading-[28px] text-[#616E87]">
         Оставьте заявку, мы проконсультируем вас и поможем подобрать оптимальную

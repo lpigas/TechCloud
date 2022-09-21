@@ -48,12 +48,12 @@ export default function registration() {
       <TitleBlock
         partname={[
           {
-            service_url: "/registration",
+            service_url: "/login/registration",
             service_name: "Регистрация нового пользователя",
           },
         ]}
       />
-        <div className="w-8/12 max-w-full mb-10 m-auto bg-green-600">
+        <div className="md:w-8/12 max-w-full mb-10 m-auto">
           <RegistrationBlock
             view={viewPassword}
             setView={setViewPassword}

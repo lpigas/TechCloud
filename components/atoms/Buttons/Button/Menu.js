@@ -8,10 +8,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    padding:'0'
   },
 }));
 
@@ -51,8 +53,16 @@ export default function MenuListComposition({data}) {
   }, [open]);
 
   return (
-    <div className={`${classes.root} w-full flex justify-end`}>
-      <div className='text-[24px] font-bold'>
+
+    <div className={`${classes.root} w-full flex items-center justify-between sticy mb-8`}>
+                  <Image
+              onClick={() => router.push("/")}
+              src={"/image/logo1_1.png"}
+              width={101}
+              height={62}
+              className={"mt-2"}
+            />
+      <div className='text-[24px] font-bold relative z-10'>
         <Button
           ref={anchorRef}
           aria-controls={open ? 'menu-list-grow' : undefined}
@@ -72,14 +82,14 @@ export default function MenuListComposition({data}) {
                 <ClickAwayListener onClickAway={handleClose}>
 
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-
                     {newData.map(item =>
+                    <div className='h-10'>
 
                     <MenuItem onClick={event => handleClose(event, item.link)} key={Math.random()}>
                         {item.title}
                       </MenuItem>
+                      </div>
                         )}
-
 
                   </MenuList>
                 </ClickAwayListener>

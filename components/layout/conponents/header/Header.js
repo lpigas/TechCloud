@@ -87,7 +87,7 @@ export default function Header({ title }) {
             </div>
           </div>
         </nav>
-      <div className="sm:flex md:hidden h-full pb-36 w-full justify-center items-center">
+      <div className="flex relative md:hidden w-full">
       <Menu data={links}/>
       </div>
       </div>

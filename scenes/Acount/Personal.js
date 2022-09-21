@@ -109,8 +109,8 @@ export default function Personal({
   }, [token]);
 
   return (
-    <div className="bg-[#F9F9FC] max-w-1/2 pb-10 ">
-      <div className="mt-[83px] ml-[68px] w- h-[788px]">
+    <div className="bg-[#F9F9FC] w-full lg:w-2/3 max-w-full pb-10 ">
+      <div className="mt-[83px] lg:ml-[68px]  ">
         <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
           Персональная информация
         </div>
@@ -128,7 +128,7 @@ export default function Personal({
       </div>
       <div className="mt-[83px] ml-[68px]">
         <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
-          Персональная информация
+          Изменить пароль
         </div>
         <div className="mt-[36px]">
           {user && (

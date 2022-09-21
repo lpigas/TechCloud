@@ -8,19 +8,19 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
   ];
 
   return (
-    <div className="min-h-[277px]">
+    <div className="lg:mr-[-22px] flex lg:flex-col w-full ">
       {menu.map((item) => (
         <div
           key={Math.random()}
-          onClick={() => setHighlighted(item.menuname)}
-          className={`min-w-[644px] h-[62px] flex justify-end items-center mt-1 ${
+          onClick={() => setHighlighted(item.menuname)} 
+          className={`w-1/3 lg:w-full flex justify-center lg:justify-end py-[12px] mt-1 ${
             highlighted === item.menuname && "bg-[#E1E1F3]"
           }`}
         >
-          <div className="flex items-center">
+          <div className="flex flex-row items-center">
             <img width={18} height={18} src={item.img} />
-            <div className="w-[198px] flex items-center ml-3 h-[56px] flex-wrap font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50]">
-              {item.menuname}{" "}
+            <div className=" flex items-center cursor-pointer ml-3 break-words flex-wrap font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50]">
+              {item.menuname}{" "} 
             </div>
           </div>
           <img
@@ -31,15 +31,7 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
           />
         </div>
       ))}
-      <div className="flex justify-end mt-[76px] items-center">
-        <img src="/image/Arrows/logout.svg" />
-        <div
-          className="w-[198px] cursor-pointer ml-3 h-[56px] flex items-center font-normal not-italic text-[16px] leading-[28px] text-[#FD7A55]"
-          onClick={logout}
-        >
-          Выйти
-        </div>
-      </div>
+
     </div>
   );
 }

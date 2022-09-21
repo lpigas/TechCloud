@@ -14,7 +14,7 @@ export default function Center() {
             "linear-gradient(90deg, #F9F9FC 0%, #FCFCFD 33.33%, #FBFBFD 53.12%, #F6F6FA 100%)",
         }}
       >
-        <div className="w-11/12 max-w-[1500px] pb-[137px] m-auto">
+        <div className="w-full lg:w-11/12 lg:max-w-[1500px] pb-[137px] m-auto">
           <FullAboutUs />
           <FullService />
           <Partners />

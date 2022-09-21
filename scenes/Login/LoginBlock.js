@@ -46,9 +46,9 @@ export default function LoginBlock({
     }, 3000);
   }
   return (
-    <div className="sm:w-full xl:w-1/2 flex bg-[#FFFFFF] justify-around rounded-[50px]">
-      <div className="w-full p-12 flex flex-col  ">
-        <p className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] ">
+    <div className="sm:w-full xl:w-1/2 flex bg-[#FFFFFF] justify-around rounded-[20px] xl:rounded-[50px]">
+      <div className="w-full py-12 px-1 md:px-12 flex flex-col  ">
+        <p className="text-center md:text-start font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] ">
           Введите Ваш логин и пароль:
         </p>
 
@@ -108,9 +108,12 @@ export default function LoginBlock({
             <Loader />
           </div>
         )}
+        <div className="flex justify-center md:justify-start">
         <Button type={"static"} onClick={getToken}>
           Войти
         </Button>
+
+        </div>
       </div>
     </div>
   );

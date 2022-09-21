@@ -37,6 +37,7 @@ module.exports = {
       screen: "100vw",
       accordion: "850px",
       full: "100%",
+      '90%': "90%",
       "1/2": "50%",
       half: "75%",
       "35vw": "35vw",

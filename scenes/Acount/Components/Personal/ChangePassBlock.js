@@ -86,7 +86,7 @@ export default function ChangePassBlock({
             <Loader />
           </div>
         )}
-        <div className="mt-[54px] flex justify-evenly">
+        <div className="mt-[54px] flex justify-between">
           <Buttons onClick={changePass} type={"static"}>
             Сохранить
           </Buttons>

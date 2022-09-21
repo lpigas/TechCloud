@@ -40,9 +40,9 @@ export default function RegistrationBlock({
   }, []);
 
   return (
-    <div className="sm:w-full xl:w-3/5 flex bg-[#FFFFFF] justify-around rounded-[50px]">
-      <div className="w-full p-12 flex flex-col  ">
-        <p className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
+    <div className="w-full xl:w-3/5 flex bg-[#FFFFFF] justify-around rounded-[20px] xl:rounded-[50px]">
+      <div className="w-full py-12 px-1 md:px-12 flex flex-col  ">
+        <p className="text-center md:text-start font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] ">
           Введите данные для регистрации:
         </p>
 
@@ -119,7 +119,7 @@ export default function RegistrationBlock({
         {messageError && (
           <div className="mt-10 text-red-500">{messageError}</div>
         )}
-        <div className="mt-[48px]">
+        <div className="mt-[44px] flex justify-center md:justify-start">
           <Button onClick={registerNewUser} type={"static"}>
             Зарегистрировать
           </Button>

@@ -6,7 +6,7 @@ import Button from "../../../components/atoms/Buttons/Button/Button";
 
 export default function TitleBlock() {
   return (
-    <div className="max-w-[1000px] m-auto mt-[100px] flex flex-col items-center">
+    <div className="max-w-[1000px] m-auto lg:mt-[100px] flex flex-col items-center">
       <div className=" flex">
         <div className="flex w-full max-w-[1000px] m-auto mb-10">
           <TitleFirst></TitleFirst>
