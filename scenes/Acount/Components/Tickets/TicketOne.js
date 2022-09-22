@@ -63,13 +63,13 @@ export default function TicketOne({ ticketInfo, email, role }) {
   };
 
   return (
-    <>
-      <div className="w-[813px] h-[490px] overflow-scroll">
+    <div className="pb-8 ">
+      <div className="w-full  lg:px-[50px] overflow-scroll">
         <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
           Тикет: {ticketInfo.numTicket}
         </div>
 
-        <div className="mt-[13px] flex justify-between font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50] ">
+        <div className="mt-[13px] px-2 flex justify-between font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50] ">
           {ticketInfo.descr}
           {ticketInfo.status === "ok" ? (
             <a
@@ -91,26 +91,26 @@ export default function TicketOne({ ticketInfo, email, role }) {
             </a>
           )}
         </div>
-        <div className="w-[776px] mt-[17px] overflow-y-scroll items-center justify-end min-h-fit pb-12 bg-[#FFFFFF] rounded-[30px]">
+        <div className="w-full mt-[17px] overflow-y-scroll px-2 items-center justify-end min-h-fit pb-8 bg-[#FFFFFF] rounded-[10px] lg:rounded-[30px]">
           {ticketInfo.correspondence.map((item, index) => (
             <div key={Math.random()}>
               <div
-                className={`text-center ${
-                  index === 0 && "mt-[37px]"
+                className={`text-center  ${
+                  index === 0 && "mt-[27px]"
                 } font-normal not-italic text-[14px] leading-[18px] text-[#C8C8DB]`}
               >
-                {dateNow !== item.date && <div>{(dateNow = item.date)}</div>}
+                {dateNow !== item.date && <div className="mt-[20px]">{(dateNow = item.date)}</div>}
               </div>
               <div
-                className={`ml-[52px] w-[547px] mt-[34px] flex flex-col ${
-                  item.role === "admin" && "items-end ml-52"
+                className={`lg:px-4 w-full mt-[34px] flex flex-col ${
+                  item.role === "admin" && "items-end "
                 } `}
               >
                 <div className="font-normal not-italic text-[12px] leading-[16px] text-[#616E87]">
                   {item.role !== "admin" && <div>{item.role + ":"}</div>}
                 </div>
                 <div
-                  className={` w-fit py-[12px] px-[16px] mt-[4px] ${
+                  className={` w-fit py-[12px] lg:px-[16px] mt-[4px] ${
                     item.role !== "admin"
                       ? "bg-[#ffb39d] justify-start text-start "
                       : "bg-[#F0F0FA] break-word "
@@ -129,7 +129,7 @@ export default function TicketOne({ ticketInfo, email, role }) {
           ))}
         </div>
       </div>
-      <div className="mt-[37px]">
+      <div className="mt-[37px] lg:px-12 ">
         <Add
           uploadData={uploadData}
           setUploadData={setUploadData}
@@ -137,6 +137,6 @@ export default function TicketOne({ ticketInfo, email, role }) {
           openLoader={openLoader}
         />
       </div>
-    </>
+    </div>
   );
 }

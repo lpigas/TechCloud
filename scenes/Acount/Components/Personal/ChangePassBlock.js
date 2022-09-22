@@ -18,8 +18,8 @@ export default function ChangePassBlock({
   };
 
   return (
-    <div className=" min-h-[324px] pt-[56px] mr-10 px-[50px] bg-white rounded-[50px] pb-10">
-      <div className="">
+    <div className="w-9/10 lg:w-4/5 pt-[56px] lg:mr-10 px-2 lg:px-[50px] rounded-[20px] pb-8 lg:rounded-[50px] bg-[#ffffff]">
+      <div className="lg:pr-12">
         
         <div className="flex">
           <StandartInput
@@ -39,7 +39,7 @@ export default function ChangePassBlock({
             onClick={() => setOldPassView(oldPassView === "text" ? "" : "text")}
           />
         </div>
-        <div className="flex">
+        <div className="flex ">
           <StandartInput
             type={`${newPassView === "text" ? "text" : "password"}`}
             placeholder={"Введите новый пароль"}
@@ -47,7 +47,6 @@ export default function ChangePassBlock({
             required
             value={changePassword.newpass}
             minLength={6}
-            className="border-box mt-[12px] pl-[12px] w-full h-[50px] bg-[#FFFFFF] rounded-[10px] border-[1px] border-[#E4E4ED]"
             onChange={(e) =>
               setChangePassword({ ...changePassword, newpass: e.target.value })
             }

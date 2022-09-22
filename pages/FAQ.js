@@ -13,7 +13,7 @@ export default function FAQ() {
       <div id="home__title" className="">
         <TitleBlock partname={FAQData.FAQpartname} />
       </div>
-      <div className="mt-[31px] pb-10">
+      <div className="mt-[31px] pb-8">
         {data &&
           data.map((item) => (
             <div key={item.title} className="flex justify-center">

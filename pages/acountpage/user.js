@@ -52,13 +52,13 @@ export default function user() {
       {user && (
         <Layout title={user && user.name}>
           <TitleBlock partname={partname} />
-          <div className="flex flex-col lg:flex-row mt-[79px]  bg-red-600 lg:w-11/12 max-w-full m-auto">
+          <div className="flex flex-col lg:flex-row mt-[79px] lg:w-11/12 max-w-full m-auto">
             <Side
               user={user}
               highlighted={highlighted}
               setHighlighted={setHighlighted}
             />
-            {highlighted === "Персональная информация"&& (
+            {highlighted === "Персональная информация"? (
               <Personal
                 user={user}
                 setUser={setUser}
@@ -66,13 +66,13 @@ export default function user() {
                 setChangePassword={setChangePassword}
               />
             ) 
-            // : highlighted === "История заказов" ? (
-            //   <Orders email={user.email} />
-            // ) : (
-            //   <Tickets
-            //     email={user.email}
-            //     role={`${user.name} ${user.sername}`}
-            //   />
+            : highlighted === "История заказов" ? (
+              <Orders email={user.email} />
+            ) : (
+              <Tickets
+                email={user.email}
+                role={`${user.name} ${user.sername}`}
+              />)
             } 
           </div>
         </Layout>

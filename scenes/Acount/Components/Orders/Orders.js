@@ -29,21 +29,21 @@ export default function Orders({ email }) {
   }, []);
 
   return (
-    <div className="bg-[#F9F9FC] w-full overflow-scroll">
+    <div className="bg-[#F9F9FC] max-h-[1200px] w-full lg:w-2/3  overflow-scroll">
       {!ordersData ? (
         <div className="flex justify-center items-center mt-52">
 
         <Loader />
         </div>
       ) : (
-        <div className="mt-[83px] ml-[128px] max-w-quote">
+        <div className="mt-[83px]  lg:px-[50px]">
           <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
             История заказов:
           </div>
           <div className="mt-[56px]">
             <Titlerders />
           </div>
-          <div className="mt-[11px]">
+          <div className="mt-[11px] ">
             {ordersData &&
               ordersData.map((item) => (
                 <OrdersTable

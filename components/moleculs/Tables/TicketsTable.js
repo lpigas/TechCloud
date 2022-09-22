@@ -3,10 +3,11 @@ import React from "react";
 export default function TicketsTable({ ticketinfo, setTicketOpen }) {
   // console.log(ticketinfo.numTicket)
   return (
-    <table className="w-[778px] bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[30px] min-h-[118px]">
-      <tbody className="w-full p-10">
-        <tr className="w-full h-[118px]">
-          <td className="pl-[33px] w-1/5 font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50]">
+    <table className="w-full bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[10px] lg:rounded-[30px]"
+    onClick={() => setTicketOpen(ticketinfo)}>
+      <tbody className="w-full">
+        <tr className="w-full py-8 flex">
+          <td className="lg:pl-[33px] w-1/5 font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50]">
             {ticketinfo.numTicket}
           </td>
           <td className="w-2/12 font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50] ">
@@ -29,7 +30,7 @@ export default function TicketsTable({ ticketinfo, setTicketOpen }) {
                   src="/image/Arrows/arrowdown.svg"
                   width={16}
                   height={28}
-                  onClick={() => setTicketOpen(ticketinfo)}
+                  
                 />
               </a>
             ) : ticketinfo.status === "wait" ? (
@@ -42,7 +43,7 @@ export default function TicketsTable({ ticketinfo, setTicketOpen }) {
                   src="/image/Arrows/arrowdown.svg"
                   width={16}
                   height={28}
-                  onClick={() => setTicketOpen(ticketinfo)}
+                  
                 />
               </a>
             ) : (
@@ -55,7 +56,7 @@ export default function TicketsTable({ ticketinfo, setTicketOpen }) {
                   src="/image/Arrows/arrowdown.svg"
                   width={16}
                   height={28}
-                  onClick={() => setTicketOpen(ticketinfo)}
+                  
                 />
               </a>
             )}

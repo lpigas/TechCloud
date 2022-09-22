@@ -39,8 +39,8 @@ export default function Personalblock({
   }, []);
 
   return (
-    <div className="w-9/10 min-h-[724px] pt-[56px] lg:mr-10 px-2 lg:px-[50px] rounded-[20px]  lg:rounded-[50px] bg-[#ffffff]">
-      <div className="">
+    <div className="w-9/10 lg:w-4/5 pt-[56px] lg:mr-10 px-2 lg:px-[50px] rounded-[20px] pb-8 lg:rounded-[50px] bg-[#ffffff]">
+      <div className="lg:pr-12">
         <div
           onChange={(e) => setUser({ ...user, urfis: e.target.value })}
           className={"flex flex-col"}

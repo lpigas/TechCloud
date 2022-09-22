@@ -61,10 +61,10 @@ export default function TicketsAll({
       }, 4000);
   }, [message]);
   return (
-    <div className="min-w-[778px] max-h-[771px] overflow-scroll">
+    <div className="mt-[83px] w-full flex lg:px-[50px] break-all overflow-scroll">
       {!openNewTicket ? (
-        <div className="h-full overflow-y-scroll">
-          <div className="flex justify-between">
+        <div className="w-full">
+          <div className="flex justify-between px-1">
             <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
               Мои обращения
             </div>
@@ -75,10 +75,10 @@ export default function TicketsAll({
               Новый тикет
             </a>
           </div>
-          <div className="mt-[56px]">
+          <div className="mt-[56px] ">
             <TitleTickets />
           </div>
-          <div>
+          <div className="py-1">
             {allTickets.map((ticket) => (
               <TicketsTable
                 key={Math.random()}

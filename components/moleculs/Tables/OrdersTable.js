@@ -19,11 +19,11 @@ export default function OrdersTable({
           ? setOpenOrder()
           : setOpenOrder(allOrderdata.numOrder)
       }
-      className="min-w-[778px] bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[30px] min-h-[118px]"
+      className="w-full break-all bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[10px] lg:rounded-[30px]  "
     >
-      <tbody className="w-full p-10">
-        <tr className="w-full h-[118px]">
-          <td className="pl-[33px] w-1/5 font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50]">
+      <tbody className="w-full ">
+        <tr className="w-full ">
+          <td className="lg:pl-[33px] flex flex-row py-8 w-4/5 font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50]">
             {allOrderdata.numOrder}
           </td>
           <td className="w-2/12 font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50] ">
@@ -43,7 +43,7 @@ export default function OrdersTable({
                 Оплачен
                 {openOrder === allOrderdata.numOrder ? (
                   <img
-                    className="ml-[27px]"
+                    className="ml-[27px] hidden lg:flex"
                     src="/image/Arrows/arrowup.svg"
                     width={16}
                     height={28}
@@ -51,7 +51,7 @@ export default function OrdersTable({
                   />
                 ) : (
                   <img
-                    className="ml-[27px]"
+                    className="ml-[27px] hidden lg:flex"
                     src="/image/Arrows/arrowdown.svg"
                     width={16}
                     height={28}
@@ -66,7 +66,7 @@ export default function OrdersTable({
                 Не оплачен
                 {openOrder === allOrderdata.numOrder ? (
                   <img
-                    className="ml-[27px]"
+                    className="ml-[27px] hidden lg:flex"
                     src="/image/Arrows/arrowup.svg"
                     width={16}
                     height={28}
@@ -74,7 +74,7 @@ export default function OrdersTable({
                   />
                 ) : (
                   <img
-                    className="ml-[27px]"
+                    className="ml-[27px] hidden lg:flex"
                     src="/image/Arrows/arrowdown.svg"
                     width={16}
                     height={28}
@@ -89,7 +89,7 @@ export default function OrdersTable({
                 Отменен
                 {openOrder === allOrderdata.numOrder ? (
                   <img
-                    className="ml-[27px]"
+                    className="ml-[27px] hidden lg:flex"
                     src="/image/Arrows/arrowup.svg"
                     width={16}
                     height={28}
@@ -97,7 +97,7 @@ export default function OrdersTable({
                   />
                 ) : (
                   <img
-                    className="ml-[27px]"
+                    className="ml-[27px] hidden lg:flex"
                     src="/image/Arrows/arrowdown.svg"
                     width={16}
                     height={28}
@@ -113,14 +113,14 @@ export default function OrdersTable({
             {allOrderdata.product.map((item) => (
               <tr key={Math.random()}>
                 <td colSpan={5} className="">
-                  <table className="min-w-[714px] min-h-[118px] m-auto">
+                  <table className="w-full ">
                     <tbody>
                       <tr>
                         <td className="w-2/12">
                           <img src={item.imgProduct} width={65} height={80} />
                         </td>
                         <td className="w-5/12">{item.nameProduct}</td>
-                        <td className="w-2/12 text-right">{item.pcs}</td>
+                        <td className="w-2/12 text-right">{item.pcs} pcs.</td>
                         <td className="w-3/12 text-right">{item.price} Грн.</td>
                       </tr>
                     </tbody>
@@ -142,9 +142,9 @@ export default function OrdersTable({
               <td> Сумма:</td>
               <td className="text-center mp-10">{totalsum} грн.</td>
             </tr>
-            <tr className="h-[203px]">
+            <tr className="">
               <td colSpan={6}>
-                <a className="flex justify-end pr-[31px]">
+                <a className="flex py-12 justify-end pr-[31px]">
                   <Button
                     type={"static"}
                     onClick={() => onClick(allOrderdata.product)}

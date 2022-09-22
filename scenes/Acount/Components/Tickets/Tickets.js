@@ -25,13 +25,13 @@ export default function Tickets({ email, role }) {
   }, []);
 
   return (
-    <div className="bg-[#F9F9FC] w-full">
+    <div className="bg-[#F9F9FC] max-h-[800px]  lg:max-h-[1200px] w-full lg:w-2/3   overflow-scroll">
       {!allTickets ? (
         <div className="flex justify-center items-center mt-52">
         <Loader />
         </div>
       ) : (
-        <div className="mt-[83px] ml-[128px] w-[781px] h-[788px]">
+        <div className="mt-[83px] w-full ">
           {openTicket ? (
             <TicketOne ticketInfo={openTicket} email={email} role={role} />
           ) : (

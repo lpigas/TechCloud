@@ -2,9 +2,9 @@ import React from "react";
 
 export default function TitleTickets() {
   return (
-    <table className="min-w-[778px] min-h-[28px]">
+    <table className="w-full break-all">
       <thead className="w-full">
-        <tr className="w-full">
+        <tr className="w-full break-all">
           <td className="pl-[33px] w-1/5 font-normal not-italic text-[16px] leading-[28px] text-[#616E87]">
             Номер заявки
           </td>

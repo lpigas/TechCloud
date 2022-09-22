@@ -10,11 +10,11 @@ export default function Qdd({
   openLoader,
 }) {
   return (
-    <div>
+    <div className="px-2">
       <textarea
         type={"text-aria"}
         value={uploadData.text}
-        className={`w-[770px] min-h-[80px] p-4 overflow-x-scroll bg-[#FFFFFF] rounded-[15px]`}
+        className={`w-full p-4 overflow-x-scroll bg-[#FFFFFF] rounded-[15px]`}
         onChange={(e) => setUploadData({ ...uploadData, text: e.target.value })}
       ></textarea>
       <div className="mt-[42px] flex justify-between items-center">

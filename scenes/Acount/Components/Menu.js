@@ -18,7 +18,7 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
           }`}
         >
           <div className="flex flex-row items-center">
-            <img width={18} height={18} src={item.img} />
+            <img width={18} height={18} src={item.img} className="hidden md:flex" />
             <div className=" flex items-center cursor-pointer ml-3 break-words flex-wrap font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50]">
               {item.menuname}{" "} 
             </div>
