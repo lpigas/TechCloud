@@ -9,16 +9,16 @@ export default function TitleBlock({ partname }) {
   return (
     <div className="flex pb-14 max-h-full max-w-1/2 mx-auto">
       <div className="w-full flex justify-center flex-col items-center mt-[87px]">
-        <div className="sm:m-0 xl:m-auto mt-[68px] flex justify-center  font-bold not-italic text-[65px] leading-[70px] text-[#3E3F50]">
+        <div className="sm:m-0 xl:m-auto mt-[68px] flex justify-center  font-bold not-italic text-[50px] ser:text-[65px] leading-[70px] text-[#3E3F50]">
           <div className="mt-[-20px] mr-[-16px]">
             <Roundblur52 color={"blue"} />
           </div>
           {partname && partname[partname.length - 1].service_name}
         </div>
-        <div className="my-[215px]">
+        <div className="my-[40px] ser:my-[215px]">
           <Ilustration />
         </div>
-        <div className="mt-[105px]">
+        <div className="mt-[15px] ser:mt-[100px]">
           Попробуйте проверить ссылку на наличие ошибок либо нажмите кнопку
           ниже:
         </div>

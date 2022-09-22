@@ -12,7 +12,7 @@ export default function Service_ul({ services, changed, setChanged }) {
           }`}
         >
           <li
-            className="cursor-pointer break-words font-normal w-full not-italic text-[20px] leading-[46px] mx-5  text-[#616E87]"
+            className="cursor-pointer break-words font-normal w-full not-italic text-[20px] leading-[46px] text-[#616E87]"
             onClick={() => setChanged(item)} 
           >
             {item.name}

@@ -33,7 +33,7 @@ export default function Header({ title }) {
       <div className="flex mx-auto w-11/12 max-w-[1200px] items-start justify-start">
         <nav
           id="menu"
-          className="md:flex h-full sm:hidden w-full justify-between sm:flex-col md:flex-row  items-center "
+          className="ser:flex h-full hidden w-full justify-between flex-row  items-center "
         >
           <div className="flex">
             <Image
@@ -87,7 +87,7 @@ export default function Header({ title }) {
             </div>
           </div>
         </nav>
-      <div className="flex relative md:hidden w-full">
+      <div className="flex relative ser:hidden w-full">
       <Menu data={links}/>
       </div>
       </div>

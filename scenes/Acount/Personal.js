@@ -126,7 +126,7 @@ export default function Personal({
           )}
         </div>
       </div>
-      <div className="mt-[83px] lg:ml-[68px]">
+      <div className="my-[83px] lg:ml-[68px]">
         <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
           Изменить пароль
         </div>

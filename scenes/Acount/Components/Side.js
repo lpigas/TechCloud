@@ -16,7 +16,7 @@ export default function Side({ user, highlighted, setHighlighted }) {
   };
 
   return (
-    <div className="w-full lg:w-2/5  lg:pr-[22px] flex flex-col items-end ">
+    <div className="w-full lg:w-1/3  lg:pr-[22px] flex flex-col items-end ">
       <div className="mt-[60px] flex flex-col w-full items-center lg:items-end  font-normal not-italic text-[12px] leading-[28px] text-[#3E3F50] z-10">
         <div>
         Добро пожаловать

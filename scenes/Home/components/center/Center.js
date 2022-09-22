@@ -6,7 +6,7 @@ import Partners from "../partners/Partners";
 
 export default function Center() {
   return (
-    <div className="flex w-full">
+    <div className="flex px-1 w-full">
       <div
         className=" w-full"
         style={{

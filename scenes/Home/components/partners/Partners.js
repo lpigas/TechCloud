@@ -23,11 +23,11 @@ export default function Partners() {
         <div className="ml-[-30px] z-50">
           <Roundblur52 color={"blue"} />
         </div>
-        <div className="ml-[-15px] z-0 mt-[20px] font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] ">
+        <div className="ml-[-15px]  z-0 mt-[20px] font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] ">
           Партнеры
         </div>
       </div>
-      <div className="flex w-full mt-[100px]">
+      <div className="flex w-full justify-center  mt-[100px]">
         <img
           src="/image/Buttons/Chevron/Chevron_Left_1.svg"
           width={"15"}

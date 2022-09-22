@@ -12,7 +12,7 @@ export default function FullService() {
   const [changedLi, setChangedLi] = useState(services[0]);
   
   return (
-    <div className="max-w-full flex flex-col">
+    <div className="max-w-full  flex flex-col">
       <div className="flex w-full font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10 relative">
         <div className="mr-[-15px] mt-[-15px]">
           <Roundblur52 color={"orange"} />
@@ -20,7 +20,7 @@ export default function FullService() {
         Наши услуги
       </div>
 
-      <div className="flex flex-col ser:flex-row flex-wrap w-full">
+      <div className="flex flex-col ser:px-2 ser:flex-row flex-wrap w-full">
         <div className="mt-[60px] py-[10px] ">
           <Service_ul
             services={services}
@@ -28,7 +28,7 @@ export default function FullService() {
             setChanged={setChangedLi}
           />
         </div>
-        <div className=" w-2/5 mx-5 min-w-[300px] ser:ml-[128px] mt-[50px] ser:mt-0 ">
+        <div className=" ser:w-2/5 w-full ser:mx-5 min-w-[300px] ser:ml-[128px] mt-[50px] ser:mt-0 ">
           <div className="flex">
             <CloudUl data={changedLi} />
           </div>
