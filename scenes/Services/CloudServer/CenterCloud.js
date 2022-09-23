@@ -5,17 +5,17 @@ import ServicesDescr from "../../../components/moleculs/Description/ServicesDesc
 
 export default function CenterCloud({ data }) {
   return (
-    <div className="w-[1184px] min-h-[1766px] flex m-auto ">
-      <div className="mt-[72px] ml-[px]">
-        <Image src={data.photourl} width={1184} height={539} className="" />
-        <div className="ml-[139px]">
-          <div className="w-[680px] h-[102px] mt-[100px] flex-wrap font-normal not-italic text-[20px] leading-[34px] text-[#616E87]">
+    <div className="ser:w-11/12 max-w-full px-1 mb-10 flex m-auto ">
+      <div className="mt-[72px] w-full ">
+        <img src={data.photourl} className="w-full ser:w-4/5 m-auto" />
+        <div className="ser:w-4/5  m-auto">
+          <div className="w-full ser:w-[680px] m-auto mt-[100px] flex-wrap font-normal not-italic text-[20px] leading-[34px] text-[#616E87]">
             {data.topdescription}
           </div>
-          <div className=" mt-[73px] mb-[41px] m-auto font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50]">
+          <div className=" mt-[73px] w-full ser:w-[680px] mb-[41px] m-auto font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50]">
             Как это работает?
           </div>
-          <div className="w-[680px] min-h-[476px] ml-[101px]">
+          <div className="w-full ser:w-[680px] m-auto ">
             {data.description.map((item, index) => (
               <ServicesDescr
                 key={Math.random()}
@@ -24,10 +24,10 @@ export default function CenterCloud({ data }) {
               />
             ))}
           </div>
-          <div className="font-bold mt-[113px] mb-[42px] not-italic text-[50px] leading-[55px] text-[#3E3F50]">
+          <div className="font-bold w-full ser:w-[680px] m-auto  mt-[113px] mb-[42px] not-italic text-[50px] leading-[55px] text-[#3E3F50]">
             Какие задачи решаем:
           </div>
-          <div className="w-[781px] h-[170px] flex-wrap font-normal not-italic text-[20px] leading-[34px] text-[#616E87]">
+          <div className="w-full ser:w-[680px] m-auto  flex-wrap font-normal not-italic text-[20px] leading-[34px] text-[#616E87]">
             {data.tasks}
           </div>
         </div>

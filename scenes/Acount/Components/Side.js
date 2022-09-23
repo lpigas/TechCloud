@@ -1,3 +1,4 @@
+
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Menu from "./Menu";
@@ -8,15 +9,35 @@ export default function Side({ user, highlighted, setHighlighted }) {
 
   const balance =
     user && Buffer.from(`${user.balance}`, "base64").toString("ascii");
+
+    // const addCartdb = async ()=>{
+    //   let cart
+    //   if (typeof window !== "undefined") {
+    //     const data = JSON.parse(window.localStorage.getItem("Cart"));
+    //     cart=data
+    //   }
+    //   try {
+    //     const data = await fetch('',{
+    //       method:"POST",
+    //       body: JSON.stringify({email:user.email, cart})
+    //     })
+    //     const datas = await data.json()
+    //     console.log(datas.message)
+    //   } catch (error) {
+        
+    //   }
+    // }
   const logout = () => {
+      // addCartdb()
     if (typeof window !== "undefined") {
       const data = window.localStorage.removeItem("token");
+      // const datas = window.localStorage.removeItem("Cart");
       router.push("/");
     }
   };
 
   return (
-    <div className="w-full lg:w-1/3  lg:pr-[22px] flex flex-col items-end ">
+    <div className="w-full lg:w-1/3  lg:pr-[22px] flex flex-col items-end mb-4">
       <div className="mt-[60px] flex flex-col w-full items-center lg:items-end  font-normal not-italic text-[12px] leading-[28px] text-[#3E3F50] z-10">
         <div>
         Добро пожаловать

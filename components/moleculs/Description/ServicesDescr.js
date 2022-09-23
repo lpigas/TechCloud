@@ -4,7 +4,7 @@ import Roundblur74 from "../../atoms/Rounds/RoundBlur74";
 export default function ServicesDescr({ description, num }) {
   return (
     <>
-      <div className="flex flex-row ml-[-96px] ">
+      <div className="flex flex-row ">
         <div>
           <Roundblur74 color={"blue"}> {num + 1} </Roundblur74>
         </div>

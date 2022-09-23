@@ -10,6 +10,7 @@ import Menu from "../../../atoms/Buttons/Button/Menu"
 
 export default function Header({ title }) {
   const lang = [{ value: "Русский", label: "Русский" }];
+  const [cart,setCart] =useState()
   const links = [
     {link:'/', id:'url_home',title:'О нас'},
     {link:'/shop', id:'url_shop',title:'Магазин'},
@@ -23,7 +24,12 @@ export default function Header({ title }) {
       const token = JSON.parse(window.localStorage.getItem("token"));
       setLoginData(jwt.decode(token));
     }
+    if (typeof window !== "undefined") {
+      const cart = JSON.parse(window.localStorage.getItem("Cart"));
+      setCart(cart);
+    }
   }, []);
+
 
   return (
     <header className="flex  min-w-full">
@@ -83,7 +89,7 @@ export default function Header({ title }) {
               />
             </a>
             <div className="w-[34px] mt-[26px] h-[57px]">
-              <Cart />
+              <Cart cart={cart}/>
             </div>
           </div>
         </nav>

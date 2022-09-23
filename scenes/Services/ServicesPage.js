@@ -10,7 +10,7 @@ import Layout from "../../components/layout/Layout";
 export default function ServicesPage({ data }) {
   const partname = [{ service_name: "Услуги", service_url: "/services" }];
 
-  // console.log(data)
+  console.log(data)
   return (
     <Layout minh={2561} title={"Услуги"}>
       <TitleBlock partname={partname} />

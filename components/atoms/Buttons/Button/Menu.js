@@ -83,9 +83,9 @@ export default function MenuListComposition({data}) {
 
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                     {newData.map(item =>
-                    <div className='h-10'>
+                    <div className='h-10' key={Math.random()}>
 
-                    <MenuItem onClick={event => handleClose(event, item.link)} key={Math.random()}>
+                    <MenuItem onClick={event => handleClose(event, item.link)} >
                         {item.title}
                       </MenuItem>
                       </div>

@@ -12,14 +12,14 @@ export default function FormBlock({ data }) {
         JSON.stringify(item)
       );
     }
-    router.push("/services/servicesInfo");
+    // router.push("/services/servicesInfo");
   };
 
   return (
-    <div className="flex mx-auto w-4/5 justify-center mt-[87px] flex-wrap ">
+    <div className="flex mx-auto min-w-full ser:w-4/5 justify-center mt-[87px] flex-wrap ">
       {data &&
         data.map((item) => (
-          <div key={item._id} className={`max-w-full w-[700px] m-4 flex`}>
+          <div key={item._id} className={`w-full ser:w-2/5 flex m-1 ser:m-4`}>
             <ServicesForms
               title={item.services.title.name}
               color={item.services.title.Roundblur.color}

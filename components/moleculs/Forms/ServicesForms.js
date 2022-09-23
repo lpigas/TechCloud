@@ -16,11 +16,11 @@ export default function ServicesForms({
     <div
       className={`flex w-full bg-[#ffffff] rounded-[20px]`}
     >
-      <div >
-        <img src={bigImage} />
+      <div className="w-1/2 flex">
+        <img src={bigImage} className='min-w-full h-full'/>
       </div>
 
-      <div className="font-medium  break-words ml-[30px]  not-italic  flex flex-col justify-between text-[20px] leading-[28px] text-[#3E3F50]">
+      <div className="font-medium w-1/2 break-words px-[15px]  not-italic  flex flex-col justify-between text-[20px] leading-[28px] text-[#3E3F50]">
         <div className={`mt-[47px]  mb-[43px] break-all`}>
           <Roundblur100 color={color}>
             <RoundBlur50 color={color}>
@@ -31,7 +31,7 @@ export default function ServicesForms({
         {title}
         <div
           onClick={() => onClick(data)}
-          className="cursor-pointer flex mb-4 items-end"
+          className="cursor-pointer flex mb-4 mt-3 items-end"
         >
           <p className="flex">
             Подробнее об услуге
