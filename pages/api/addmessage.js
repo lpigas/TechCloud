@@ -1,5 +1,4 @@
 const { connectToDatabase } = require("../../lib/mongodb");
-import jwt from "jsonwebtoken";
 import { ObjectId } from "mongodb";
 
 export default async function (req, res) {
@@ -12,7 +11,7 @@ export default async function (req, res) {
   const founduser = await db.collection("users").findOne({ email: email });
   const id = founduser._id;
   const foundTicket = await db
-    .collection("Tickets")
+    .collection("ticket")
     .findOne({ user: new ObjectId(id), numTicket: numticket });
   const correspondence = foundTicket.correspondence;
   correspondence.push({
@@ -21,7 +20,7 @@ export default async function (req, res) {
     time: time,
   });
   await db
-    .collection("Tickets")
+    .collection("ticket")
     .updateOne({ _id: foundTicket._id }, { $set: { correspondence } });
   console.log("add message" + new Date());
   return res.json({

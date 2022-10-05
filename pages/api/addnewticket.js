@@ -7,7 +7,7 @@ export default async function (req, res) {
   const date = new Date().toLocaleDateString();
   const user = await db.collection("users").findOne({ email: email });
 
-  const newdata = await db.collection("Tickets").insertOne({
+  const newdata = await db.collection("ticket").insertOne({
     user: user._id,
     numTicket: newTicket.numTicket,
     date: date,

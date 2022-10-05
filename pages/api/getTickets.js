@@ -8,7 +8,7 @@ export default async function (req, res) {
 
   const user = await db.collection("users").findOne({ email: email });
   const allTickets = await db
-    .collection("Tickets")
+    .collection("ticket")
     .find({ user: user._id })
     .toArray();
   console.log("get tickets" + new Date());

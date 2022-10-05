@@ -15,6 +15,12 @@ export default function Product({
     setCartData([...newData]);
     setFocus(index);
   };
+  const dellProduct = ()=>{
+    const newCart = cartData.filter(item => item !== cartData[index])
+    setCartData(newCart)
+    console.log(newCart )
+    
+  }
 
   return (
     <div className=" bg-white ser:w-11/12 max-w-full rounded-[10px] items-center ser:rounded-[30px] flex p-4 mt-[12px]">
@@ -32,7 +38,7 @@ export default function Product({
         />
       </div>
       <div className="w-3/12 text-center"> {data.price * data.pcs}</div>
-      <div className="w-1/12 text-center">
+      <div className="w-1/12 text-center" onClick={() => dellProduct()}>
         <img
           src="/image/Arrows/cancel1.png"
           className="w-[19px] h-[19px]"

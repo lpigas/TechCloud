@@ -52,6 +52,8 @@ export default function TicketOne({ ticketInfo, email, role }) {
     });
   };
 
+  
+
   return (
     <div className="pb-8 ">
       <div className="w-full  lg:px-[50px] overflow-scroll">
@@ -89,9 +91,9 @@ export default function TicketOne({ ticketInfo, email, role }) {
                   index === 0 && "mt-[27px]"
                 } font-normal not-italic text-[14px] leading-[18px] text-[#C8C8DB]`}
               >
-                {dateNow !== item.date && (
+                {/* {dateNow !== item.date && (
                   <div className="mt-[20px]">{(dateNow = item.date)}</div>
-                )}
+                )} */}
               </div>
               <div
                 className={`lg:px-4 w-full mt-[34px] flex flex-col ${
