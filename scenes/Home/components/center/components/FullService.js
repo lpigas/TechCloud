@@ -10,7 +10,7 @@ import Button from "../../../../../components/atoms/Buttons/Button/Button";
 export default function FullService() {
   const services = dataul.services;
   const [changedLi, setChangedLi] = useState(services[0]);
-  
+
   return (
     <div className="max-w-full  flex flex-col">
       <div className="flex w-full font-bold not-italic text-[50px] leading-[55px] text-[#3E3F50] z-10 relative">
@@ -30,13 +30,13 @@ export default function FullService() {
         </div>
         <div className=" ser:w-2/5 w-full ser:mx-5 min-w-[300px] ser:ml-[128px] mt-[50px] ser:mt-0 ">
           <div className="flex">
-            <CloudUl data={changedLi} />
+            <CloudUl data={changedLi.title} />
           </div>
           <div className="">
-            <PhotoUl data={changedLi} />
+            <PhotoUl data={changedLi.title} />
           </div>
           <div className=" mt-[55px]">
-            <TextUl data={changedLi} />
+            <TextUl data={changedLi.title} />
           </div>
           <div className=" mt-[65px]">
             <Button type={"static"}> Оформить заявку</Button>

@@ -18,7 +18,7 @@ export default function FullAboutUs() {
       <div className="lg:w-3/5 sm:w-full mt-[42px]">
         <About_2 />
       </div>
-      <div className="mt-[69px]">
+      <div className="mt-[69px] flex">
         <MiniLogos />
       </div>
     </div>

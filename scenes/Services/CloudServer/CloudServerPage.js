@@ -17,10 +17,10 @@ export default function CloudServerPage({}) {
   }, []);
 
   return (
-    <Layout minh={3005} title={serviceInfo && serviceInfo.services.title.name}>
-      {serviceInfo && <TitleBlock partname={serviceInfo.services.partname} />}
+    <Layout minh={3005} title={serviceInfo && serviceInfo.title.name}>
+      {serviceInfo && <TitleBlock partname={serviceInfo.partname} />}
 
-      {serviceInfo && <CenterCloud data={serviceInfo.services} />}
+      {serviceInfo && <CenterCloud data={serviceInfo} />}
       <div className="flex justify-center pb-24">
         <Bottom title={"Нужна помощь?"} buttonName={"Оставить заявку"} />
       </div>

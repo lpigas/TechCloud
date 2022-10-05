@@ -37,7 +37,7 @@ module.exports = {
       screen: "100vw",
       accordion: "850px",
       full: "100%",
-      '90%': "90%",
+      "90%": "90%",
       "1/2": "50%",
       half: "75%",
       "35vw": "35vw",
@@ -56,7 +56,7 @@ module.exports = {
       sidebar: "315px",
       full: "100%",
       alf: "75%",
-      "1920px":"1920px",
+      "1920px": "1920px",
       "35vw": "35vw",
       "60vw": "60vw",
       "50vh": "50vh",
@@ -85,7 +85,7 @@ module.exports = {
 
       lg: "900px",
       // => @media (min-width: 1024px) { ... }
-      ser:"1100px",
+      ser: "1100px",
 
       xl: "1280px",
       // => @media (min-width: 1280px) { ... }

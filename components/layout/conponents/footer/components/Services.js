@@ -1,28 +1,27 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function Services() {
-  const links = [
-    { title: "ИТ Консалтинг", href: "" },
-    { title: "ИТ Аутсорсинг (удаленно)", href: "" },
-    { title: "Аренда выделенных серверов", href: "" },
-    { title: "Облачный сервер", href: "" },
-    { title: "Кибербезопасность", href: "" },
-    { title: "Автоматизация", href: "" },
-    { title: "Подписки на облачный софт", href: "" },
-  ];
+export default function Services({ data }) {
+  const router = useRouter();
+  const RouteTo = (item) => {
+    const data = window.localStorage.setItem("InfoData", JSON.stringify(item));
+    if (router.pathname === "/services/servicesInfo") {
+      window.location.reload();
+    }
+    router.push("/services/servicesInfo");
+  };
+
   return (
     <div>
       <div className="font-medium text-left  not-italic text-[24px] leading-[28px] text-[#3E3F50]">
         Услуги
       </div>
       <div className="mt-[22px] font-normal text-left  not-italic text-[18px] leading-[36px] text-[#616E87]">
-        {links.map((item) => (
-          <p key={Math.random()}>
-            <Link href={item.href.length > 0 ? item.href : "/404"}>
-              {item.title}
-            </Link>
-          </p>
+        {data.map((item) => (
+          <div key={Math.random()} className="cursor-pointer">
+            <div onClick={() => RouteTo(item)}>{item.title.name}</div>
+          </div>
         ))}
       </div>
     </div>

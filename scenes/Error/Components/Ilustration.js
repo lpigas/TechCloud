@@ -8,7 +8,10 @@ export default function Ilustration() {
     <div className="max-w-[751px] max-h-[351px] flex justify-center items-center">
       <div className="font-bold not-italic text-[165px] leading-[70px] text-[#616E87]">
         404
-        <div className="mt-24 lg:hidden flex justify-center text-[65px]"> Error</div>
+        <div className="mt-24 lg:hidden flex justify-center text-[65px]">
+          {" "}
+          Error
+        </div>
       </div>
       <img src="/image/window/window.svg" className="absolute" />
       <div className="sm:hidden lg:flex max-w-full w-[751px] -[351px] absolute justify-start">

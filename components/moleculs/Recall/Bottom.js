@@ -8,7 +8,7 @@ export default function Bottom({ title, buttonName }) {
       <Beclient title={title} color={"violet"} />
       <div className="mt-[23px] flex-wrap flex text-center font-normal not-italic text-[18px] leading-[28px] text-[#616E87]">
         Оставьте заявку, мы проконсультируем вас и поможем подобрать оптимальную
-        услугу или продукт 
+        услугу или продукт
       </div>
       <div className="mt-[36px]">
         <Button type={"static"}>{buttonName}</Button>

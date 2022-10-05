@@ -1,6 +1,4 @@
-import Image from "next/image";
 import React from "react";
-import Roundblur52 from "../../../components/atoms/Rounds/Roundblur52";
 import ServicesDescr from "../../../components/moleculs/Description/ServicesDescr";
 
 export default function CenterCloud({ data }) {

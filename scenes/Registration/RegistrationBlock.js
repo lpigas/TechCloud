@@ -15,6 +15,7 @@ export default function RegistrationBlock({
   openLoader,
 }) {
   // console.log(newUser);
+  const [validpass, setValidpass] = useState(false);
   const [countrys, setCountrys] = useState();
   const getCountrys = async () => {
     try {
@@ -119,6 +120,7 @@ export default function RegistrationBlock({
         {messageError && (
           <div className="mt-10 text-red-500">{messageError}</div>
         )}
+
         <div className="mt-[44px] flex justify-center md:justify-start">
           <Button onClick={registerNewUser} type={"static"}>
             Зарегистрировать

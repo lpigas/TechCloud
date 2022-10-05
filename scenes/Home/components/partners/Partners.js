@@ -8,14 +8,15 @@ export default function Partners() {
   const [outputinfo, setOutputinfo] = useState(partnersData);
 
   const changeLeft = () => {
-    const newarr = outputinfo;
-    const last = newarr[newarr.length - 1];
-    newarr.pop();
-    setOutputinfo([last, ...newarr]);
+    const firstLater = outputinfo[0];
+    const sliced = outputinfo.slice(1);
+    setOutputinfo([...sliced, firstLater]);
   };
-  setTimeout(() => {
-    changeLeft();
-  }, 4000);
+
+  useEffect(() => {
+    const interval = setInterval(() => changeLeft(), 1000);
+    return () => clearInterval(interval);
+  }, [outputinfo]);
 
   return (
     <div className="sm:hidden xl:flex w-full  mt-[145px]  flex-col">
@@ -37,15 +38,18 @@ export default function Partners() {
         {outputinfo &&
           outputinfo
             .slice(0, 4)
-            .map((item) => (
-              <img
-                key={Math.random()}
-                src={item.photourl}
-                width={182}
-                height={37}
-                className={"mx-[62px]"}
-              />
-            ))}
+            .map(
+              (item) =>
+                item && (
+                  <img
+                    key={Math.random()}
+                    src={item.photourl}
+                    width={182}
+                    height={37}
+                    className={"mx-[62px]"}
+                  />
+                )
+            )}
         <img
           src="/image/Buttons/Chevron/Chevron_Right_1.svg"
           width={"15"}

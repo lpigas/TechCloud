@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/layout/conponents/header/Header";
-import Footer from "../../components/layout/conponents/footer/Footer";
+const md5 = require("md5");
 import TitleBlock from "../../scenes/Services/Components/TitleBlock";
 import RegistrationBlock from "../../scenes/Registration/RegistrationBlock";
 import { useRouter } from "next/router";
@@ -21,11 +20,25 @@ export default function registration() {
     city: "",
   });
   const registerNewUser = async () => {
+    if (newUser.password.length < 8) {
+      return setMessageError(
+        "Установите пожалуйста пароƒль 8 или более символов"
+      );
+    }
+    if (newUser.password.search(/[A-Z]/) < 0) {
+      return setMessageError(
+        "Ваш пароль должен содержать хотя бы одну заглавную букву"
+      );
+    }
+    if (newUser.password.search(/[0-9]/) < 0) {
+      return setMessageError("Ваш пароль должен содержать хотя бы одну цифру");
+    }
     setOpenLoader(true);
+    const password = md5(newUser.password + process.env.SECRET_KEY);
     try {
       const data = await fetch(`/api/registration`, {
         method: "POST",
-        body: JSON.stringify({ newUser: newUser }),
+        body: JSON.stringify({ newUser: { ...newUser, password } }),
       });
       const datas = await data.json();
       datas.message !== "ok" && setMessageError(datas.message);
@@ -42,9 +55,7 @@ export default function registration() {
   }, [messageError]);
 
   return (
-    <Layout
-    title={'Registration'}
-    >
+    <Layout title={"Registration"}>
       <TitleBlock
         partname={[
           {
@@ -53,17 +64,17 @@ export default function registration() {
           },
         ]}
       />
-        <div className="md:w-8/12 max-w-full mb-10 m-auto">
-          <RegistrationBlock
-            view={viewPassword}
-            setView={setViewPassword}
-            newUser={newUser}
-            setNewUser={setNewUser}
-            messageError={messageError}
-            registerNewUser={registerNewUser}
-            openLoader={openLoader}
-          />
-        </div>
+      <div className="md:w-8/12 max-w-full mb-10 m-auto">
+        <RegistrationBlock
+          view={viewPassword}
+          setView={setViewPassword}
+          newUser={newUser}
+          setNewUser={setNewUser}
+          messageError={messageError}
+          registerNewUser={registerNewUser}
+          openLoader={openLoader}
+        />
+      </div>
     </Layout>
   );
 }

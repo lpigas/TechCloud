@@ -10,6 +10,7 @@ export default function ChangePassBlock({
   messageChange,
   openLoaderPass,
 }) {
+  const [validpass, setValidpass] = useState(false);
   const [oldPassView, setOldPassView] = useState("password");
   const [newPassView, setNewPassView] = useState("password");
   const [secondPassView, setSecondPassView] = useState("password");
@@ -20,7 +21,6 @@ export default function ChangePassBlock({
   return (
     <div className="w-9/10 lg:w-4/5 pt-[56px] lg:mr-10 px-2 lg:px-[50px] rounded-[20px] pb-8 lg:rounded-[50px] bg-[#ffffff]">
       <div className="lg:pr-12">
-        
         <div className="flex">
           <StandartInput
             type={`${oldPassView === "text" ? "text" : "password"}`}
@@ -72,6 +72,7 @@ export default function ChangePassBlock({
               })
             }
           />
+
           <img
             src="/image/Arrows/view.svg"
             className="ml-[-45px] mt-[25px] w-[22px] h-[22px]"

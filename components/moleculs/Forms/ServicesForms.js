@@ -13,11 +13,9 @@ export default function ServicesForms({
 }) {
   const router = useRouter();
   return (
-    <div
-      className={`flex w-full bg-[#ffffff] rounded-[20px]`}
-    >
+    <div className={`flex w-full bg-[#ffffff] rounded-[20px]`}>
       <div className="w-1/2 flex">
-        <img src={bigImage} className='min-w-full h-full'/>
+        <img src={bigImage} className="min-w-full h-full" />
       </div>
 
       <div className="font-medium w-1/2 break-words px-[15px]  not-italic  flex flex-col justify-between text-[20px] leading-[28px] text-[#3E3F50]">
@@ -27,7 +25,7 @@ export default function ServicesForms({
               <img src={imageRound} />
             </RoundBlur50>
           </Roundblur100>
-        </div > {" "}
+        </div>{" "}
         {title}
         <div
           onClick={() => onClick(data)}
@@ -35,7 +33,11 @@ export default function ServicesForms({
         >
           <p className="flex">
             Подробнее об услуге
-            <img src="/image/Arrows/Arrow_3.svg" width={"16.5"} className="mx-6"/>
+            <img
+              src="/image/Arrows/Arrow_3.svg"
+              width={"16.5"}
+              className="mx-6"
+            />
           </p>
         </div>
       </div>

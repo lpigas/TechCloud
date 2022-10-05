@@ -12,22 +12,28 @@ export default function FormBlock({ data }) {
         JSON.stringify(item)
       );
     }
-    // router.push("/services/servicesInfo");
-  };
 
+    router.push("/services/servicesInfo");
+  };
   return (
     <div className="flex mx-auto min-w-full ser:w-4/5 justify-center mt-[87px] flex-wrap ">
       {data &&
         data.map((item) => (
-          <div key={item._id} className={`w-full ser:w-2/5 flex m-1 ser:m-4`}>
-            <ServicesForms
-              title={item.services.title.name}
-              color={item.services.title.Roundblur.color}
-              imageRound={item.services.title.Roundblur.img}
-              bigImage={item.services.title.photoUrl}
-              onClick={changePage}
-              data={item}
-            />
+          <div
+            key={Math.random()}
+            className={`w-full ser:w-2/5 flex m-1 ser:m-4`}
+          >
+            {/* {console.log(item.title)} */}
+            {item.title && (
+              <ServicesForms
+                title={item.title.name}
+                color={item.title.Roundblur.color}
+                imageRound={item.title.Roundblur.img}
+                bigImage={item.title.servicePagePhotoUrl}
+                onClick={changePage}
+                data={item}
+              />
+            )}
           </div>
         ))}
     </div>

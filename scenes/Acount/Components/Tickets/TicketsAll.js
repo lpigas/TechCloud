@@ -14,13 +14,13 @@ export default function TicketsAll({
   const [isLoader, setIsLoader] = useState(false);
   const [newTicket, setNewTicket] = useState({
     numTicket: "",
-    date: "",
+    date: new Date().toLocaleDateString(),
     groupe: "",
     descr: "",
     correspondence: [],
     status: "new",
   });
-  // console.log(allTickets)
+
   const addNewTicket = async () => {
     allTickets.unshift(newTicket);
     setIsLoader(true);
@@ -30,16 +30,9 @@ export default function TicketsAll({
     try {
       const data = await fetch(`${process.env.API_HOST}addnewticket`, {
         method: "POST",
-        body: JSON.stringify({ allTickets, email }),
+        body: JSON.stringify({ newTicket, allTickets, email }),
       });
       const datas = await data.json();
-      const token = datas.token;
-      if (typeof window !== "undefined" && token) {
-        const data = window.localStorage.setItem(
-          "token",
-          JSON.stringify(token)
-        );
-      }
     } catch (error) {
       console.log(error);
     }
@@ -60,6 +53,7 @@ export default function TicketsAll({
         setMessage();
       }, 4000);
   }, [message]);
+
   return (
     <div className="mt-[83px] w-full flex lg:px-[50px] break-all overflow-scroll">
       {!openNewTicket ? (
@@ -75,19 +69,23 @@ export default function TicketsAll({
               Новый тикет
             </a>
           </div>
-          <div className="mt-[56px] ">
-            <TitleTickets />
-          </div>
-          <div className="py-1">
-            {allTickets.map((ticket) => (
-              <TicketsTable
-                key={Math.random()}
-                ticketinfo={ticket}
-                ticketOpen={openTicket}
-                setTicketOpen={setOpenTicket}
-              />
-            ))}
-          </div>
+          {allTickets.length > 0 && (
+            <div>
+              <div className="mt-[56px] ">
+                <TitleTickets />
+              </div>
+              <div className="py-1">
+                {allTickets.map((ticket) => (
+                  <TicketsTable
+                    key={Math.random()}
+                    ticketinfo={ticket}
+                    ticketOpen={openTicket}
+                    setTicketOpen={setOpenTicket}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <div>

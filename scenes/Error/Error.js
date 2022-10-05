@@ -5,7 +5,7 @@ import Layout from "../../components/layout/Layout";
 export default function Error() {
   const partname = [{ service_name: "Упс! Страница не найдена" }];
   return (
-    <Layout  title={`404`}>
+    <Layout title={`404`}>
       <TitleBlock partname={partname} />
     </Layout>
   );

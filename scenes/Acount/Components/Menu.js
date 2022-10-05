@@ -8,19 +8,24 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
   ];
 
   return (
-    <div className="lg:mr-[-22px] flex lg:flex-col w-full ">
+    <div className="lg:mr-[-22px] flex flex-col w-full ">
       {menu.map((item) => (
         <div
           key={Math.random()}
-          onClick={() => setHighlighted(item.menuname)} 
-          className={`w-1/3 lg:w-full flex justify-center lg:justify-end py-[12px] mt-1 ${
+          onClick={() => setHighlighted(item.menuname)}
+          className={`w-full flex justify-center lg:justify-end lg:py-[12px] mt-1 ${
             highlighted === item.menuname && "bg-[#E1E1F3]"
           }`}
         >
           <div className="flex flex-row items-center">
-            <img width={18} height={18} src={item.img} className="hidden md:flex" />
+            <img
+              width={18}
+              height={18}
+              src={item.img}
+              className="hidden md:flex"
+            />
             <div className=" flex items-center cursor-pointer ml-3 break-words flex-wrap font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50]">
-              {item.menuname}{" "} 
+              {item.menuname}{" "}
             </div>
           </div>
           <img
@@ -31,7 +36,6 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
           />
         </div>
       ))}
-
     </div>
   );
 }
