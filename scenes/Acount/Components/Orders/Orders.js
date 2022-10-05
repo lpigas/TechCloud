@@ -3,14 +3,17 @@ import { useState } from "react";
 import OrdersTable from "../../../../components/moleculs/Tables/OrdersTable";
 import Titlerders from "../../../../components/atoms/Tables/Titlerders";
 import Loader from "../../../../components/atoms/Loader/Loader";
+import { useRouter } from "next/router";
 
 export default function Orders({ email }) {
   const [openOrder, setOpenOrder] = useState();
   const [ordersData, setOrdersData] = useState();
+  const router = useRouter();
   const repeatOrder = (product) => {
     if (typeof window !== "undefined") {
       const data = window.localStorage.setItem("Cart", JSON.stringify(product));
     }
+    router.push("/cart");
   };
   const getOrders = async () => {
     try {
@@ -27,13 +30,11 @@ export default function Orders({ email }) {
   useEffect(() => {
     getOrders();
   }, []);
-
   return (
     <div className="bg-[#F9F9FC] max-h-[1200px] w-full lg:w-2/3  overflow-scroll">
       {!ordersData ? (
         <div className="flex justify-center items-center mt-52">
-
-        <Loader />
+          <Loader />
         </div>
       ) : (
         <div className="mt-[83px]  lg:px-[50px]">

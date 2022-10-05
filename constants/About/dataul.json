@@ -1,55 +1,235 @@
 {
   "services": [
     {
-      "name": "ИТ Консалтинг",
-      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/Form/Logos/consalting_1.svg", "color": "violet" },
-      "text": { "title": "Консалтинг", "description": "Консалтинг" }
+      "title": {
+        "name": "ИТ Консалтинг",
+        "servicePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
+        "homePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
+        "Roundblur": {
+          "img": "/image/Form/Logos/consalting_1.svg",
+          "color": "violet"
+        },
+        "text": { "title": "Консалтинг", "description": "Консалтинг" }
+      },
+      "description": ["", "", "", ""],
+      "topdescription": "",
+      "photourl": "/",
+      "tasks": "",
+      "partname": [
+        {
+          "service_name": "Услуги",
+          "service_url": "/services"
+        },
+        {
+          "service_name": "ИТ Консалтинг",
+          "service_url": "/services/servicesInfo"
+        }
+      ]
     },
     {
-      "name": "ИТ Аутсорсинг (удаленно)",
-      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/Form/Logos/outsorc_1.svg", "color": "orange" },
-      "text": { "title": "ИТ Аутсорсинг (удаленно)", "description": "ИТ Аутсорсинг (удаленно)" }
+      "title": {
+        "name": "ИТ Аутсорсинг (удаленно)",
+        "servicePagePhotoUrl": "/image/Form/bigImage/outsorc.png",
+        "homePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
+        "Roundblur": {
+          "img": "/image/Form/Logos/outsorc_1.svg",
+          "color": "orange"
+        },
+        "text": {
+          "title": "ИТ Аутсорсинг (удаленно)",
+          "description": "ИТ Аутсорсинг (удаленно)"
+        }
+      },
+      "description": ["", "", "", ""],
+      "topdescription": "",
+      "photourl": "/",
+      "tasks": "",
+      "partname": [
+        {
+          "service_name": "Услуги",
+          "service_url": "/services"
+        },
+        {
+          "service_name": "ИТ Аутсорсинг (удаленно)",
+          "service_url": "/services/servicesInfo"
+        }
+      ]
     },
     {
-      "name": "Аренда выделенных серверов",
-      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/Form/Logos/servers.svg", "color": "blue" },
-      "text": { "title": "Аренда выделенных серверов", "description": "Аренда выделенных серверов" }
+      "title": {
+        "name": "Аренда выделенных серверов",
+        "servicePagePhotoUrl": "/image/Form/bigImage/servers.png",
+        "homePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
+        "Roundblur": {
+          "img": "/image/Form/Logos/servers.svg",
+          "color": "blue"
+        },
+        "text": {
+          "title": "Аренда выделенных серверов",
+          "description": "Аренда выделенных серверов"
+        }
+      },
+      "description": ["", "", "", ""],
+      "topdescription": "",
+      "photourl": "/",
+      "tasks": "",
+      "partname": [
+        {
+          "service_name": "Услуги",
+          "service_url": "/services"
+        },
+        {
+          "service_name": "Аренда выделенных серверов",
+          "service_url": "/services/servicesInfo"
+        }
+      ]
     },
     {
-      "name": "Облачный сервер",
-      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/cloud-computing_1.svg", "color": "lightblue" },
-      "text": {
-        "title": "Миграция в облако",
-        "description": "Перенос ваших физических серверов за пределы страны в облачные или выделенные сервера в надежных датацентрах мира. 99.9% доступности, энергонезависимость, высокие каналы связи."
-      }
+      "title": {
+        "name": "Облачный сервер",
+        "servicePagePhotoUrl": "/image/Form/bigImage/clouds.png",
+        "homePagePhotoUrl": "/image/services/HomePageServices/cloud_server.svg",
+        "Roundblur": {
+          "img": "/image/cloud-computing_1.svg",
+          "color": "lightblue"
+        },
+        "text": {
+          "title": "Миграция в облако",
+          "description": "Перенос ваших физических серверов за пределы страны в облачные или выделенные сервера в надежных датацентрах мира. 99.9% доступности, энергонезависимость, высокие каналы связи."
+        }
+      },
+      "description": [
+        "Облако состоит из многих физических серверов которые объединены в единое целое",
+        "Для работы в облаке Вам выделяется виртуальный сервер которому отводится часть всех ресурсов облака (процессорная мощность, оперативная память и жесткий диск)",
+        "Виртуальный сервер может использовать любой из физических серверов входящих в облако, благодаря чему он продолжает работу даже при выходе из строя одного из физически серверов облака",
+        "На виртуальный сервер устанавливается операционная система (Windows/Linux или другая), после чего сервер готов к установке Ваших программ (1C, CRM система или любая другая)"
+      ],
+      "topdescription": "Перенос ваших физических серверов за пределы страны в облачные или выделенные сервера в надежных датацентрах мира. 99.9% доступности, энергонезависимость, высокие каналы связи.",
+      "photourl": "/image/services/topbigimage/cloud_server.svg",
+      "tasks": "Ваша информация будет надежно защищена благодаря современным методам безопасного хранения данных:.........",
+      "partname": [
+        {
+          "service_name": "Услуги",
+          "service_url": "/services"
+        },
+        {
+          "service_name": "Облачный сервер",
+          "service_url": "/services/servicesInfo"
+        }
+      ]
     },
     {
-      "name": "Кибербезопасность",
-      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/Form/Logos/security.svg", "color": "pink" },
-      "text": { "title": "Кибербезопасность", "description": "Кибербезопасность" }
+      "title": {
+        "name": "Кибербезопасность",
+        "servicePagePhotoUrl": "/image/Form/bigImage/security.png",
+        "homePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
+        "Roundblur": {
+          "img": "/image/Form/Logos/security.svg",
+          "color": "pink"
+        },
+        "text": {
+          "title": "Кибербезопасность",
+          "description": "Кибербезопасность"
+        }
+      },
+      "description": ["", "", "", ""],
+      "topdescription": "",
+      "photourl": "/image/services/topbigimage/cloud_server.svg",
+      "tasks": "",
+      "partname": [
+        {
+          "service_name": "Услуги",
+          "service_url": "/services"
+        },
+        {
+          "service_name": "Кибербезопасность",
+          "service_url": "/services/servicesInfo"
+        }
+      ]
     },
     {
-      "name": "Автоматизация",
-      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/Form/Logos/automatic_1.svg", "color": "violet" },
-      "text": { "title": "Автоматизация", "description": "Автоматизация" }
+      "title": {
+        "name": "Автоматизация",
+        "servicePagePhotoUrl": "/image/Form/bigImage/automatic.png",
+        "homePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
+        "Roundblur": {
+          "img": "/image/Form/Logos/automatic_1.svg",
+          "color": "violet"
+        },
+        "text": { "title": "Автоматизация", "description": "Автоматизация" }
+      },
+      "description": ["", "", "", ""],
+      "topdescription": "",
+      "photourl": "/",
+      "tasks": "",
+      "partname": [
+        {
+          "service_name": "Услуги",
+          "service_url": "/services"
+        },
+        {
+          "service_name": "Автоматизация бизнес задач",
+          "service_url": "/services/servicesInfo"
+        }
+      ]
     },
     {
-      "name": "Продажа софта по безопасности",
-      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/Form/Logos/soft_1.svg", "color": "orange" },
-      "text": { "title": "Продажа софта по безопасности", "description": "Продажа софта по безопасности" }
+      "title": {
+        "name": "Продажа софта по безопасности",
+        "servicePagePhotoUrl": "/image/Form/bigImage/soft.png",
+        "homePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
+        "Roundblur": {
+          "img": "/image/Form/Logos/soft_1.svg",
+          "color": "orange"
+        },
+        "text": {
+          "title": "Продажа софта по безопасности",
+          "description": "Продажа софта по безопасности"
+        }
+      },
+      "description": ["", "", "", ""],
+      "topdescription": "",
+      "photourl": "/",
+      "tasks": "",
+      "partname": [
+        {
+          "service_name": "Услуги",
+          "service_url": "/services"
+        },
+        {
+          "service_name": "Продажа софта по безопасности",
+          "service_url": "/services/servicesInfo"
+        }
+      ]
     },
     {
-      "name": "Продажа подписок на облачный софт",
-      "photoUrl": "/image/PhotoUl/Cloud_server.svg",
-      "Roundblur": { "img": "/image/Form/Logos/cloud-soft_1.svg", "color": "lightblue" },
-      "text": { "title": "Продажа подписок на облачный софт", "description": "Продажа подписок на облачный софт" }
+      "title": {
+        "name": "Продажа подписок на облачный софт",
+        "servicePagePhotoUrl": "/image/PhotoUl/Cloud_server.svg",
+        "homePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
+        "Roundblur": {
+          "img": "/image/Form/Logos/cloud-soft_1.svg",
+          "color": "lightblue"
+        },
+        "text": {
+          "title": "Продажа подписок на облачный софт",
+          "description": "Продажа подписок на облачный софт"
+        }
+      },
+      "description": ["", "", "", ""],
+      "topdescription": "",
+      "photourl": "/",
+      "tasks": "",
+      "partname": [
+        {
+          "service_name": "Услуги",
+          "service_url": "/services"
+        },
+        {
+          "service_name": "Продажа подписок на облачный софт",
+          "service_url": "/services/servicesInfo"
+        }
+      ]
     }
   ]
 }

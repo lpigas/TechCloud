@@ -40,9 +40,6 @@ export default function user() {
     }
   };
 
-  
-
-
   useEffect(() => {
     getTokendata();
   }, []);
@@ -52,28 +49,27 @@ export default function user() {
       {user && (
         <Layout title={user && user.name}>
           <TitleBlock partname={partname} />
-          <div className="flex flex-col lg:flex-row mt-[79px] lg:w-11/12 max-w-full m-auto">
+          <div className="flex flex-col lg:flex-row mt-[79px] lg:w-11/12 max-w-full m-auto  p-1">
             <Side
               user={user}
               highlighted={highlighted}
               setHighlighted={setHighlighted}
             />
-            {highlighted === "Персональная информация"? (
+            {highlighted === "Персональная информация" ? (
               <Personal
                 user={user}
                 setUser={setUser}
                 changePassword={changePassword}
                 setChangePassword={setChangePassword}
               />
-            ) 
-            : highlighted === "История заказов" ? (
+            ) : highlighted === "История заказов" ? (
               <Orders email={user.email} />
             ) : (
               <Tickets
                 email={user.email}
                 role={`${user.name} ${user.sername}`}
-              />)
-            } 
+              />
+            )}
           </div>
         </Layout>
       )}

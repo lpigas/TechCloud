@@ -11,10 +11,8 @@ export default function TicketOne({ ticketInfo, email, role }) {
     time: "",
     role: "",
   });
-  const [messages, setMessages] = useState();
   const [openLoader, setOpenLOader] = useState(false);
 
-  // console.log(ticketInfo)
   const addNewMessage = async () => {
     setOpenLOader(true);
     try {
@@ -27,14 +25,6 @@ export default function TicketOne({ ticketInfo, email, role }) {
         }),
       });
       const datas = await data.json();
-      const token = datas.token;
-      setMessages(datas.message);
-      if (typeof window !== "undefined") {
-        const data = window.localStorage.setItem(
-          "token",
-          JSON.stringify(token)
-        );
-      }
     } catch (error) {
       console.log(error);
     }
@@ -99,7 +89,9 @@ export default function TicketOne({ ticketInfo, email, role }) {
                   index === 0 && "mt-[27px]"
                 } font-normal not-italic text-[14px] leading-[18px] text-[#C8C8DB]`}
               >
-                {dateNow !== item.date && <div className="mt-[20px]">{(dateNow = item.date)}</div>}
+                {dateNow !== item.date && (
+                  <div className="mt-[20px]">{(dateNow = item.date)}</div>
+                )}
               </div>
               <div
                 className={`lg:px-4 w-full mt-[34px] flex flex-col ${

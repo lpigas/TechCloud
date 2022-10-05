@@ -1,10 +1,11 @@
 import React from "react";
 
 export default function TicketsTable({ ticketinfo, setTicketOpen }) {
-  // console.log(ticketinfo.numTicket)
   return (
-    <table className="w-full bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[10px] lg:rounded-[30px]"
-    onClick={() => setTicketOpen(ticketinfo)}>
+    <table
+      className="w-full bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[10px] lg:rounded-[30px]"
+      onClick={() => setTicketOpen(ticketinfo)}
+    >
       <tbody className="w-full">
         <tr className="w-full py-8 flex">
           <td className="lg:pl-[33px] w-1/5 font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50]">
@@ -30,7 +31,6 @@ export default function TicketsTable({ ticketinfo, setTicketOpen }) {
                   src="/image/Arrows/arrowdown.svg"
                   width={16}
                   height={28}
-                  
                 />
               </a>
             ) : ticketinfo.status === "wait" ? (
@@ -43,7 +43,6 @@ export default function TicketsTable({ ticketinfo, setTicketOpen }) {
                   src="/image/Arrows/arrowdown.svg"
                   width={16}
                   height={28}
-                  
                 />
               </a>
             ) : (
@@ -56,7 +55,6 @@ export default function TicketsTable({ ticketinfo, setTicketOpen }) {
                   src="/image/Arrows/arrowdown.svg"
                   width={16}
                   height={28}
-                  
                 />
               </a>
             )}

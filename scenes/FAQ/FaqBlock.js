@@ -12,17 +12,19 @@ export default function FaqBlock({ data, opened, setOpened }) {
     >
       <div className=" w-full px-8 mt-[20px] font-normal not-italic text-[20px] leading-[24px] text-[#3E3F50]">
         <div className=" flex items-center justify-between">
-
-        {data.title}
-        {opened !== data.title ? (
-          <div className="h-1/2 w-6 flex items-center" onClick={() => setOpened(data.title)}>
-            <img src="/image/Arrows/chevron.svg" className="m-auto" />
-          </div>
-        ) : (
-          <div className="h-1/2 w-6" onClick={() => setOpened("")}>
-            <img src="/image/Arrows/cancel.svg" className="m-auto" />
-          </div>
-        )}
+          {data.title}
+          {opened !== data.title ? (
+            <div
+              className="h-1/2 w-6 flex items-center"
+              onClick={() => setOpened(data.title)}
+            >
+              <img src="/image/Arrows/chevron.svg" className="m-auto" />
+            </div>
+          ) : (
+            <div className="h-1/2 w-6" onClick={() => setOpened("")}>
+              <img src="/image/Arrows/cancel.svg" className="m-auto" />
+            </div>
+          )}
         </div>
         {opened === data.title && (
           <div className="ml-[43px] mt-[15px] ">

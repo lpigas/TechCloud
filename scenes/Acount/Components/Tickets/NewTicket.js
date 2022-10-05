@@ -17,10 +17,7 @@ export default function NewTicket({
     { value: "Проблемы с кабинетом", label: "Проблемы с кабинетом" },
   ];
   const newTicketNum = allTickets[0] ? allTickets[0].numTicket.slice(1) : 0;
-  const data = new Date().toLocaleDateString();
-  const time = new Date().toLocaleTimeString().slice(0, -3);
-  const normaldata =
-    data.slice(0, data.length - 4) + data.slice(data.length - 2, data.length);
+  const normaldata = new Date().toLocaleDateString();
 
   const makeNum = (newTicketNum) => {
     let num = String(+newTicketNum + 1);
@@ -41,7 +38,9 @@ export default function NewTicket({
   return (
     <div className="w-[579px] p-7 bg-white rounded-[15px]">
       <div>Номер Ticket: {newTicket.numTicket}</div>
-      <div className="mt-[12px]">Дата Ticket: {newTicket.data}</div>
+      <div className="mt-[12px]">
+        Дата Ticket: {new Date().toLocaleDateString()}
+      </div>
       <Select
         id="react-select-2-live-region"
         onChange={(e) => setNewTicket({ ...newTicket, groupe: e.value })}

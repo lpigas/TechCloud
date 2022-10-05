@@ -6,20 +6,16 @@ export default function OrdersTable({
   allOrderdata,
   onClick,
 }) {
-  const totalpcs = allOrderdata.product.reduce((a, b) => a + b.pcs, 0);
-  const totalsum = allOrderdata.product.reduce(
+  const totalpcs = allOrderdata.products.reduce((a, b) => a + b.pcs, 0);
+  const totalsum = allOrderdata.products.reduce(
     (a, b) => a + b.pcs * b.price,
     0
   );
 
   return (
     <table
-      onClick={() =>
-        openOrder && openOrder === allOrderdata.numOrder
-          ? setOpenOrder()
-          : setOpenOrder(allOrderdata.numOrder)
-      }
-      className="w-full break-all bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[10px] lg:rounded-[30px]  "
+      onClick={() => !openOrder && setOpenOrder(allOrderdata.numOrder)}
+      className="w-full break-all bg-[#FFFFFF] mt-[12px] mb-[21px] rounded-[10px] ser:rounded-[30px]  "
     >
       <tbody className="w-full ">
         <tr className="w-full ">
@@ -30,7 +26,7 @@ export default function OrdersTable({
             {allOrderdata.date}
           </td>
           <td className="w-3/12 font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50]">
-            {allOrderdata.product.length}
+            {allOrderdata.products.length}
           </td>
           <td className="w-2/12 font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50]">
             {totalsum} Грн.
@@ -43,7 +39,7 @@ export default function OrdersTable({
                 Оплачен
                 {openOrder === allOrderdata.numOrder ? (
                   <img
-                    className="ml-[27px] hidden lg:flex"
+                    className="m-auto hidden lg:flex"
                     src="/image/Arrows/arrowup.svg"
                     width={16}
                     height={28}
@@ -51,7 +47,7 @@ export default function OrdersTable({
                   />
                 ) : (
                   <img
-                    className="ml-[27px] hidden lg:flex"
+                    className="m-auto hidden lg:flex"
                     src="/image/Arrows/arrowdown.svg"
                     width={16}
                     height={28}
@@ -66,7 +62,7 @@ export default function OrdersTable({
                 Не оплачен
                 {openOrder === allOrderdata.numOrder ? (
                   <img
-                    className="ml-[27px] hidden lg:flex"
+                    className="m-auto hidden lg:flex"
                     src="/image/Arrows/arrowup.svg"
                     width={16}
                     height={28}
@@ -74,7 +70,7 @@ export default function OrdersTable({
                   />
                 ) : (
                   <img
-                    className="ml-[27px] hidden lg:flex"
+                    className="m-auto hidden lg:flex"
                     src="/image/Arrows/arrowdown.svg"
                     width={16}
                     height={28}
@@ -89,7 +85,7 @@ export default function OrdersTable({
                 Отменен
                 {openOrder === allOrderdata.numOrder ? (
                   <img
-                    className="ml-[27px] hidden lg:flex"
+                    className="m-auto hidden lg:flex"
                     src="/image/Arrows/arrowup.svg"
                     width={16}
                     height={28}
@@ -97,7 +93,7 @@ export default function OrdersTable({
                   />
                 ) : (
                   <img
-                    className="ml-[27px] hidden lg:flex"
+                    className="m-auto hidden lg:flex"
                     src="/image/Arrows/arrowdown.svg"
                     width={16}
                     height={28}
@@ -110,7 +106,7 @@ export default function OrdersTable({
         </tr>
         {openOrder === allOrderdata.numOrder && (
           <>
-            {allOrderdata.product.map((item) => (
+            {allOrderdata.products.map((item) => (
               <tr key={Math.random()}>
                 <td colSpan={5} className="">
                   <table className="w-full ">
@@ -147,7 +143,7 @@ export default function OrdersTable({
                 <a className="flex py-12 justify-end pr-[31px]">
                   <Button
                     type={"static"}
-                    onClick={() => onClick(allOrderdata.product)}
+                    onClick={() => onClick(allOrderdata.products)}
                   >
                     {" "}
                     Повторить заказ

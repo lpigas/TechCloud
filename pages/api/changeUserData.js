@@ -71,7 +71,7 @@ export default async function (req, res) {
   await db
     .collection("users")
     .updateOne({ email: user.email }, { $set: { token } });
-
+  console.log("change user data" + new Date());
   res.json({
     message: "ok",
     token: token,

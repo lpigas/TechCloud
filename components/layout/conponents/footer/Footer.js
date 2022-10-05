@@ -1,11 +1,13 @@
 import React from "react";
-import Image from "next/image";
+import services from "../../../../constants/About/dataul.json";
 import Oferta from "./components/Oferta";
 import CloudTech from "./components/CloudTech";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 
 export default function Footer({}) {
+  const data = services.services;
+
   return (
     <div
       id="home__footer"
@@ -22,7 +24,7 @@ export default function Footer({}) {
               <CloudTech />
             </div>
             <div id="Services" className="xl:mx-12">
-              <Services />
+              <Services data={data} />
             </div>
             <div id="Contact" className="xl:mx-12 ">
               <Contact />

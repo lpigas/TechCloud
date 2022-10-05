@@ -5,9 +5,8 @@ export default function TitleFirst() {
   return (
     <div className="text-center font-bold not-italic text-[50px] ser:text-[65px] leading-[70px] text-[#3E3F50] relative">
       <span className=" absolute hidden ser:inline-block left-[45px] top-[-10px]">
-      <Roundblur52 color={"blue"}  />
+        <Roundblur52 color={"blue"} />
       </span>
-
       Широкий спектр облачных услуг под ваши нужды
     </div>
   );

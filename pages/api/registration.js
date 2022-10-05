@@ -1,10 +1,8 @@
 const { connectToDatabase } = require("../../lib/mongodb");
-const bcrypt = require("bcryptjs");
-const { createHash } = require("crypto");
-
+const md5 = require("md5");
 export default async function (req, res) {
   const { newUser } = JSON.parse(req.body);
-  const newPass = await bcrypt.hash(newUser.password, 10);
+  const newPass = md5(newUser.password + process.env.SECRET_KEY);
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -15,9 +13,7 @@ export default async function (req, res) {
   if (!validateEmail(newUser.email)) {
     return res.json({ status: 404, message: "Wrong e-mail" });
   }
-  if (newUser.password.length < 3) {
-    return res.json({ status: 404, message: "Wrong password" });
-  }
+
   if (newUser.phone.length < 3) {
     return res.json({
       status: 404,
@@ -53,6 +49,7 @@ export default async function (req, res) {
     phone: newUser.phone,
   };
   await db.collection("users").insertOne(userIn);
+  console.log("get registr" + new Date());
   res.json({
     message: "ok",
     info: newPass,

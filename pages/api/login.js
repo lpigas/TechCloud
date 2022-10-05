@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 const { connectToDatabase } = require("../../lib/mongodb");
 const ObjectId = require("mongodb").ObjectId;
-const bcrypt = require("bcryptjs");
+const md5 = require("md5");
 
 export default async function (req, res) {
   const { email, password } = JSON.parse(req.body);
@@ -26,9 +26,9 @@ export default async function (req, res) {
     return res.status(400).json({ message: "You are not registred" });
   }
 
-  const newPassword = await bcrypt.hash(password, 10);
+  const newPass = md5(password + process.env.SECRET_KEY);
 
-  const isMath = await bcrypt.compare(password, user.password);
+  const isMath = newPass === user.password;
   if (!isMath) {
     return res.status(400).json({ message: "Wrong password" });
   }
@@ -52,9 +52,9 @@ export default async function (req, res) {
   await db
     .collection("users")
     .updateOne({ email: user.email }, { $set: { token } });
-
+  console.log("get login" + new Date());
   res.json({
-    message: newPassword,
+    message: "ok",
     token: token,
   });
 }

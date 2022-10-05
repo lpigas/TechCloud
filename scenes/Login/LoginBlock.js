@@ -4,7 +4,7 @@ import Button from "../../components/atoms/Buttons/Button/Button";
 import jwt from "jsonwebtoken";
 import StandartInput from "../../components/atoms/Input/StandartInput";
 import Loader from "../../components/atoms/Loader/Loader";
-
+const md5 = require("md5");
 export default function LoginBlock({
   view,
   setView,
@@ -15,11 +15,13 @@ export default function LoginBlock({
   const [token, setToken] = useState("");
   const [message, setMessage] = useState();
   const [openLoader, setOpenLoader] = useState(false);
+
   async function getToken() {
+    const md5pass = md5(enterLogin.password + process.env.SECRET_KEY);
     setOpenLoader(true);
     const get = await fetch(`${process.env.API_HOST}login`, {
       method: "POST",
-      body: JSON.stringify(enterLogin),
+      body: JSON.stringify({ ...enterLogin, password: md5pass }),
     });
     const gets = await get.json();
     const token = gets.token;
@@ -36,7 +38,6 @@ export default function LoginBlock({
         );
       }
       fullinfo.role === "user" && router.push(process.env.USER_PATH);
-      //
     }
     setOpenLoader(false);
   }
@@ -54,17 +55,16 @@ export default function LoginBlock({
 
         <form className="mt-[33px] w-full h-full ">
           <div className="flex w-full ">
-
-          <StandartInput
-            type={"email"}
-            placeholder={`E-mail`}
-            value={enterLogin.email}
-            onChange={(e) =>
-              setEnterLogin({ ...enterLogin, email: e.target.value })
-            }
-          />
+            <StandartInput
+              type={"email"}
+              placeholder={`E-mail`}
+              value={enterLogin.email}
+              onChange={(e) =>
+                setEnterLogin({ ...enterLogin, email: e.target.value })
+              }
+            />
           </div>
-          <div className="flex w-full ">
+          <div className="flex w-full items-center">
             <StandartInput
               type={`${view === "text" ? "text" : "password"}`}
               placeholder={`Password`}
@@ -109,10 +109,9 @@ export default function LoginBlock({
           </div>
         )}
         <div className="flex justify-center md:justify-start">
-        <Button type={"static"} onClick={getToken}>
-          Войти
-        </Button>
-
+          <Button type={"static"} onClick={getToken}>
+            Войти
+          </Button>
         </div>
       </div>
     </div>

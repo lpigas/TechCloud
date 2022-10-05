@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import ChangePassBlock from "./Components/Personal/ChangePassBlock";
 import Personalblock from "./Components/Personal/Personalblock";
-
+const md5 = require("md5");
 export default function Personal({
   user,
   setUser,
@@ -18,11 +18,22 @@ export default function Personal({
   const changePass = async () => {
     if (changePassword.old.length === 0) {
       return setMessageChange("Старый пароль не заполен");
-    } else if (changePassword.newpass.length < 6) {
-      return setMessageChange("Новый пароль заполен менее 6 символов");
-    } else if (changePassword.newpass !== changePassword.secondNewpass) {
+    } else if (changePassword.newpass.length < 8) {
+      return setMessageChange("Новый пароль заполен менее 8 символов");
+    }
+    if (changePassword.newpass.search(/[A-Z]/) < 0) {
+      return setMessageChange(
+        "Ваш пароль должен содержать хотя бы одну заглавную букву"
+      );
+    }
+    if (changePassword.newpass.search(/[0-9]/) < 0) {
+      return setMessageChange("Ваш пароль должен содержать хотя бы одну цифру");
+    }
+    if (changePassword.newpass !== changePassword.secondNewpass) {
       return setMessageChange("Пароли не совпадают");
     }
+    const md5Pass = md5(changePassword.newpass + process.env.SECRET_KEY);
+    const md5PassOld = md5(changePassword.old + process.env.SECRET_KEY);
     setOpenLoaderPass(true);
     setMessageChange();
     try {
@@ -30,8 +41,8 @@ export default function Personal({
         method: "POST",
         body: JSON.stringify({
           email: user.email,
-          oldpass: changePassword.old,
-          newpass: changePassword.newpass,
+          oldpass: md5PassOld,
+          newpass: md5Pass,
         }),
       });
       const datas = await data.json();
@@ -109,7 +120,7 @@ export default function Personal({
   }, [token]);
 
   return (
-    <div className="bg-[#F9F9FC] w-full lg:w-2/3 max-w-full pb-18 ">
+    <div className="bg-[#F9F9FC] w-full lg:w-2/3 max-w-full pb-18">
       <div className="mt-[83px] lg:ml-[68px]  ">
         <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
           Персональная информация

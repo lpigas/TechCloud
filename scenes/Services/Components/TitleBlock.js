@@ -1,8 +1,15 @@
 import Link from "next/link";
 import React from "react";
+import Button from "../../../components/atoms/Buttons/Button/Button";
 import Roundblur52 from "../../../components/atoms/Rounds/Roundblur52";
+import Universal from "../../../components/moleculs/minilogos/cloud/Universal";
+import { useRouter } from "next/router";
 
-export default function TitleBlock({ partname }) {
+export default function TitleBlock({ partname, nextStage }) {
+  const router = useRouter();
+  const test = () => {
+    alert(1);
+  };
   return (
     <div className="flex mb-[87px] ">
       <div className="w-full ser:w-4/6  ser:mt-[87px] m-auto ">
@@ -29,11 +36,25 @@ export default function TitleBlock({ partname }) {
               </div>
             ))}
         </div>
-        <div className="mt-[38px] flex font-bold not-italic break-all text-[50px] ser:text-[85px] max-w-full leading-[70px] text-[#3E3F50]">
-          <div className="mt-[-20px] mr-[-16px]">
-            <Roundblur52 color={"blue"} />
-          </div>
-          {partname && partname[partname.length - 1].service_name}
+        <div className="mt-[38px] flex font-bold not-italic break-all text-[50px] ser:text-[75px] max-w-full leading-[70px] text-[#3E3F50]">
+          {nextStage !== "ok" ? (
+            <div>
+              <div className="mt-[-20px] mr-[-16px]">
+                <Roundblur52 color={"blue"} />
+              </div>
+
+              {partname && partname[partname.length - 1].service_name}
+            </div>
+          ) : (
+            <div className="px-1 ser:p-0">
+              <div>
+                <Universal color={"violet"}>
+                  <img src="/image/cloud/thanks.svg" />{" "}
+                </Universal>
+              </div>
+              <div>Заказ оформлен! Спасибо за покупку.</div>
+            </div>
+          )}
         </div>
       </div>
     </div>
