@@ -77,7 +77,7 @@ export default function TicketsAll({
               <div className="py-1">
                 {allTickets.map((ticket) => (
                   <TicketsTable
-                    key={ticket}
+                    key={ticket.numTicket}
                     ticketinfo={ticket}
                     ticketOpen={openTicket}
                     setTicketOpen={setOpenTicket}

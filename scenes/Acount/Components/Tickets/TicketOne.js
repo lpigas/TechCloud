@@ -3,7 +3,17 @@ import Loader from "../../../../components/atoms/Loader/Loader";
 import Add from "./Add";
 
 export default function TicketOne({ ticketInfo, email, role }) {
-  let dateNow = "";
+  const dates = {}
+
+  ticketInfo.correspondence.forEach(item => {
+  if (dates[item.data]) {
+    dates[item.data] = [...dates[item.data], item]
+  } else {
+    dates[item.data] = [item]
+  }
+})
+
+console.log(dates)
   const [uploadData, setUploadData] = useState({
     img: "",
     text: "",
@@ -84,41 +94,37 @@ export default function TicketOne({ ticketInfo, email, role }) {
           )}
         </div>
         <div className="w-full mt-[17px] overflow-y-scroll px-2 items-center justify-end min-h-fit pb-8 bg-[#FFFFFF] rounded-[10px] lg:rounded-[30px]">
-          {ticketInfo.correspondence.map((item, index) => (
-            <div key={item.text}>
-              <div
-                className={`text-center  ${
-                  index === 0 && "mt-[27px]"
-                } font-normal not-italic text-[14px] leading-[18px] text-[#C8C8DB]`}
-              >
-                {/* {dateNow !== item.date && (
-                  <div className="mt-[20px]">{(dateNow = item.date)}</div>
-                )} */}
+          {Object.keys(dates).map(item => (
+            <div> 
+              <div className="text-center mt-1">{item}</div>
+              {dates[item].map(message => 
+                (
+                  <div>
+                    <div className={`lg:px-4 w-full mt-[34px] flex flex-col ${message.role === "admin" && "items-end "
+            } `}> 
+                  <div className="font-normal not-italic text-[12px] leading-[16px] text-[#616E87]">
+              {message.role !== "admin" && <div>{message.role + ":"}</div>}
+            </div>
+            <div
+              className={` w-fit py-[12px] lg:px-[16px] mt-[4px] ${
+                message.role !== "admin"
+                  ? "bg-[#ffb39d] justify-start text-start "
+                  : "bg-[#F0F0FA] break-word "
+              } rounded-[8px] `}
+            >
+              <div className=" break-word text-start font-normal not-italic text-[16px] leading-[20px] text-[#3E3F50]">
+                {message.text && message.text}
+                {message.img && <img src={message.img} width={25} height={25} />}
               </div>
-              <div
-                className={`lg:px-4 w-full mt-[34px] flex flex-col ${
-                  item.role === "admin" && "items-end "
-                } `}
-              >
-                <div className="font-normal not-italic text-[12px] leading-[16px] text-[#616E87]">
-                  {item.role !== "admin" && <div>{item.role + ":"}</div>}
-                </div>
-                <div
-                  className={` w-fit py-[12px] lg:px-[16px] mt-[4px] ${
-                    item.role !== "admin"
-                      ? "bg-[#ffb39d] justify-start text-start "
-                      : "bg-[#F0F0FA] break-word "
-                  } rounded-[8px] `}
-                >
-                  <div className=" break-word text-start font-normal not-italic text-[16px] leading-[20px] text-[#3E3F50]">
-                    {item.text && item.text}
-                    {item.img && <img src={item.img} width={25} height={25} />}
-                  </div>
-                </div>
-                <div className="mt-[8px] font-normal not-italic te text-[12px] leading-[16px] text-[#C8C8DB]">
-                  {item.time}
-                </div>
-              </div>
+            </div>
+            <div className="mt-[8px] font-normal not-italic te text-[12px] leading-[16px] text-[#C8C8DB]">
+              {message.time}
+            </div>
+
+                    </div>
+                     </div>
+                )
+                )}
             </div>
           ))}
         </div>

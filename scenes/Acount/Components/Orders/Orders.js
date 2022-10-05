@@ -48,7 +48,7 @@ export default function Orders({ email }) {
             {ordersData &&
               ordersData.map((item) => (
                 <OrdersTable
-                  key={item}
+                  key={item.numOrder}
                   openOrder={openOrder}
                   setOpenOrder={setOpenOrder}
                   allOrderdata={item}
