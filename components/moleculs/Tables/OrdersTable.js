@@ -107,7 +107,7 @@ export default function OrdersTable({
         {openOrder === allOrderdata.numOrder && (
           <>
             {allOrderdata.products.map((item) => (
-              <tr key={Math.random()}>
+              <tr key={item.nameProduct}>
                 <td colSpan={5} className="">
                   <table className="w-full ">
                     <tbody>

@@ -15,7 +15,7 @@ export default function LeftBlock({ cartData, setCartData }) {
           {cartData.map((item, index) => (
             <Product
               data={item}
-              key={Math.random()}
+              key={item}
               setFocus={setFocus}
               focus={focus}
               cartData={cartData}

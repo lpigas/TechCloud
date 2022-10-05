@@ -30,7 +30,7 @@ export default function FaqBlock({ data, opened, setOpened }) {
           <div className="ml-[43px] mt-[15px] ">
             {data.description.map((item) => (
               <div
-                key={Math.random()}
+                key={item}
                 className="font-normal not-italic text-[18px] leading-[34px] text-[#616E87]"
               >
                 {item}

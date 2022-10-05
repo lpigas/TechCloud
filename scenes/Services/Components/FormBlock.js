@@ -20,7 +20,7 @@ export default function FormBlock({ data }) {
       {data &&
         data.map((item) => (
           <div
-            key={Math.random()}
+            key={item.title.name}
             className={`w-full ser:w-2/5 flex m-1 ser:m-4`}
           >
             {/* {console.log(item.title)} */}

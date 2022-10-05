@@ -48,7 +48,7 @@ export default function Orders({ email }) {
             {ordersData &&
               ordersData.map((item) => (
                 <OrdersTable
-                  key={Math.random()}
+                  key={item}
                   openOrder={openOrder}
                   setOpenOrder={setOpenOrder}
                   allOrderdata={item}

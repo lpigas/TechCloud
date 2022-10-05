@@ -10,7 +10,7 @@ export default function AboutUs() {
   return (
     <div className="font-normal text-left not-italic text-[18px] leading-[36px] min-w-[235px] min-h-[108px] text-[#616E87]">
       {links.map((item) => (
-        <p key={Math.random()}>
+        <p key={item.href}>
           <Link href={item.href}>{item.title}</Link>
         </p>
       ))}

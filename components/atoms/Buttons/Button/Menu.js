@@ -100,7 +100,7 @@ export default function MenuListComposition({ data }) {
                     onKeyDown={handleListKeyDown}
                   >
                     {newData.map((item) => (
-                      <div className="h-10" key={Math.random()}>
+                      <div className="h-10" key={item.link}>
                         <MenuItem
                           onClick={(event) => handleClose(event, item.link)}
                         >

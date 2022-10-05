@@ -11,7 +11,7 @@ export default function Menu({ highlighted, setHighlighted, logout }) {
     <div className="lg:mr-[-22px] flex flex-col w-full ">
       {menu.map((item) => (
         <div
-          key={Math.random()}
+          key={item.menuname}
           onClick={() => setHighlighted(item.menuname)}
           className={`w-full flex justify-center lg:justify-end lg:py-[12px] mt-1 ${
             highlighted === item.menuname && "bg-[#E1E1F3]"

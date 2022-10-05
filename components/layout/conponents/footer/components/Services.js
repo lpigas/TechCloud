@@ -19,7 +19,7 @@ export default function Services({ data }) {
       </div>
       <div className="mt-[22px] font-normal text-left  not-italic text-[18px] leading-[36px] text-[#616E87]">
         {data.map((item) => (
-          <div key={Math.random()} className="cursor-pointer">
+          <div key={item.title.name} className="cursor-pointer">
             <div onClick={() => RouteTo(item)}>{item.title.name}</div>
           </div>
         ))}

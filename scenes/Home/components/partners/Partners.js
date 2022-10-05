@@ -42,7 +42,7 @@ export default function Partners() {
               (item) =>
                 item && (
                   <img
-                    key={Math.random()}
+                    key={item.photourl}
                     src={item.photourl}
                     width={182}
                     height={37}

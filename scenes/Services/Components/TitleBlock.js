@@ -20,7 +20,7 @@ export default function TitleBlock({ partname, nextStage }) {
 
           {partname &&
             partname.map((item, index) => (
-              <div key={Math.random()} className={"flex"}>
+              <div key={item.service_url} className={"flex"}>
                 <p className="text-[#616E87]">/</p>
                 <a
                   href={item.service_url}

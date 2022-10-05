@@ -83,7 +83,7 @@ export default function TicketOne({ ticketInfo, email, role }) {
         </div>
         <div className="w-full mt-[17px] overflow-y-scroll px-2 items-center justify-end min-h-fit pb-8 bg-[#FFFFFF] rounded-[10px] lg:rounded-[30px]">
           {ticketInfo.correspondence.map((item, index) => (
-            <div key={Math.random()}>
+            <div key={item.text}>
               <div
                 className={`text-center  ${
                   index === 0 && "mt-[27px]"
