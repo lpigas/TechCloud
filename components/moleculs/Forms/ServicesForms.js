@@ -27,8 +27,8 @@ export default function ServicesForms({
           </Roundblur100>
         </div>{" "}
         {title}
-        <div
-          onClick={() => onClick(data)}
+        <a
+          href={data.partname[data.partname.length -1].service_url}
           className="cursor-pointer flex mb-4 mt-3 items-end"
         >
           <p className="flex">
@@ -39,7 +39,7 @@ export default function ServicesForms({
               className="mx-6"
             />
           </p>
-        </div>
+        </a>
       </div>
     </div>
   );

@@ -15,11 +15,13 @@ export default function CenterCloud({ data }) {
           </div>
           <div className="w-full ser:w-[680px] m-auto ">
             {data.description.map((item, index) => (
+              <div>
               <ServicesDescr
                 key={item}
                 description={item}
                 num={index}
               />
+              </div>
             ))}
           </div>
           <div className="font-bold w-full ser:w-[680px] m-auto  mt-[113px] mb-[42px] not-italic text-[50px] leading-[55px] text-[#3E3F50]">
@@ -27,6 +29,7 @@ export default function CenterCloud({ data }) {
           </div>
           <div className="w-full ser:w-[680px] m-auto  flex-wrap font-normal not-italic text-[20px] leading-[34px] text-[#616E87]">
             {data.tasks}
+            {/* {console.log(item)} */}
           </div>
         </div>
       </div>

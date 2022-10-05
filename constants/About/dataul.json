@@ -1,6 +1,7 @@
 {
   "services": [
     {
+      "id":"consalting",
       "title": {
         "name": "ИТ Консалтинг",
         "servicePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
@@ -22,11 +23,12 @@
         },
         {
           "service_name": "ИТ Консалтинг",
-          "service_url": "/services/servicesInfo"
+          "service_url": "/services/servicesInfo/consalting"
         }
       ]
     },
     {
+      "id":"autsorcing",
       "title": {
         "name": "ИТ Аутсорсинг (удаленно)",
         "servicePagePhotoUrl": "/image/Form/bigImage/outsorc.png",
@@ -51,11 +53,12 @@
         },
         {
           "service_name": "ИТ Аутсорсинг (удаленно)",
-          "service_url": "/services/servicesInfo"
+          "service_url": "/services/servicesInfo/autsorcing"
         }
       ]
     },
     {
+      "id":"servers",
       "title": {
         "name": "Аренда выделенных серверов",
         "servicePagePhotoUrl": "/image/Form/bigImage/servers.png",
@@ -80,11 +83,12 @@
         },
         {
           "service_name": "Аренда выделенных серверов",
-          "service_url": "/services/servicesInfo"
+          "service_url": "/services/servicesInfo/servers"
         }
       ]
     },
     {
+      "id":"cloud-server",
       "title": {
         "name": "Облачный сервер",
         "servicePagePhotoUrl": "/image/Form/bigImage/clouds.png",
@@ -114,11 +118,12 @@
         },
         {
           "service_name": "Облачный сервер",
-          "service_url": "/services/servicesInfo"
+          "service_url": "/services/servicesInfo/cloud-server"
         }
       ]
     },
     {
+      "id":"security",
       "title": {
         "name": "Кибербезопасность",
         "servicePagePhotoUrl": "/image/Form/bigImage/security.png",
@@ -143,11 +148,12 @@
         },
         {
           "service_name": "Кибербезопасность",
-          "service_url": "/services/servicesInfo"
+          "service_url": "/services/servicesInfo/security"
         }
       ]
     },
     {
+      "id":"automatic",
       "title": {
         "name": "Автоматизация",
         "servicePagePhotoUrl": "/image/Form/bigImage/automatic.png",
@@ -169,11 +175,12 @@
         },
         {
           "service_name": "Автоматизация бизнес задач",
-          "service_url": "/services/servicesInfo"
+          "service_url": "/services/servicesInfo/automatic"
         }
       ]
     },
     {
+      "id":"sell-soft",
       "title": {
         "name": "Продажа софта по безопасности",
         "servicePagePhotoUrl": "/image/Form/bigImage/soft.png",
@@ -198,11 +205,12 @@
         },
         {
           "service_name": "Продажа софта по безопасности",
-          "service_url": "/services/servicesInfo"
+          "service_url": "/services/servicesInfo/sell-soft"
         }
       ]
     },
     {
+      "id":"sell-cloud-soft",
       "title": {
         "name": "Продажа подписок на облачный софт",
         "servicePagePhotoUrl": "/image/PhotoUl/Cloud_server.svg",
@@ -227,7 +235,7 @@
         },
         {
           "service_name": "Продажа подписок на облачный софт",
-          "service_url": "/services/servicesInfo"
+          "service_url": "/services/servicesInfo/sell-cloud-soft"
         }
       ]
     }

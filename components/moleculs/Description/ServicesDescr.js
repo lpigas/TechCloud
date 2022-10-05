@@ -2,6 +2,8 @@ import React from "react";
 import Roundblur74 from "../../atoms/Rounds/RoundBlur74";
 
 export default function ServicesDescr({ description, num }) {
+  // console.log(num)
+  // console.log(description)
   return (
     <>
       <div className="flex flex-row ">
