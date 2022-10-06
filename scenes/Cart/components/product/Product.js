@@ -15,12 +15,11 @@ export default function Product({
     setCartData([...newData]);
     setFocus(index);
   };
-  const dellProduct = ()=>{
-    const newCart = cartData.filter(item => item !== cartData[index])
-    setCartData(newCart)
-    console.log(newCart )
-    
-  }
+  const dellProduct = () => {
+    const newCart = cartData.filter((item) => item !== cartData[index]);
+    setCartData(newCart);
+    console.log(newCart);
+  };
 
   return (
     <div className=" bg-white ser:w-11/12 max-w-full rounded-[10px] items-center ser:rounded-[30px] flex p-4 mt-[12px]">

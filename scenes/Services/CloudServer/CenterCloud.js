@@ -16,11 +16,7 @@ export default function CenterCloud({ data }) {
           <div className="w-full ser:w-[680px] m-auto ">
             {data.description.map((item, index) => (
               <div>
-              <ServicesDescr
-                key={item}
-                description={item}
-                num={index}
-              />
+                <ServicesDescr key={item} description={item} num={index} />
               </div>
             ))}
           </div>

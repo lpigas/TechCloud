@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "id":"consalting",
+      "id": "consalting",
       "title": {
         "name": "ИТ Консалтинг",
         "servicePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "id":"autsorcing",
+      "id": "autsorcing",
       "title": {
         "name": "ИТ Аутсорсинг (удаленно)",
         "servicePagePhotoUrl": "/image/Form/bigImage/outsorc.png",
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "id":"servers",
+      "id": "servers",
       "title": {
         "name": "Аренда выделенных серверов",
         "servicePagePhotoUrl": "/image/Form/bigImage/servers.png",
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "id":"cloud-server",
+      "id": "cloud-server",
       "title": {
         "name": "Облачный сервер",
         "servicePagePhotoUrl": "/image/Form/bigImage/clouds.png",
@@ -123,7 +123,7 @@
       ]
     },
     {
-      "id":"security",
+      "id": "security",
       "title": {
         "name": "Кибербезопасность",
         "servicePagePhotoUrl": "/image/Form/bigImage/security.png",
@@ -153,7 +153,7 @@
       ]
     },
     {
-      "id":"automatic",
+      "id": "automatic",
       "title": {
         "name": "Автоматизация",
         "servicePagePhotoUrl": "/image/Form/bigImage/automatic.png",
@@ -180,7 +180,7 @@
       ]
     },
     {
-      "id":"sell-soft",
+      "id": "sell-soft",
       "title": {
         "name": "Продажа софта по безопасности",
         "servicePagePhotoUrl": "/image/Form/bigImage/soft.png",
@@ -210,7 +210,7 @@
       ]
     },
     {
-      "id":"sell-cloud-soft",
+      "id": "sell-cloud-soft",
       "title": {
         "name": "Продажа подписок на облачный софт",
         "servicePagePhotoUrl": "/image/PhotoUl/Cloud_server.svg",

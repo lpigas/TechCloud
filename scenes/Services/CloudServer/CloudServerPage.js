@@ -4,9 +4,7 @@ import Bottom from "../../../components/moleculs/Recall/Bottom";
 import CenterCloud from "./CenterCloud";
 import Layout from "../../../components/layout/Layout";
 
-export default function CloudServerPage({serviceInfo}) {
-
-      
+export default function CloudServerPage({ serviceInfo }) {
   return (
     <Layout minh={3005} title={serviceInfo && serviceInfo.title.name}>
       {serviceInfo && <TitleBlock partname={serviceInfo.partname} />}

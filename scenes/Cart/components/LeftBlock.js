@@ -3,7 +3,7 @@ import Product from "./product/Product";
 
 export default function LeftBlock({ cartData, setCartData }) {
   const [focus, setFocus] = useState();
-
+  console.log(cartData);
   return (
     <div className="bg-[#F9F9FC] w-full ser:w-3/5 flex ser:justify-end">
       <div className="ser:w-3/4 pb-4 ser:pl-2">
@@ -15,7 +15,7 @@ export default function LeftBlock({ cartData, setCartData }) {
           {cartData.map((item, index) => (
             <Product
               data={item}
-              key={item}
+              key={item.nameProduct}
               setFocus={setFocus}
               focus={focus}
               cartData={cartData}

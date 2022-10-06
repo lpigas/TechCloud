@@ -38,11 +38,10 @@ export default function TitleBlock({ partname, nextStage }) {
         </div>
         <div className="mt-[38px] flex font-bold not-italic break-all text-[50px] ser:text-[75px] max-w-full leading-[70px] text-[#3E3F50]">
           {nextStage !== "ok" ? (
-            <div>
+            <div className="flex">
               <div className="mt-[-20px] mr-[-16px]">
                 <Roundblur52 color={"blue"} />
               </div>
-
               {partname && partname[partname.length - 1].service_name}
             </div>
           ) : (

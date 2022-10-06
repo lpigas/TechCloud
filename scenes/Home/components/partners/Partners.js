@@ -17,7 +17,7 @@ export default function Partners() {
     const interval = setInterval(() => changeLeft(), 1000);
     return () => clearInterval(interval);
   }, [outputinfo]);
-
+  console.log(outputinfo);
   return (
     <div className="sm:hidden xl:flex w-full  mt-[145px]  flex-col">
       <div className="flex">
@@ -42,7 +42,7 @@ export default function Partners() {
               (item) =>
                 item && (
                   <img
-                    key={item.photourl}
+                    key={item.alt}
                     src={item.photourl}
                     width={182}
                     height={37}

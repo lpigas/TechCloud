@@ -3,17 +3,17 @@ import Loader from "../../../../components/atoms/Loader/Loader";
 import Add from "./Add";
 
 export default function TicketOne({ ticketInfo, email, role }) {
-  const dates = {}
+  const dates = {};
 
-  ticketInfo.correspondence.forEach(item => {
-  if (dates[item.data]) {
-    dates[item.data] = [...dates[item.data], item]
-  } else {
-    dates[item.data] = [item]
-  }
-})
+  ticketInfo.correspondence.forEach((item) => {
+    if (dates[item.data]) {
+      dates[item.data] = [...dates[item.data], item];
+    } else {
+      dates[item.data] = [item];
+    }
+  });
 
-console.log(dates)
+  // console.log(dates)
   const [uploadData, setUploadData] = useState({
     img: "",
     text: "",
@@ -62,8 +62,6 @@ console.log(dates)
     });
   };
 
-  
-
   return (
     <div className="pb-8 ">
       <div className="w-full  lg:px-[50px] overflow-scroll">
@@ -94,37 +92,41 @@ console.log(dates)
           )}
         </div>
         <div className="w-full mt-[17px] overflow-y-scroll px-2 items-center justify-end min-h-fit pb-8 bg-[#FFFFFF] rounded-[10px] lg:rounded-[30px]">
-          {Object.keys(dates).map(item => (
-            <div> 
+          {Object.keys(dates).map((item) => (
+            <div key={item}>
               <div className="text-center mt-1">{item}</div>
-              {dates[item].map(message => 
-                (
-                  <div>
-                    <div className={`lg:px-4 w-full mt-[34px] flex flex-col ${message.role === "admin" && "items-end "
-            } `}> 
-                  <div className="font-normal not-italic text-[12px] leading-[16px] text-[#616E87]">
-              {message.role !== "admin" && <div>{message.role + ":"}</div>}
-            </div>
-            <div
-              className={` w-fit py-[12px] lg:px-[16px] mt-[4px] ${
-                message.role !== "admin"
-                  ? "bg-[#ffb39d] justify-start text-start "
-                  : "bg-[#F0F0FA] break-word "
-              } rounded-[8px] `}
-            >
-              <div className=" break-word text-start font-normal not-italic text-[16px] leading-[20px] text-[#3E3F50]">
-                {message.text && message.text}
-                {message.img && <img src={message.img} width={25} height={25} />}
-              </div>
-            </div>
-            <div className="mt-[8px] font-normal not-italic te text-[12px] leading-[16px] text-[#C8C8DB]">
-              {message.time}
-            </div>
-
+              {dates[item].map((message) => (
+                <div key={message.text + message.time}>
+                  <div
+                    className={`lg:px-4 w-full mt-[34px] flex flex-col ${
+                      message.role === "admin" && "items-end "
+                    } `}
+                  >
+                    <div className="font-normal not-italic text-[12px] leading-[16px] text-[#616E87]">
+                      {message.role !== "admin" && (
+                        <div>{message.role + ":"}</div>
+                      )}
                     </div>
-                     </div>
-                )
-                )}
+                    <div
+                      className={` w-fit py-[12px] lg:px-[16px] mt-[4px] ${
+                        message.role !== "admin"
+                          ? "bg-[#ffb39d] justify-start text-start "
+                          : "bg-[#F0F0FA] break-word "
+                      } rounded-[8px] `}
+                    >
+                      <div className=" break-word text-start font-normal not-italic text-[16px] leading-[20px] text-[#3E3F50]">
+                        {message.text && message.text}
+                        {message.img && (
+                          <img src={message.img} width={25} height={25} />
+                        )}
+                      </div>
+                    </div>
+                    <div className="mt-[8px] font-normal not-italic te text-[12px] leading-[16px] text-[#C8C8DB]">
+                      {message.time}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
