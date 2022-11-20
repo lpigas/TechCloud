@@ -2,10 +2,10 @@ import jwt from "jsonwebtoken";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import TitleBlock from "../../components/moleculs/Title/TitleBlock";
-import Side from "../../scenes/Acount/components/Side";
-import Personal from "../../scenes/Acount/Personal";
-import Orders from "../../scenes/Acount/components/components/Orders/Orders";
-import Tickets from "../../scenes/Acount/components/components/Tickets/Tickets";
+import Side from "/scenes/Acount/components/Side";
+import Personal from "/scenes/Acount/Personal";
+import Orders from "/scenes/Acount/components/components/Orders/Orders";
+import Tickets from "/scenes/Acount/components/components/Tickets/Tickets";
 import Layout from "../../components/layout/Layout";
 import { useUser } from "@auth0/nextjs-auth0";
 
