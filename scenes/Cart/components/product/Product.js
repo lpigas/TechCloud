@@ -18,7 +18,6 @@ export default function Product({
       const data = window.localStorage.setItem("Cart", JSON.stringify(newCartData));
     }
     setFocus(index);
-    console.log(cartData)
   };
   const dellProductCart = () => {
     const newCart = cartData.filter((item) => item !== cartData[index]);
@@ -41,7 +40,6 @@ export default function Product({
           body: JSON.stringify({ email: email, cart: cartData }),
         });
         const datas = await data.json();
-        console.log(datas.message);
       } catch (error) {}
     }
   };
