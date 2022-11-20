@@ -23,7 +23,7 @@ export default function LoginBlock() {
   const { user, error, isLoading } = useUser();
   if (error) return <div>{error.message}</div>;
   const userAuth = user && user[process.env.AUTH0_BASE_URL + "/user_metadata"];
-    console.log(user[process.env.AUTH0_BASE_URL + "/user_metadata"])
+    console.log(user && user[process.env.AUTH0_BASE_URL + "/user_metadata"])
 
   const getToken = async () => {
     try {
