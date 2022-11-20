@@ -43,7 +43,6 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
     validEnterData()
   }, [user]);
   
-  console.log(process.env.PRIVAT_PUBLIC_KEY)
   return (
     <div className=" bg-[#F6F6FA] w-full ser:w-2/5 pb-[15px] ser:pb-[225px]">
       <div className="ser:w-1/2 ser:pl-2">
@@ -80,9 +79,9 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
               product={cartData}
               language={'ua'}
               info={JSON.stringify(orderInfo)}
-              result_url={`${process.env.PROD_URL}/cart/compleate`}
+              result_url={`https://tech-cloud.vercel.app/cart/compleate`}
               // добавить рендер на страницу сенкс и чистка локал сторедж карт запрос в бд и создание нового токена
-              server_url={`${process.env.PROD_URL}/api/liqpayPayment`}
+              server_url={`https://tech-cloud.vercel.app/api/liqpayPayment`}
             />
           )}
         </div>
