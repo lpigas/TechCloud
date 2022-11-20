@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import ChangePassBlock from "./mponents/components/Personal/ChangePassBlock";
-import Personalblock from "./mponents/components/Personal/Personalblock";
+import ChangePassBlock from "./components/components/Personal/ChangePassBlock";
+import Personalblock from "./components/components/Personal/Personalblock";
 
 export default function Personal({
   user,
