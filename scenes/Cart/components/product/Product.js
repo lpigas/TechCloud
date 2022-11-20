@@ -18,6 +18,7 @@ export default function Product({
       const data = window.localStorage.setItem("Cart", JSON.stringify(newCartData));
     }
     setFocus(index);
+    console.log(cartData)
   };
   const dellProductCart = () => {
     const newCart = cartData.filter((item) => item !== cartData[index]);
