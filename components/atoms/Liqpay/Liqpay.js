@@ -44,7 +44,6 @@ const LiqPayPay = ({
       method="POST"
       action="https://www.liqpay.ua/api/3/checkout"
       acceptCharset="utf-8"
-      // className={style}
     >
       <input type="hidden" name="data" value={data} />
       <input type="hidden" name="signature" value={signature} />
