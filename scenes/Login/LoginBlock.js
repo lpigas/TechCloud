@@ -23,7 +23,7 @@ export default function LoginBlock() {
   const { user, error, isLoading } = useUser();
   if (error) return <div>{error.message}</div>;
   const userAuth = user && user[process.env.AUTH0_BASE_URL + "/user_metadata"];
-
+    console.log(userAuth)
   const getToken = async () => {
     try {
       const get = await fetch(`${process.env.API_HOST}login`, {
@@ -32,26 +32,25 @@ export default function LoginBlock() {
       });
       const gets = await get.json();
       const token = gets.token;
-      console.log(token)
-      // // if (token) {
-      // //   const fullUserInfo = jwt.decode(token);
-      // //   if (typeof window !== "undefined") {
-      // //     window.localStorage.setItem(
-      // //       "token",
-      // //       JSON.stringify(token)
-      // //     );
-      // //     if (fullUserInfo.cart.length > 0) {
-      // //       window.localStorage.setItem(
-      // //         "Cart",
-      // //         JSON.stringify(fullUserInfo.cart)
-      // //       );
-      // //     }
-      // //     fullUserInfo.role === "user" &&
-      // //       router.push(
-      // //         process.env.USER_PATH+`?user=${fullUserInfo.name}&page=personal`
-      // //       );
-      // //   }
-      // }
+      if (token) {
+        const fullUserInfo = jwt.decode(token);
+        if (typeof window !== "undefined") {
+          window.localStorage.setItem(
+            "token",
+            JSON.stringify(token)
+          );
+          if (fullUserInfo.cart.length > 0) {
+            window.localStorage.setItem(
+              "Cart",
+              JSON.stringify(fullUserInfo.cart)
+            );
+          }
+          fullUserInfo.role === "user" &&
+            router.push(
+              process.env.USER_PATH +`?user=${fullUserInfo.name}&page=personal`
+            );
+        }
+      }
     } catch (error) {
       console.log(error);
     }
