@@ -32,25 +32,26 @@ export default function LoginBlock() {
       });
       const gets = await get.json();
       const token = gets.token;
-      if (token) {
-        const fullUserInfo = jwt.decode(token);
-        if (typeof window !== "undefined") {
-          window.localStorage.setItem(
-            "token",
-            JSON.stringify(token)
-          );
-          if (fullUserInfo.cart.length > 0) {
-            window.localStorage.setItem(
-              "Cart",
-              JSON.stringify(fullUserInfo.cart)
-            );
-          }
-          fullUserInfo.role === "user" &&
-            router.push(
-              process.env.USER_PATH+`?user=${fullUserInfo.name}&page=personal`
-            );
-        }
-      }
+      console.log(token)
+      // // if (token) {
+      // //   const fullUserInfo = jwt.decode(token);
+      // //   if (typeof window !== "undefined") {
+      // //     window.localStorage.setItem(
+      // //       "token",
+      // //       JSON.stringify(token)
+      // //     );
+      // //     if (fullUserInfo.cart.length > 0) {
+      // //       window.localStorage.setItem(
+      // //         "Cart",
+      // //         JSON.stringify(fullUserInfo.cart)
+      // //       );
+      // //     }
+      // //     fullUserInfo.role === "user" &&
+      // //       router.push(
+      // //         process.env.USER_PATH+`?user=${fullUserInfo.name}&page=personal`
+      // //       );
+      // //   }
+      // }
     } catch (error) {
       console.log(error);
     }
