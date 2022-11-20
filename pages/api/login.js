@@ -4,7 +4,6 @@ const ObjectId = require("mongodb").ObjectId;
 
 export default async function (req, res) {
   const { userAuth } = JSON.parse(req.body);
-  console.log(userAuth)
   const { db } = await connectToDatabase();
   const candidate = await db
     .collection("users")
