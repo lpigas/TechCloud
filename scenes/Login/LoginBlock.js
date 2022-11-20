@@ -23,7 +23,9 @@ export default function LoginBlock() {
   const { user, error, isLoading } = useUser();
   if (error) return <div>{error.message}</div>;
   const userAuth = user && user[process.env.AUTH0_BASE_URL + "/user_metadata"];
-    console.log(userAuth)
+    console.log(user)
+    console.log(error)
+    console.log(isLoading)
   const getToken = async () => {
     try {
       const get = await fetch(`${process.env.API_HOST}login`, {
