@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Loader() {
-  const style = {};
   return (
     <div role="status">
       <svg

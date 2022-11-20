@@ -8,8 +8,7 @@ export default function ServicesForms({
   imageRound,
   bigImage,
   title,
-  onClick,
-  data,
+  servicesTitle,
 }) {
   const router = useRouter();
   return (
@@ -28,7 +27,7 @@ export default function ServicesForms({
         </div>{" "}
         {title}
         <a
-          href={data.partname[data.partname.length - 1].service_url}
+          href={servicesTitle.partname[servicesTitle.partname.length - 1].service_url}
           className="cursor-pointer flex mb-4 mt-3 items-end"
         >
           <p className="flex">

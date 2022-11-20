@@ -35,6 +35,13 @@ module.exports = {
     SECRET_KEY: process.env.SECRET_KEY,
     USER_PATH: process.env.USER_PATH,
     UPLOAD_URL: process.env.UPLOAD_URL,
+    AUTH0_SECRET: process.env.AUTH0_SECRET,
+    AUTH0_BASE_URL: process.env.AUTH0_BASE_URL,
+    AUTH0_ISSUER_BASE_URL: process.env.AUTH0_ISSUER_BASE_URL,
+    AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
+    AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
+    PRIVAT_PUBLIC_KEY: process.env.PRIVAT_PUBLIC_KEY,
+    PRIVAT_PRIVATE_KEY: process.env.PRIVAT_PRIVATE_KEY,
   },
   images: {
     domains: ["images.prom.ua", "cdn-icons-png.flaticon.com"],

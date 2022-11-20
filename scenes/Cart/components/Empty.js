@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
-import Button from "../../../components/atoms/Buttons/Button/Button";
+import Button from "../../../components/atoms/Buttons/Button";
 
 export default function Empty() {
   const router = useRouter();

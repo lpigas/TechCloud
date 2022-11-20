@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../../../atoms/Buttons/Button/Button";
+import Button from "../../../../atoms/Buttons/Button";
 
 export default function Contact() {
   return (

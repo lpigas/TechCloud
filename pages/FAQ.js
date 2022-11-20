@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import TitleBlock from "../scenes/Services/Components/TitleBlock";
-import FAQData from "../constants/Services/FAQData.json";
+import TitleBlock from "../components/moleculs/Title/TitleBlock";
+import FAQData from "../constants/FAQ/FAQData.json";
 import FaqBlock from "../scenes/FAQ/FaqBlock";
 import Layout from "../components/layout/Layout";
 
@@ -10,14 +10,12 @@ export default function FAQ() {
 
   return (
     <Layout title={"FAQ"}>
-      <div id="home__title" className="">
         <TitleBlock partname={FAQData.FAQpartname} />
-      </div>
       <div className="mt-[31px] pb-8">
         {data &&
           data.map((item) => (
             <div key={item.title} className="flex justify-center">
-              <FaqBlock data={item} setOpened={setOpened} opened={opened} />
+              <FaqBlock FAQdata={item} setOpened={setOpened} opened={opened} />
             </div>
           ))}
       </div>

@@ -1,20 +1,40 @@
-const { connectToDatabase } = require("../../lib/mongodb");
-const bcrypt = require("bcryptjs");
-const md5 = require("md5");
 export default async function (req, res) {
-  const { email, oldpass, newpass } = JSON.parse(req.body);
-  const { db } = await connectToDatabase();
-  const user = await db.collection("users").findOne({ email: email });
-  const md5oldPass = md5(oldpass + process.env.SECRET_KEY);
-  const md5newPass = md5(newpass + process.env.SECRET_KEY);
-  const isMath = md5oldPass === user.password;
-  if (!isMath) {
-    return res.json({ message: "Старый пароль неверный, попробуйте снова" });
+  const { newPassword, sub } = JSON.parse(req.body);
+
+  const data = await fetch("https://dev-4r036n52.eu.auth0.com/oauth/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "client_credentials",
+      client_id: "SRyfvvpMD7RgRp4euqQuLvxRUo3WYjMr",
+      client_secret:
+        "_VwZqnAAwPlMUoOh-R8ZC66YOgYjmUf3fBYQrb4nV30WMWDNQHqWNBB_50gV1CUB",
+      audience: "https://dev-4r036n52.eu.auth0.com/api/v2/",
+    }),
+  });
+  const accesstoken = await data.json();
+  // console.log(accesstoken)
+
+  try {
+    const data = await fetch(
+      "https://dev-4r036n52.eu.auth0.com/api/v2/users/" + sub,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${accesstoken.access_token}`,
+        },
+        body: JSON.stringify({
+          password: newPassword,
+          connection: "TechCloud",
+        }),
+      }
+    );
+    const datas = await data.json();
+  } catch (error) {
+    console.log(error);
   }
-  console.log("xhange user pass" + new Date());
-  await db
-    .collection("users")
-    .updateOne({ email: email }, { $set: { password: md5newPass } });
+
   res.json({
     message: "ok",
   });

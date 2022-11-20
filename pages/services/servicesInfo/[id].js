@@ -2,17 +2,18 @@ import React from "react";
 import { useRouter } from "next/router";
 const AllServices = require("../../../constants/About/dataul.json");
 import CloudServerPage from "scenes/Services/CloudServer/CloudServerPage";
+import Layout from "components/layout/Layout";
 
 export default function id() {
   const router = useRouter();
   const { id } = router.query;
+  console.log(id)
   const serviceInfo = AllServices.services.filter((item) => item.id === id);
-  console.log(serviceInfo);
   return (
-    <div>
+    <Layout>
       {serviceInfo.length > 0 && (
         <CloudServerPage serviceInfo={serviceInfo[0]} />
       )}
-    </div>
+    </Layout>
   );
 }

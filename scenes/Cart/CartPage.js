@@ -4,18 +4,29 @@ import LeftBlock from "./components/LeftBlock";
 import RightBlock from "./components/RightBlock";
 import LeftBlockPersonal from "./components/LeftBlockPersonal";
 import jwt from "jsonwebtoken";
-import Thanks from "./components/Thanks/Thanks";
+import { useRouter } from "next/router";
+import Loader from "components/atoms/Loader/Loader";
+import Layout from "components/layout/Layout";
+import TitleBlock from "components/moleculs/Title/TitleBlock";
 
-export default function CartPage({ setNextStage, nextStage }) {
+export default function CartPage() {
+  const partname =
+  [{
+    service_url: "/cart?page=product",
+    service_name: "Корзина",
+  },
+];
   const [cartData, setCartData] = useState();
-
+  const router = useRouter();
+  const [nextStage, setNextStage] = useState(router);
   const [errorMessage, setErrorMessage] = useState();
   const [user, setUser] = useState({
     urfis: "",
     name: "",
-    sername: "",
+    surname: "",
     phone: "",
     email: "",
+    ordersLength: 0,
   });
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -28,10 +39,11 @@ export default function CartPage({ setNextStage, nextStage }) {
       userdata &&
         setUser({
           name: userdata.name,
-          sername: userdata.sername,
+          surname: userdata.surname,
           urfis: userdata.urfis,
           phone: userdata.phone,
           email: userdata.email,
+          ordersLength: userdata.orders.length,
         });
     }
   }, []);
@@ -42,46 +54,12 @@ export default function CartPage({ setNextStage, nextStage }) {
         JSON.stringify(cartData)
       );
     }
-    setNextStage("stage2");
+    router.push("/cart?page=payment");
   };
+  useEffect(() => {
+    setNextStage(router.query && router.query.page);
+  }, [router]);
 
-  const addnewOrder = async () => {
-    try {
-      const data = await fetch(`${process.env.API_HOST}/neworder`, {
-        method: "POST",
-        body: JSON.stringify({ user, order: cartData }),
-      });
-      const datas = await data.json();
-      console.log(datas.message);
-      if (typeof window !== "undefined") {
-        const data = window.localStorage.removeItem("Cart");
-      }
-      setNextStage(datas.message);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const agree = () => {
-    const validateEmail = (email) => {
-      return email
-        .toLowerCase()
-        .match(
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-    };
-    const validationEmail = validateEmail(user.email);
-    if (user.phone.includes("__")) {
-      return setErrorMessage("Phone wrong");
-    } else if (user.name.length < 3 || user.sername.length < 3) {
-      return setErrorMessage("Name or Sername wrong");
-    }
-    if (!validationEmail) {
-      return setErrorMessage("Email wrong");
-    }
-
-    addnewOrder();
-  };
   useEffect(() => {
     if (errorMessage) {
       setTimeout(() => {
@@ -90,26 +68,33 @@ export default function CartPage({ setNextStage, nextStage }) {
     }
   }, [errorMessage]);
   return (
+    <Layout>
+      <TitleBlock partname={partname} />
     <div className="flex px-1 w-full">
       {!cartData ? (
         <Empty />
-      ) : !nextStage ? (
+      ) : nextStage === "product" ? (
         <div className="flex flex-col ser:flex-row px-1 w-full">
-          <LeftBlock cartData={cartData} setCartData={setCartData} />
+          <LeftBlock
+            cartData={cartData}
+            setCartData={setCartData}
+            email={user.email}
+          />
           <RightBlock cartData={cartData} checkout={checkout} />
         </div>
-      ) : nextStage === "stage2" ? (
+      ) : nextStage === "payment" ? (
         <div className="flex flex-col ser:flex-row px-1 w-full">
           <LeftBlockPersonal
             user={user}
             errorMessage={errorMessage}
             setUser={setUser}
           />
-          <RightBlock cartData={cartData} checkout={agree} />
+          <RightBlock cartData={cartData} nextStage={nextStage} user={user} />
         </div>
       ) : (
-        nextStage === "ok" && <Thanks />
+        <Loader />
       )}
     </div>
+    </Layout>
   );
 }

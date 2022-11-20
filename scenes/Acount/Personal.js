@@ -1,54 +1,52 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import ChangePassBlock from "./Components/Personal/ChangePassBlock";
-import Personalblock from "./Components/Personal/Personalblock";
-const md5 = require("md5");
+import ChangePassBlock from "./components/components/Personal/ChangePassBlock";
+import Personalblock from "./components/components/Personal/Personalblock";
+
 export default function Personal({
   user,
-  setUser,
   changePassword,
   setChangePassword,
+  sub,
 }) {
+
   const [openLoader, setOpenLoader] = useState(false);
   const [openLoaderPass, setOpenLoaderPass] = useState(false);
   const [newUserData, setNewUserData] = useState(user);
-  const [messageChange, setMessageChange] = useState();
+  const [messageChangePass, setMessageChangePass] = useState();
   const [messageChangeUser, setMessageChangeUser] = useState();
   const [token, setToken] = useState();
+
   const changePass = async () => {
-    if (changePassword.old.length === 0) {
-      return setMessageChange("Старый пароль не заполен");
-    } else if (changePassword.newpass.length < 8) {
-      return setMessageChange("Новый пароль заполен менее 8 символов");
+    if (changePassword.newpass.length < 8) {
+      return setMessageChangePass("Новый пароль заполен менее 8 символов");
     }
     if (changePassword.newpass.search(/[A-Z]/) < 0) {
-      return setMessageChange(
+      return setMessageChangePass(
         "Ваш пароль должен содержать хотя бы одну заглавную букву"
-      );
-    }
-    if (changePassword.newpass.search(/[0-9]/) < 0) {
-      return setMessageChange("Ваш пароль должен содержать хотя бы одну цифру");
-    }
-    if (changePassword.newpass !== changePassword.secondNewpass) {
-      return setMessageChange("Пароли не совпадают");
-    }
-    const md5Pass = md5(changePassword.newpass + process.env.SECRET_KEY);
-    const md5PassOld = md5(changePassword.old + process.env.SECRET_KEY);
-    setOpenLoaderPass(true);
-    setMessageChange();
+        );
+      }
+      if (changePassword.newpass.search(/[0-9]/) < 0) {
+        return setMessageChangePass("Ваш пароль должен содержать хотя бы одну цифру");
+      }
+      if (changePassword.newpass !== changePassword.secondNewpass) {
+        return setMessageChangePass("Пароли не совпадают");
+      }
+      
+      setOpenLoaderPass(true);
+      setMessageChangePass();
     try {
       const data = await fetch(`${process.env.API_HOST}changeUserPass`, {
         method: "POST",
         body: JSON.stringify({
-          email: user.email,
-          oldpass: md5PassOld,
-          newpass: md5Pass,
+          sub: sub,
+          newPassword: changePassword.newpass,
         }),
       });
       const datas = await data.json();
-      setMessageChange(datas.message);
+      setMessageChangePass(datas.message);
       datas.message === "ok" &&
-        setChangePassword({ old: "", newpass: "", secondNewpass: "" });
+        setChangePassword({ newpass: "", secondNewpass: "" });
     } catch (error) {
       console.log(error);
     }
@@ -56,12 +54,12 @@ export default function Personal({
   };
 
   useEffect(() => {
-    if (messageChange) {
+    if (messageChangePass) {
       setTimeout(() => {
-        setMessageChange();
+        setMessageChangePass();
       }, 3000);
     }
-  }, [messageChange]);
+  }, [messageChangePass]);
 
   useEffect(() => {
     if (messageChangeUser) {
@@ -76,29 +74,27 @@ export default function Personal({
       return setMessageChangeUser("Не установлен тип пользователя");
     } else if (newUserData.name && newUserData.name.length < 2) {
       return setMessageChangeUser("Не установлено имя пользователя");
-    } else if (newUserData.sername && newUserData.sername.length < 2) {
+    } else if (newUserData.surname && newUserData.surname.length < 2) {
       return setMessageChangeUser("Не установлена фамилия пользователя");
     } else if (newUserData.phone.length < 13) {
       return setMessageChangeUser("Не установлен телефон пользователя");
     }
     setOpenLoader(true);
-
     try {
       const data = await fetch(`${process.env.API_HOST}changeUserData`, {
         method: "POST",
         body: JSON.stringify({
-          oldemail: user.email,
+          email: user.email,
           urfis: newUserData.urfis,
           name: newUserData.name,
-          sername: newUserData.sername,
+          surname: newUserData.surname,
           phone: newUserData.phone,
-          email: newUserData.email,
           country: newUserData.country,
           city: newUserData.city,
         }),
       });
-      const datas = await data.json();
-      setToken(datas.token);
+      const tokenJson = await data.json();
+      setToken(tokenJson.token);
 
       setMessageChangeUser(datas.message !== "ok" && datas.message);
     } catch (error) {
@@ -113,7 +109,7 @@ export default function Personal({
           "token",
           JSON.stringify(token)
         );
-        setMessageChange("ok");
+        setMessageChangePass("ok");
       }
       window.location.reload();
     }
@@ -147,7 +143,7 @@ export default function Personal({
               changePassword={changePassword}
               setChangePassword={setChangePassword}
               changePass={changePass}
-              messageChange={messageChange}
+              messageChangePass={messageChangePass}
               openLoaderPass={openLoaderPass}
             />
           )}

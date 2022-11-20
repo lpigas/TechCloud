@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import jwt from "jsonwebtoken";
 import Select from "react-select";
-import Menu from "../../../atoms/Buttons/Button/Menu";
+import Menu from "../../../atoms/Menu/Menu";
 
 export default function Header({ title }) {
   const lang = [{ value: "Русский", label: "Русский" }];
@@ -68,12 +68,10 @@ export default function Header({ title }) {
           <div className="items-center flex h-full">
             <a
               href={`${
-                !loginData
-                  ? "/login"
-                  : ///auth/login
-                  loginData.role === "admin"
-                  ? process.env.ADMIN_PATH
-                  : process.env.USER_PATH
+                loginData && loginData.role !== "admin"
+                  ? process.env.USER_PATH +
+                    `?user=${loginData.name}&page=personal`
+                  : "/login"
               }`}
             >
               <img
@@ -82,7 +80,10 @@ export default function Header({ title }) {
               />
             </a>
             <div className="w-[34px] mt-[26px] h-[57px]">
-              <Cart cart={cart} onClick={() => router.push("/cart")} />
+              <Cart
+                cart={cart}
+                onClick={() => router.push("/cart?page=product")}
+              />
             </div>
           </div>
         </nav>

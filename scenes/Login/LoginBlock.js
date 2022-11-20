@@ -1,119 +1,171 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import Button from "../../components/atoms/Buttons/Button/Button";
+import React, { useEffect, useState } from "react";
+import Button from "../../components/atoms/Buttons/Button";
 import jwt from "jsonwebtoken";
 import StandartInput from "../../components/atoms/Input/StandartInput";
 import Loader from "../../components/atoms/Loader/Loader";
-const md5 = require("md5");
-export default function LoginBlock({
-  view,
-  setView,
-  enterLogin,
-  setEnterLogin,
-}) {
+import { useUser } from "@auth0/nextjs-auth0";
+import Layout from "components/layout/Layout";
+import TitleBlock from "components/moleculs/Title/TitleBlock";
+
+export default function LoginBlock() {
+  const partname=[
+    {
+      service_url: "/login",
+      service_name: "Вход в личный кабинет",
+    },
+  ]
   const router = useRouter();
-  const [token, setToken] = useState("");
   const [message, setMessage] = useState();
   const [openLoader, setOpenLoader] = useState(false);
+  const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState();
+  const { user, error, isLoading } = useUser();
+  if (error) return <div>{error.message}</div>;
+  const userAuth = user && user[process.env.AUTH0_BASE_URL + "/user_metadata"];
 
-  async function getToken() {
-    const md5pass = md5(enterLogin.password + process.env.SECRET_KEY);
-    setOpenLoader(true);
-    const get = await fetch(`${process.env.API_HOST}login`, {
-      method: "POST",
-      body: JSON.stringify({ ...enterLogin, password: md5pass }),
-    });
-    const gets = await get.json();
-    const token = gets.token;
-    setToken(token);
-    if (!token) {
-      setMessage(gets.message);
-    } else {
-      const fullinfo = jwt.decode(token);
-      setMessage(`Hello dear ${fullinfo.name} you are login`);
-      if (typeof window !== "undefined") {
-        const data = window.localStorage.setItem(
-          "token",
-          JSON.stringify(token)
-        );
+  const getToken = async () => {
+    try {
+      const get = await fetch(`${process.env.API_HOST}login`, {
+        method: "POST",
+        body: JSON.stringify({ userAuth }),
+      });
+      const gets = await get.json();
+      const token = gets.token;
+      if (token) {
+        const fullUserInfo = jwt.decode(token);
+        if (typeof window !== "undefined") {
+          window.localStorage.setItem(
+            "token",
+            JSON.stringify(token)
+          );
+          if (fullUserInfo.cart.length > 0) {
+            window.localStorage.setItem(
+              "Cart",
+              JSON.stringify(fullUserInfo.cart)
+            );
+          }
+          fullUserInfo.role === "user" &&
+            router.push(
+              process.env.USER_PATH + `?user=${fullUserInfo.name}&page=personal`
+            );
+        }
       }
-      fullinfo.role === "user" && router.push(process.env.USER_PATH);
+    } catch (error) {
+      console.log(error);
     }
-    setOpenLoader(false);
-  }
-  if (message) {
-    setTimeout(() => {
-      setMessage();
-    }, 3000);
-  }
-  return (
-    <div className="sm:w-full xl:w-1/2 flex bg-[#FFFFFF] justify-around rounded-[20px] xl:rounded-[50px]">
-      <div className="w-full py-12 px-1 md:px-12 flex flex-col  ">
-        <p className="text-center md:text-start font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] ">
-          Введите Ваш логин и пароль:
-        </p>
+  };
 
-        <form className="mt-[33px] w-full h-full ">
-          <div className="flex w-full ">
-            <StandartInput
-              type={"email"}
-              placeholder={`E-mail`}
-              value={enterLogin.email}
-              onChange={(e) =>
-                setEnterLogin({ ...enterLogin, email: e.target.value })
-              }
-            />
-          </div>
-          <div className="flex w-full items-center">
-            <StandartInput
-              type={`${view === "text" ? "text" : "password"}`}
-              placeholder={`Password`}
-              value={enterLogin.password}
-              onChange={(e) =>
-                setEnterLogin({ ...enterLogin, password: e.target.value })
-              }
-            />
-            <img
-              src="/image/Arrows/view.svg"
-              className="ml-[-45px] mt-[20px] w-[22px] h-[22px]"
-              onClick={() => setView(view === "text" ? "" : "text")}
-            />
-          </div>
-          {message && (
-            <div
-              className={`font-normal mt-[12px] w-max-3/4 not-italic text-[20px] leading-[23px] ${
-                !message.includes("Hello") ? "text-red-500" : "text-green-500"
-              }`}
-            >
-              {message}
-            </div>
-          )}
-          <div className="mt-[48px] mb-7">
-            <div className="flex-col md:flex-row flex w-max-full my-[44px] items-center">
-              <div className="font-normal not-italic text-[20px] leading-[23px] text-[#7166F9]">
-                Я забыл пароль
-              </div>
-              <div className="hidden md:flex mx-[11px]">|</div>
-              <div
-                onClick={() => router.push("/login/registration")}
-                className="font-normal cursor-pointer not-italic text-[20px] leading-[23px] text-[#7166F9]"
-              >
-                Регистрация
-              </div>
-            </div>
-          </div>
-        </form>
-        {openLoader && (
-          <div className="mt-2">
+  useEffect(() => {
+    if (user) {
+      setOpenLoader(true);
+      getToken();
+    }
+  }, [user]);
+
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+  const resetpass = async () => {
+    try {
+      setEmail("");
+      const data = await fetch(`${process.env.API_HOST}resetpass`, {
+        method: "POST",
+        body: JSON.stringify({ email }),
+      });
+      const datas = await data.json();
+      setErrorMessage(datas.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(()=>{
+    if (errorMessage) {
+      setTimeout(() => {
+        setErrorMessage();
+        setEmail("");
+      }, 3000);
+    }
+  },[errorMessage])
+
+  return (
+    <Layout>
+      <TitleBlock partname={partname} />
+      <div className=" md:w-8/12 max-w-full mb-10 m-auto">
+    <div className="sm:w-full xl:w-1/2 flex bg-[#FFFFFF] justify-center rounded-[20px] xl:rounded-[50px]">
+      {!message ? (
+        openLoader || isLoading ? (
+          <div className="p-8">
+            Please wait loading ...
             <Loader />
           </div>
-        )}
-        <div className="flex justify-center md:justify-start">
-          <Button type={"static"} onClick={getToken}>
-            Войти
-          </Button>
+        ) : (
+          <div className="w-full py-8 justify-center px-1 md:px-12 flex flex-col items-center">
+            <div className="flex justify-center flex-col md:justify-start">
+              <Button
+                type={"static"}
+                onClick={() => router.push(`${process.env.API_HOST}auth/login`)}
+              >
+                Войти
+              </Button>
+            </div>
+            <div className="flex justify-center mt-[15px] flex-col md:justify-start">
+              <Button
+                type={"static"}
+                onClick={() => router.push(`${process.env.API_HOST}invite`)}
+              >
+                Регистрация
+              </Button>
+            </div>
+            <div className="mt-[33px] w-full h-full ">
+              <div className="mt-[18px] mb-2">
+                <div className="flex-col md:flex-row justify-center flex w-max-full my-[24px] items-center">
+                  <div
+                    className="font-normal not-italic text-[20px] leading-[23px] text-[#7166F9] cursor-pointer"
+                    onClick={() => setMessage("reset pass")}
+                  >
+                    Я забыл пароль
+                  </div>
+                </div>
+              </div>
+            </div>
+            {openLoader && (
+              <div className="mt-2">
+                <Loader />
+              </div>
+            )}
+          </div>
+        )
+      ) : (
+        <div className="p-8">
+          <div>
+            <StandartInput
+              placeholder="Email"
+              type={"email"}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <div className="mt-8">
+              <Button
+                disabled={validateEmail(email) === null}
+                onClick={() => resetpass()}
+              >
+                Reset password
+              </Button>
+            </div>
+            <div className="mt-8">
+              <Button onClick={() => setMessage()}>Back to login</Button>
+            </div>
+            <div className="mt-4">{errorMessage && errorMessage}</div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
+    </div>
+    </Layout>
   );
 }

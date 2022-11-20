@@ -1,43 +1,37 @@
 import jwt from "jsonwebtoken";
 const { connectToDatabase } = require("../../lib/mongodb");
 const ObjectId = require("mongodb").ObjectId;
-const md5 = require("md5");
 
 export default async function (req, res) {
-  const { email, password } = JSON.parse(req.body);
-  const validateEmail = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
-  if (!validateEmail(email)) {
-    return res.status(400).json({ message: "No enter or valid login" });
+  const { userAuth } = JSON.parse(req.body);
+  const { db } = await connectToDatabase();
+  const candidate = await db
+    .collection("users")
+    .findOne({ email: userAuth.email });
+  if (candidate === null) {
+    const balance = btoa(0);
+    const userIn = {
+      role: "user",
+      surname: userAuth.surname || "",
+      balance: balance,
+      orders: [],
+      tickets: [],
+      name: userAuth.name,
+      email: userAuth.email,
+      country: userAuth.country || "",
+      city: userAuth.city || "",
+      urfis: userAuth.urfis || "",
+      phone: userAuth.phone,
+      cart: userAuth.cart || [],
+    };
+    await db.collection("users").insertOne(userIn);
   }
-  if (password.length < 1) {
-    return res.status(400).json({ message: "No enter password" });
-  }
-  let { db } = await connectToDatabase();
-
-  const user = await db.collection("users").findOne({ email: email });
-
-  if (!user) {
-    return res.status(400).json({ message: "You are not registred" });
-  }
-
-  const newPass = md5(password + process.env.SECRET_KEY);
-
-  const isMath = newPass === user.password;
-  if (!isMath) {
-    return res.status(400).json({ message: "Wrong password" });
-  }
+  const user = await db.collection("users").findOne({ email: userAuth.email });
   const token = jwt.sign(
     {
       email: user.email,
-      password: user.password,
       name: user.name,
-      sername: user.sername,
+      surname: user.surname,
       phone: user.phone,
       role: user.role,
       urfis: user.urfis,
@@ -46,15 +40,12 @@ export default async function (req, res) {
       city: user.city,
       orders: user.orders,
       tickets: user.tickets,
+      cart: user.cart || [],
     },
     process.env.SECRET_KEY
   );
-  await db
-    .collection("users")
-    .updateOne({ email: user.email }, { $set: { token } });
-  console.log("get login" + new Date());
+
   res.json({
-    message: "ok",
     token: token,
   });
 }

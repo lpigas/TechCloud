@@ -1,6 +1,5 @@
 const { connectToDatabase } = require("../../lib/mongodb");
-import jwt from "jsonwebtoken";
-import { ObjectId } from "mongodb";
+
 
 export default async function (req, res) {
   const { email } = JSON.parse(req.body);
@@ -11,7 +10,6 @@ export default async function (req, res) {
     .collection("ticket")
     .find({ user: user._id })
     .toArray();
-  console.log("get tickets" + new Date());
   return res.json({
     tickets: allTickets,
   });

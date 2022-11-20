@@ -1,5 +1,5 @@
 const { connectToDatabase } = require("../../lib/mongodb");
-import jwt from "jsonwebtoken";
+
 
 export default async function (req, res) {
   const { newTicket, allTickets, email } = JSON.parse(req.body);
@@ -22,7 +22,6 @@ export default async function (req, res) {
   await db
     .collection("users")
     .updateOne({ email: email }, { $set: { tickets: userTickets } });
-  console.log("add new ticket" + new Date());
   return res.json({
     message: userTickets,
   });

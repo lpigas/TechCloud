@@ -213,7 +213,7 @@
       "id": "sell-cloud-soft",
       "title": {
         "name": "Продажа подписок на облачный софт",
-        "servicePagePhotoUrl": "/image/PhotoUl/Cloud_server.svg",
+        "servicePagePhotoUrl": "/image/Form/bigImage/cloud_soft.png",
         "homePagePhotoUrl": "/image/Form/bigImage/consaltingB.png",
         "Roundblur": {
           "img": "/image/Form/Logos/cloud-soft_1.svg",

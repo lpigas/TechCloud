@@ -1,12 +1,12 @@
 import React from "react";
-import services from "../../../../constants/About/dataul.json";
+import servicesData from "../../../../constants/About/dataul.json";
 import Oferta from "./components/Oferta";
 import CloudTech from "./components/CloudTech";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 
 export default function Footer({}) {
-  const data = services.services;
+  const data = servicesData.services;
 
   return (
     <div

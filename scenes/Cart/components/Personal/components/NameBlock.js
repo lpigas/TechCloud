@@ -13,8 +13,8 @@ export default function NameBlock({ user, setUser }) {
       <StandartInput
         type={"text"}
         placeholder="Фамилия"
-        onChange={(e) => setUser({ ...user, sername: e.target.value })}
-        value={user.sername}
+        onChange={(e) => setUser({ ...user, surname: e.target.value })}
+        value={user.surname}
       />
     </div>
   );

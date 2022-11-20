@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../atoms/Buttons/Button/Button";
+import Button from "../../atoms/Buttons/Button";
 export default function OrdersTable({
   openOrder,
   setOpenOrder,
@@ -20,7 +20,7 @@ export default function OrdersTable({
       <tbody className="w-full ">
         <tr className="w-full ">
           <td className="lg:pl-[33px] flex flex-row py-8 w-4/5 font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50]">
-            {allOrderdata.numOrder}
+            {allOrderdata.numOrder.slice(0, 8)}
           </td>
           <td className="w-2/12 font-normal not-italic text-[16px] leading-[28px] text-[#3E3F50] ">
             {allOrderdata.date}

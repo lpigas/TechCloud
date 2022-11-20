@@ -6,6 +6,6 @@ export default function Window() {
       src="/image/window/window.svg"
       className="w-full h-full"
       alt="window"
-    ></img>
+    />
   );
 }

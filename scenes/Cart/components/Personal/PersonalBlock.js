@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import EmailBlock from "./components/EmailBlock";
 import NameBlock from "./components/NameBlock";
 import PhoneBlock from "./components/PhoneBlock";
@@ -6,7 +6,7 @@ import UrfisBlock from "./components/UrfisBlock";
 
 export default function PersonalBlock({ user, setUser }) {
   return (
-    <div className="">
+    <div>
       <div>
         <UrfisBlock user={user} setUser={setUser} />
       </div>

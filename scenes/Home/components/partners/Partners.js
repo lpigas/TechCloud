@@ -17,7 +17,7 @@ export default function Partners() {
     const interval = setInterval(() => changeLeft(), 1000);
     return () => clearInterval(interval);
   }, [outputinfo]);
-  console.log(outputinfo);
+  // console.log(outputinfo);
   return (
     <div className="sm:hidden xl:flex w-full  mt-[145px]  flex-col">
       <div className="flex">

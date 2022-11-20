@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../atoms/Buttons/Button/Button";
+import Button from "../../atoms/Buttons/Button";
 import Beclient from "../../atoms/Text/Beclient";
 
 export default function Bottom({ title, buttonName }) {

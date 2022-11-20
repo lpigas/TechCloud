@@ -1,37 +1,38 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import Menu from "./Menu";
-const bcrypt = require("bcryptjs");
+import React from "react";
+import Menu from "./components/Menu";
 
-export default function Side({ user, highlighted, setHighlighted }) {
+export default function Side({ user, highlighted }) {
   const router = useRouter();
+  const routingAcount = (href) => {
+    router.push(process.env.USER_PATH + `?user=${user.name}&page=${href}`);
+  };
 
   const balance =
     user && Buffer.from(`${user.balance}`, "base64").toString("ascii");
 
-  // const addCartdb = async ()=>{
-  //   let cart
-  //   if (typeof window !== "undefined") {
-  //     const data = JSON.parse(window.localStorage.getItem("Cart"));
-  //     cart=data
-  //   }
-  //   try {
-  //     const data = await fetch('',{
-  //       method:"POST",
-  //       body: JSON.stringify({email:user.email, cart})
-  //     })
-  //     const datas = await data.json()
-  //     console.log(datas.message)
-  //   } catch (error) {
-
-  //   }
-  // }
-  const logout = () => {
-    // addCartdb()
+  const addCartdb = async () => {
+    let cart;
     if (typeof window !== "undefined") {
-      const data = window.localStorage.removeItem("token");
-      const datas = window.localStorage.removeItem("Cart");
-      router.push("/");
+      cart = JSON.parse(window.localStorage.getItem("Cart"));
+    }
+    if (cart) {
+      try {
+        const data = await fetch(`${process.env.API_HOST}addcartdb`, {
+          method: "POST",
+          body: JSON.stringify({ email: user.email, cart }),
+        });
+      } catch (error) {}
+    }
+  };
+
+  const logout = () => {
+    addCartdb();
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("token");
+      window.localStorage.removeItem("Cart");
+      window.localStorage.removeItem("user");
+      router.push("/api/auth/logout");
     }
   };
 
@@ -41,7 +42,7 @@ export default function Side({ user, highlighted, setHighlighted }) {
         <div>
           Добро пожаловать
           <div className="break-words  font-bold not-italic text-[24px] leading-[28px] text-[#3E3F50] z-10">
-            {user.name} {user.sername}
+            {user.name} {user.surname}
           </div>
         </div>
       </div>
@@ -62,11 +63,7 @@ export default function Side({ user, highlighted, setHighlighted }) {
         </div>
       </div>
       <div className="mt-[43px] w-full ">
-        <Menu
-          highlighted={highlighted}
-          setHighlighted={setHighlighted}
-          logout={logout}
-        />
+        <Menu highlighted={highlighted} routingAcount={routingAcount} />
       </div>
       <div className="flex w-full justify-center lg:justify-end mt-[76px] items-center">
         <img src="/image/Arrows/logout.svg" />

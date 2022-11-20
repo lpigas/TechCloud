@@ -1,9 +1,48 @@
-import React from "react";
-import Button from "../../../components/atoms/Buttons/Button/Button";
+import React, { useState, useEffect } from "react";
+import Button from "../../../components/atoms/Buttons/Button";
+import LiqPayPay from "components/atoms/Liqpay/Liqpay";
+import { validemail } from "util/validemail";
 
-export default function RightBlock({ cartData, checkout }) {
-  const totalsum = cartData.reduce((a, b) => a + b.price * b.pcs, 0);
-  const dec = isNaN(totalsum % 1) ? "00" : (totalsum % 1).toFixed(2);
+export default function RightBlock({ cartData, checkout, nextStage, user }) {
+  const totalSum = cartData.reduce((a, b) => a + b.price * b.pcs, 0);
+  const dec = isNaN(totalSum % 1) ? "00" : (totalSum % 1).toFixed(2);
+  const [message, setMessage] = useState();
+  const [buttonIsDisabled, setButtonIsDisabled] = useState(true);
+
+  let numOrder = String(user && user.ordersLength + 1);
+
+  if (numOrder) {
+    for (let i = numOrder.length; i <= 6; i++) {
+      numOrder = "0" + numOrder;
+    }
+    numOrder = "#" + numOrder + "/" + (user && user.name);
+  }
+  const orderInfo = user && { userInfo: user, product: cartData };
+  
+  const validEnterData =() =>{
+    if (user) {
+      if (user.name.length < 3) {
+        window.localStorage.removeItem("user");
+        setButtonIsDisabled(true);
+        setMessage("Name must be 3 letters or more");
+      }
+      if (!validemail(user.email)) {
+        window.localStorage.removeItem("user");
+        setButtonIsDisabled(true);
+        setMessage("Email wrong");
+      }
+      if (validemail(user.email) && user.name.length >= 3) {
+        window.localStorage.setItem("user", JSON.stringify(user));
+        setMessage();
+        setButtonIsDisabled(false);
+      }
+    }
+  }
+
+  useEffect(() => {
+    validEnterData()
+  }, [user]);
+  
 
   return (
     <div className=" bg-[#F6F6FA] w-full ser:w-2/5 pb-[15px] ser:pb-[225px]">
@@ -18,13 +57,34 @@ export default function RightBlock({ cartData, checkout }) {
         </div>
         <div className="flex justify-between mt-[19px]  font-bold not-italic text-[18px] text-[#3E3F50]">
           {" "}
-          <div>Сумма:</div> <div>{Math.floor(totalsum) + +dec} Грн.</div>
+          <div>Сумма:</div> <div>{Math.floor(totalSum) + +dec} Грн.</div>
         </div>
         <div className="mt-[61px]">
-          <Button type="static" onClick={checkout}>
-            {" "}
-            Оформить заказ{" "}
-          </Button>
+          <div>{message}</div>
+          {!nextStage && (
+            <Button type="static" onClick={checkout}>
+              {" "}
+              Оформить заказ{" "}
+            </Button>
+          )}
+          {nextStage === "payment" && (
+            <LiqPayPay
+              publicKey={process.env.PRIVAT_PUBLIC_KEY}
+              privateKey={process.env.PRIVAT_PRIVATE_KEY}
+              amount={`${totalSum}`}
+              currency={"UAH"}
+              description={cartData}
+              orderId={numOrder}
+              title={"Payment"}
+              disabled={buttonIsDisabled}
+              product={cartData}
+              language={'ua'}
+              info={JSON.stringify(orderInfo)}
+              result_url={`${process.env.PROD_URL}cart/compleate`}
+              // добавить рендер на страницу сенкс и чистка локал сторедж карт запрос в бд и создание нового токена
+              server_url={`${process.env.PROD_URL}api/liqpayPayment`}
+            />
+          )}
         </div>
       </div>
     </div>

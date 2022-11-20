@@ -2,7 +2,7 @@ import React from "react";
 
 export default function UrfisBlock({ user, setUser }) {
   return (
-    <div>
+    <div onClick={(e) => setUser({ ...user, urfis: e.target.value })}>
       <label className="flex">
         <input
           defaultChecked={user.urfis === "Физическое лицо"}

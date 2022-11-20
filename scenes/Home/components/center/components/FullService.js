@@ -5,7 +5,7 @@ import Service_ul from "./Ul/Service_ul";
 import PhotoUl from "./Ul/PhotoUl";
 import TextUl from "./Ul/TextUl";
 import dataul from "../../../../../constants/About/dataul.json";
-import Button from "../../../../../components/atoms/Buttons/Button/Button";
+import Button from "../../../../../components/atoms/Buttons/Button";
 
 export default function FullService() {
   const services = dataul.services;
