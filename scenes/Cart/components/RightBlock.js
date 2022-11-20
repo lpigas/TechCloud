@@ -79,7 +79,7 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
               product={cartData}
               language={'ua'}
               info={JSON.stringify(orderInfo)}
-              result_url={`https://tech-cloud.vercel.app/cart/compleate`}
+              result_url={`http://tech-cloud.vercel.app/cart/compleate`}
               // добавить рендер на страницу сенкс и чистка локал сторедж карт запрос в бд и создание нового токена
               server_url={`https://tech-cloud.vercel.app/api/liqpayPayment`}
             />
