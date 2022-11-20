@@ -80,9 +80,9 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
               product={cartData}
               language={'ua'}
               info={JSON.stringify(orderInfo)}
-              // result_url={`${process.env.PROD_URL}/cart/compleate`}
+              result_url={`${process.env.PROD_URL}/cart/compleate`}
               // добавить рендер на страницу сенкс и чистка локал сторедж карт запрос в бд и создание нового токена
-              // server_url={`${process.env.PROD_URL}/api/liqpayPayment`}
+              server_url={`${process.env.PROD_URL}/api/liqpayPayment`}
             />
           )}
         </div>
