@@ -47,7 +47,7 @@ export default function LoginBlock() {
           }
           fullUserInfo.role === "user" &&
             router.push(
-              process.env.USER_PATH + `?user=${fullUserInfo.name}&page=personal`
+              process.env.USER_PATH+`?user=${fullUserInfo.name}&page=personal`
             );
         }
       }
