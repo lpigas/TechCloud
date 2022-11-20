@@ -126,5 +126,6 @@ export default async function (req, res) {
 
   res.json({
     status: 200,
+    result_url:`https://tech-cloud.vercel.app/cart/compleate`
   });
 }
