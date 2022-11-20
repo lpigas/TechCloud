@@ -15,7 +15,7 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
     for (let i = numOrder.length; i <= 6; i++) {
       numOrder = "0" + numOrder;
     }
-    numOrder = "#" + numOrder + "/" + (user && user.name)+2;
+    numOrder = "#" + numOrder + "/" + (user && user.name);
   }
   const orderInfo = user && { userInfo: user, product: cartData };
   
