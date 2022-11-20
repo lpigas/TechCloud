@@ -43,7 +43,7 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
     validEnterData()
   }, [user]);
   
-
+  console.log(process.env.PRIVAT_PUBLIC_KEY)
   return (
     <div className=" bg-[#F6F6FA] w-full ser:w-2/5 pb-[15px] ser:pb-[225px]">
       <div className="ser:w-1/2 ser:pl-2">
