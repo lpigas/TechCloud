@@ -7,7 +7,7 @@ export default function PcsBlock({ productPcs, index, changeCartData, focus }) {
       <button
         disabled={productPcs === 0}
         className="text-[#FD7A55] hidden ser:flex justify-center items-center bg-white w-1/3 cursor-pointer"
-        onClick={() => changeData(index, productPcs - 1)}
+        onClick={() => changeCartData(index, productPcs - 1)}
       >
         -
       </button>
@@ -20,7 +20,7 @@ export default function PcsBlock({ productPcs, index, changeCartData, focus }) {
       ></input>
       <button
         className="text-[#FD7A55] hidden ser:flex justify-center items-center bg-white w-1/3 cursor-pointer"
-        onClick={() => changeData(index, productPcs + 1)}
+        onClick={() => changeCartData(index, productPcs + 1)}
       >
         +
       </button>
