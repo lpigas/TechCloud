@@ -46,7 +46,8 @@ export default function compleate() {
       userVerification(userFromLocal);
     } else if (!isLoading && user) {
       
-      const userFromAuth = user[process.env.AUTH0_BASE_URL + "/user_metadata"] || user[process.env.DEV_URL + "/user_metadata"];
+      const userFromAuth = user[process.env.AUTH0_BASE_URL + "/user_metadata"] 
+      //|| user[process.env.DEV_URL + "/user_metadata"];
       setUserName(userFromAuth);
       userVerification(userFromAuth);
     }
