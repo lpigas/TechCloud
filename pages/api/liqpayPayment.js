@@ -1,5 +1,7 @@
 const { connectToDatabase } = require("../../lib/mongodb");
 import { ObjectId } from "mongodb";
+import { redirect } from "next/dist/server/api-utils";
+import { createRedirectRoute } from "next/dist/server/server-route-utils";
 
 export default async function (req, res) {
   function parseJwt(token) {
@@ -125,4 +127,5 @@ export default async function (req, res) {
     status: 200,
     statusCode: 200
   });
+  res.redirect('https://tech-cloud.vercel.app/cart/compleate', 200)
 }
