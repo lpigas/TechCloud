@@ -25,12 +25,11 @@ export default async function (req, res) {
   const order_id = fullInfoPayment.order_id;
   const date = new Date().toLocaleDateString();
   const { db } = await connectToDatabase();
-
+  
   const isRegistred = await db
     .collection("users")
     .findOne({ email: userData.email });
   if (!isRegistred) {
-    console.log("сщздаем нового клиента");
     const balance = btoa("0");
     const userIn = {
       email: userData.email,
@@ -56,7 +55,6 @@ export default async function (req, res) {
     .collection("order")
     .findOne({ numOrder: order_id, user: new ObjectId(userDB._id) });
   if (hasOrder) {
-    console.log("если есть заказ меняем статус");
     await db
       .collection("order")
       .updateOne(
@@ -83,7 +81,6 @@ export default async function (req, res) {
       );
   } else {
     const orders = userDB.orders;
-    console.log("новый заказ");
     //если нет заказа
     //add new order
     const newOrder = await db.collection("order").insertOne({
@@ -126,6 +123,6 @@ export default async function (req, res) {
 
   res.json({
     status: 200,
-    result_url:`https://tech-cloud.vercel.app/cart/compleate`
+    statusCode: 200
   });
 }

@@ -9,7 +9,7 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
   const [message, setMessage] = useState();
   const [buttonIsDisabled, setButtonIsDisabled] = useState(true);
 
-  let numOrder = String(user && user.ordersLength + 1);
+  let numOrder = String(user && user.ordersLength);
 
   if (numOrder) {
     for (let i = numOrder.length; i <= 6; i++) {
