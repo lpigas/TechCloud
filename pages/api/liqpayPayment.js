@@ -124,8 +124,7 @@ export default async function (req, res) {
   }
 
   res.json({
-    status: 200,
-    statusCode: 200
+    status: 301,
+    statusCode: 301
   });
-  res.redirect('https://tech-cloud.vercel.app/cart/compleate', 200)
 }
