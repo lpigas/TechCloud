@@ -27,7 +27,7 @@ export default async function (req, res) {
   const order_id = fullInfoPayment.order_id;
   const date = new Date().toLocaleDateString();
   const { db } = await connectToDatabase();
-  
+
   const isRegistred = await db
     .collection("users")
     .findOne({ email: userData.email });
@@ -57,30 +57,28 @@ export default async function (req, res) {
     .collection("order")
     .findOne({ numOrder: order_id, user: new ObjectId(userDB._id) });
   if (hasOrder) {
-    await db
-      .collection("order")
-      .updateOne(
-        { numOrder: order_id },
-        {
-          $set: {
-            status:
-              status === "success"
-                ? "ok"
-                : status === "captcha_verify" ||
-                  "cvv_verify" ||
-                  "password_verify" ||
-                  "phone_verify" ||
-                  "pin_verify" ||
-                  "receiver_verify" ||
-                  "sender_verify" ||
-                  "senderapp_verify" ||
-                  "wait_qr" ||
-                  "wait_sender"
-                ? "wait"
-                : "cancel",
-          },
-        }
-      );
+    await db.collection("order").updateOne(
+      { numOrder: order_id },
+      {
+        $set: {
+          status:
+            status === "success"
+              ? "ok"
+              : status === "captcha_verify" ||
+                "cvv_verify" ||
+                "password_verify" ||
+                "phone_verify" ||
+                "pin_verify" ||
+                "receiver_verify" ||
+                "sender_verify" ||
+                "senderapp_verify" ||
+                "wait_qr" ||
+                "wait_sender"
+              ? "wait"
+              : "cancel",
+        },
+      }
+    );
   } else {
     const orders = userDB.orders;
     //если нет заказа
@@ -117,14 +115,12 @@ export default async function (req, res) {
         { _id: new ObjectId(userDB._id) },
         { $set: { orders: orders } }
       );
-    console.log("чистим корзину");
     await db
       .collection("users")
       .updateOne({ email: userData.email }, { $set: { cart: [] } });
   }
 
   res.json({
-    status: 301,
-    statusCode: 301
+    status: 200,
   });
 }

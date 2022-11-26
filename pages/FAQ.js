@@ -10,7 +10,7 @@ export default function FAQ() {
 
   return (
     <Layout title={"FAQ"}>
-        <TitleBlock partname={FAQData.FAQpartname} />
+      <TitleBlock partname={FAQData.FAQpartname} />
       <div className="mt-[31px] pb-8">
         {data &&
           data.map((item) => (

@@ -25,7 +25,6 @@ export default function CenterCloud({ data }) {
           </div>
           <div className="w-full ser:w-[680px] m-auto  flex-wrap font-normal not-italic text-[20px] leading-[34px] text-[#616E87]">
             {data.tasks}
-            {/* {console.log(item)} */}
           </div>
         </div>
       </div>

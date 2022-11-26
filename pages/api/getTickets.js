@@ -1,6 +1,5 @@
 const { connectToDatabase } = require("../../lib/mongodb");
 
-
 export default async function (req, res) {
   const { email } = JSON.parse(req.body);
   const { db } = await connectToDatabase();

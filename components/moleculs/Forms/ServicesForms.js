@@ -27,7 +27,10 @@ export default function ServicesForms({
         </div>{" "}
         {title}
         <a
-          href={servicesTitle.partname[servicesTitle.partname.length - 1].service_url}
+          href={
+            servicesTitle.partname[servicesTitle.partname.length - 1]
+              .service_url
+          }
           className="cursor-pointer flex mb-4 mt-3 items-end"
         >
           <p className="flex">

@@ -7,10 +7,6 @@ export default function Tickets({ email, role }) {
   const [allTickets, setAllTickets] = useState();
   const [openTicket, setOpenTicket] = useState();
 
- console.log(allTickets)
- console.log(openTicket)
-
-
   const getTicket = async () => {
     try {
       const data = await fetch(`${process.env.API_HOST}getTickets`, {

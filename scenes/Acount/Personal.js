@@ -9,7 +9,6 @@ export default function Personal({
   setChangePassword,
   sub,
 }) {
-
   const [openLoader, setOpenLoader] = useState(false);
   const [openLoaderPass, setOpenLoaderPass] = useState(false);
   const [newUserData, setNewUserData] = useState(user);
@@ -24,17 +23,19 @@ export default function Personal({
     if (changePassword.newpass.search(/[A-Z]/) < 0) {
       return setMessageChangePass(
         "Ваш пароль должен содержать хотя бы одну заглавную букву"
-        );
-      }
-      if (changePassword.newpass.search(/[0-9]/) < 0) {
-        return setMessageChangePass("Ваш пароль должен содержать хотя бы одну цифру");
-      }
-      if (changePassword.newpass !== changePassword.secondNewpass) {
-        return setMessageChangePass("Пароли не совпадают");
-      }
-      
-      setOpenLoaderPass(true);
-      setMessageChangePass();
+      );
+    }
+    if (changePassword.newpass.search(/[0-9]/) < 0) {
+      return setMessageChangePass(
+        "Ваш пароль должен содержать хотя бы одну цифру"
+      );
+    }
+    if (changePassword.newpass !== changePassword.secondNewpass) {
+      return setMessageChangePass("Пароли не совпадают");
+    }
+
+    setOpenLoaderPass(true);
+    setMessageChangePass();
     try {
       const data = await fetch(`${process.env.API_HOST}changeUserPass`, {
         method: "POST",

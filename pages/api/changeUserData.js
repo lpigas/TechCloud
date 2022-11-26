@@ -2,10 +2,9 @@ import jwt from "jsonwebtoken";
 const { connectToDatabase } = require("../../lib/mongodb");
 
 export default async function (req, res) {
-
-
-  const { email, name, surname, urfis, phone, country, city } =
-    JSON.parse(req.body);
+  const { email, name, surname, urfis, phone, country, city } = JSON.parse(
+    req.body
+  );
   if (name.length < 2) {
     return res.json({ status: 404, message: "Не верный формат именм" });
   }

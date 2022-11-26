@@ -48,7 +48,7 @@ export default function TicketsAll({
     setOpenNewTicket();
   };
   useEffect(() => {
-    if(message){
+    if (message) {
       setTimeout(() => {
         setMessage();
       }, 4000);

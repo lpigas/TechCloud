@@ -15,11 +15,11 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
     for (let i = numOrder.length; i <= 6; i++) {
       numOrder = "0" + numOrder;
     }
-    numOrder = "#" + numOrder + "/" + (user && user.name) +1 ;
+    numOrder = "#" + numOrder + "/" + (user && user.name) + 1;
   }
   const orderInfo = user && { userInfo: user, product: cartData };
-  
-  const validEnterData =() =>{
+
+  const validEnterData = () => {
     if (user) {
       if (user.name.length < 3) {
         window.localStorage.removeItem("user");
@@ -37,12 +37,12 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
         setButtonIsDisabled(false);
       }
     }
-  }
+  };
 
   useEffect(() => {
-    validEnterData()
+    validEnterData();
   }, [user]);
-  
+
   return (
     <div className=" bg-[#F6F6FA] w-full ser:w-2/5 pb-[15px] ser:pb-[225px]">
       <div className="ser:w-1/2 ser:pl-2">
@@ -77,7 +77,7 @@ export default function RightBlock({ cartData, checkout, nextStage, user }) {
               title={"Payment"}
               disabled={buttonIsDisabled}
               product={cartData}
-              language={'ua'}
+              language={"ua"}
               info={JSON.stringify(orderInfo)}
               result_url={`https://tech-cloud.vercel.app/cart/compleate`}
               // добавить рендер на страницу сенкс и чистка локал сторедж карт запрос в бд и создание нового токена

@@ -13,7 +13,6 @@ export default async function (req, res) {
     }),
   });
   const accesstoken = await data.json();
-  // console.log(accesstoken)
 
   try {
     const data = await fetch(

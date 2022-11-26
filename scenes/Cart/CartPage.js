@@ -10,12 +10,12 @@ import Layout from "components/layout/Layout";
 import TitleBlock from "components/moleculs/Title/TitleBlock";
 
 export default function CartPage() {
-  const partname =
-  [{
-    service_url: "/cart?page=product",
-    service_name: "Корзина",
-  },
-];
+  const partname = [
+    {
+      service_url: "/cart?page=product",
+      service_name: "Корзина",
+    },
+  ];
   const [cartData, setCartData] = useState();
   const router = useRouter();
   const [nextStage, setNextStage] = useState(router);
@@ -70,31 +70,31 @@ export default function CartPage() {
   return (
     <Layout>
       <TitleBlock partname={partname} />
-    <div className="flex px-1 w-full">
-      {!cartData ? (
-        <Empty />
-      ) : nextStage === "product" ? (
-        <div className="flex flex-col ser:flex-row px-1 w-full">
-          <LeftBlock
-            cartData={cartData}
-            setCartData={setCartData}
-            email={user.email}
-          />
-          <RightBlock cartData={cartData} checkout={checkout} />
-        </div>
-      ) : nextStage === "payment" ? (
-        <div className="flex flex-col ser:flex-row px-1 w-full">
-          <LeftBlockPersonal
-            user={user}
-            errorMessage={errorMessage}
-            setUser={setUser}
-          />
-          <RightBlock cartData={cartData} nextStage={nextStage} user={user} />
-        </div>
-      ) : (
-        <Loader />
-      )}
-    </div>
+      <div className="flex px-1 w-full">
+        {!cartData ? (
+          <Empty />
+        ) : nextStage === "product" ? (
+          <div className="flex flex-col ser:flex-row px-1 w-full">
+            <LeftBlock
+              cartData={cartData}
+              setCartData={setCartData}
+              email={user.email}
+            />
+            <RightBlock cartData={cartData} checkout={checkout} />
+          </div>
+        ) : nextStage === "payment" ? (
+          <div className="flex flex-col ser:flex-row px-1 w-full">
+            <LeftBlockPersonal
+              user={user}
+              errorMessage={errorMessage}
+              setUser={setUser}
+            />
+            <RightBlock cartData={cartData} nextStage={nextStage} user={user} />
+          </div>
+        ) : (
+          <Loader />
+        )}
+      </div>
     </Layout>
   );
 }

@@ -43,7 +43,7 @@ export default function TicketOne({ ticketInfo, email, role }) {
     const date = new Date().toLocaleDateString();
     const time = new Date().toLocaleTimeString().slice(0, -3);
     const normaldate =
-    date.slice(0, date.length - 4) + date.slice(date.length - 2, date.length);
+      date.slice(0, date.length - 4) + date.slice(date.length - 2, date.length);
     ticketInfo.correspondence.push({
       ...uploadData,
       time: time,
@@ -51,7 +51,6 @@ export default function TicketOne({ ticketInfo, email, role }) {
       role: role,
     });
     addNewMessage();
-    console.log('aaa')
     setUploadData({
       img: "",
       text: "",

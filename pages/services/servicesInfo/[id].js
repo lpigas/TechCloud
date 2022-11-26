@@ -7,7 +7,6 @@ import Layout from "components/layout/Layout";
 export default function id() {
   const router = useRouter();
   const { id } = router.query;
-  console.log(id)
   const serviceInfo = AllServices.services.filter((item) => item.id === id);
   return (
     <Layout>

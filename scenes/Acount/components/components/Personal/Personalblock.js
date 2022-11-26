@@ -103,7 +103,7 @@ export default function Personalblock({
         <StandartInput
           type={"email"}
           placeholder={`Email`}
-          styles={'border-red-500'}
+          styles={"border-red-500"}
           disabled={true}
           value={user.email}
         />

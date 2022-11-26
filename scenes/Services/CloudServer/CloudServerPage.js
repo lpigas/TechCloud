@@ -3,7 +3,6 @@ import TitleBlock from "../../../components/moleculs/Title/TitleBlock";
 import Bottom from "../../../components/moleculs/Recall/Bottom";
 import CenterCloud from "./CenterCloud";
 
-
 export default function CloudServerPage({ serviceInfo }) {
   return (
     <>

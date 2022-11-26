@@ -8,7 +8,7 @@ export default function TitleBlock() {
     <div className="max-w-[1000px] m-auto lg:mt-[100px] flex flex-col items-center">
       <div className=" flex">
         <div className="flex w-full max-w-[1000px] m-auto mb-10">
-          <TitleHome/>
+          <TitleHome />
         </div>
       </div>
       <div className=" max-w-1/2 m-auto">

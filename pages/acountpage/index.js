@@ -11,7 +11,9 @@ import { useUser } from "@auth0/nextjs-auth0";
 
 export default function user() {
   const fullUserAuth = useUser().user;
-  const verified = fullUserAuth && fullUserAuth.email_verified;
+  const verified =
+    fullUserAuth &&
+    (fullUserAuth.email_verified || fullUserAuth.sub.includes("googl"));
 
   const [highlighted, setHighlighted] = useState("personal");
   const router = useRouter();
@@ -21,7 +23,6 @@ export default function user() {
     secondNewpass: "",
   });
   const partname = [{ service_name: "Личный кабинет", service_url: "" }];
-
 
   const getTokendata = () => {
     if (typeof window !== "undefined") {
@@ -74,7 +75,7 @@ export default function user() {
                 sub={fullUserAuth && fullUserAuth.sub}
               />
             ) : highlighted === "orders" ? (
-              verified ? (
+              !verified ? (
                 <div className="flex items-center m-auto text-red-500">
                   {" "}
                   Your account not verified, please go to your email and verify{" "}
@@ -82,7 +83,7 @@ export default function user() {
               ) : (
                 <Orders email={user.email} />
               )
-            ) : verified ? (
+            ) : !verified ? (
               <div className="flex items-center m-auto text-red-500">
                 {" "}
                 Your account not verified, please go to your email and verify{" "}

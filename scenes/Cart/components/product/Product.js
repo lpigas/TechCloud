@@ -15,7 +15,10 @@ export default function Product({
     newCartData[index].pcs = newvalue;
     setCartData([...newCartData]);
     if (typeof window !== "undefined") {
-      const data = window.localStorage.setItem("Cart", JSON.stringify(newCartData));
+      const data = window.localStorage.setItem(
+        "Cart",
+        JSON.stringify(newCartData)
+      );
     }
     setFocus(index);
   };
@@ -31,7 +34,6 @@ export default function Product({
     let cart;
     if (typeof window !== "undefined") {
       cart = JSON.parse(window.localStorage.getItem("Cart"));
-      
     }
     if (cart) {
       try {
@@ -62,7 +64,10 @@ export default function Product({
           focus={focus}
         />
       </div>
-      <div className="w-3/12 text-center"> {oneProduct.price * oneProduct.pcs}</div>
+      <div className="w-3/12 text-center">
+        {" "}
+        {oneProduct.price * oneProduct.pcs}
+      </div>
       <div className="w-1/12 text-center" onClick={() => dellProductCart()}>
         <img
           src="/image/Arrows/cancel1.png"

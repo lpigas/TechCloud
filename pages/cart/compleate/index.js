@@ -12,7 +12,7 @@ export default function compleate() {
   const [token, setToken] = useState();
   const router = useRouter();
   const { user, error, isLoading } = useUser();
-  const partname=[
+  const partname = [
     {
       service_url: "/cart?page=product",
       service_name: "Корзина",
@@ -28,7 +28,6 @@ export default function compleate() {
       const parser = await data.json();
       const newToken = parser.message;
       if (parser.error) {
-        console.log(parser);
         router.push(`/cart?page=product`);
       }
       if (newToken) {
@@ -45,8 +44,7 @@ export default function compleate() {
       setUserName(userFromLocal.name);
       userVerification(userFromLocal);
     } else if (!isLoading && user) {
-      
-      const userFromAuth = user[process.env.AUTH0_BASE_URL + "/user_metadata"] 
+      const userFromAuth = user[process.env.AUTH0_BASE_URL + "/user_metadata"];
       //|| user[process.env.DEV_URL + "/user_metadata"];
       setUserName(userFromAuth);
       userVerification(userFromAuth);

@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function PcsBlock({ productPcs, index, changeCartData, focus }) {
   return (
     <div className="flex justify-center ser:w-3/4 m-auto border-[2px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
