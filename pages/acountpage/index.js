@@ -56,8 +56,7 @@ export default function user() {
   }, [router]);
 
 
-  // console.log(user)
-  console.log('changePassword',changePassword)
+
 
 
 

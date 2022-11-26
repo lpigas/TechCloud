@@ -71,9 +71,10 @@ export default function Personal({
   }, [messageChangeUser]);
 
   const changeUserData = async () => {
+      console.log(user)
       if (newUserData.name && newUserData.name.length < 2) {
       return setMessageChangeUser("Не установлено имя пользователя");
-    } else if (newUserData.phone.length < 13) {
+    } else if (!newUserData.phone) {
       return setMessageChangeUser("Не установлен телефон пользователя");
     }
 
