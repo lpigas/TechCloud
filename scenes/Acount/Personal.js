@@ -93,7 +93,6 @@ export default function Personal({
         }),
       });
       const tokenJson = await data.json();
-      console.log(tokenJson)
       setToken(tokenJson.token);
 
       setMessageChangeUser(tokenJson.message !== "ok" && tokenJson.message);

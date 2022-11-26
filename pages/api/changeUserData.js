@@ -6,19 +6,10 @@ export default async function (req, res) {
     req.body
   );
   if (name.length < 2) {
-    return res.json({ status: 404, message: "Не верный формат именм" });
+    return res.json({ status: 404, message: "Не верный формат имени" });
   }
   if (surname.length < 2) {
     return res.json({ status: 404, message: "Не верный формат фамилии" });
-  }
-  if (urfis.length < 1) {
-    return res.json({ status: 404, message: "Не выбран тип пользователя" });
-  }
-  if (phone.length < 10) {
-    return res.json({
-      status: 404,
-      message: "Не верно выбран формат телефона",
-    });
   }
 
   const { db } = await connectToDatabase();
