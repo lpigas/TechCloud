@@ -71,15 +71,12 @@ export default function Personal({
   }, [messageChangeUser]);
 
   const changeUserData = async () => {
-    if (newUserData.urfis && newUserData.urfis.length < 1) {
-      return setMessageChangeUser("Не установлен тип пользователя");
-    } else if (newUserData.name && newUserData.name.length < 2) {
+      if (newUserData.name && newUserData.name.length < 2) {
       return setMessageChangeUser("Не установлено имя пользователя");
-    } else if (newUserData.surname && newUserData.surname.length < 2) {
-      return setMessageChangeUser("Не установлена фамилия пользователя");
     } else if (newUserData.phone.length < 13) {
       return setMessageChangeUser("Не установлен телефон пользователя");
     }
+
     setOpenLoader(true);
     try {
       const data = await fetch(`${process.env.API_HOST}changeUserData`, {
@@ -95,6 +92,7 @@ export default function Personal({
         }),
       });
       const tokenJson = await data.json();
+      console.log(tokenJson)
       setToken(tokenJson.token);
 
       setMessageChangeUser(datas.message !== "ok" && datas.message);
