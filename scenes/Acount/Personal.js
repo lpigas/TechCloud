@@ -95,7 +95,7 @@ export default function Personal({
       console.log(tokenJson)
       setToken(tokenJson.token);
 
-      setMessageChangeUser(datas.message !== "ok" && datas.message);
+      setMessageChangeUser(tokenJson.message !== "ok" && tokenJson.message);
     } catch (error) {
       console.log(error);
     }
