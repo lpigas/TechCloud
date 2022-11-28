@@ -57,6 +57,7 @@ export default function user() {
 
 
 console.log(verified)
+console.log(fullUserAuth)
 
 
 
