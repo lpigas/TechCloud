@@ -56,7 +56,7 @@ export default function user() {
   }, [router]);
 
 
-
+console.log(verified)
 
 
 
