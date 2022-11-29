@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Add from "./Add";
+import Button from "components/atoms/Buttons/Button";
 
-export default function TicketOne({ ticketInfo, email, role }) {
+export default function TicketOne({ ticketInfo, email, role,setOpenTicket }) {
   const dates = {};
 
   ticketInfo.correspondence.forEach((item) => {
@@ -11,6 +12,7 @@ export default function TicketOne({ ticketInfo, email, role }) {
       dates[item.date] = [item];
     }
   });
+  console.log(ticketInfo.status)
 
   const [uploadData, setUploadData] = useState({
     img: "",
@@ -63,12 +65,8 @@ export default function TicketOne({ ticketInfo, email, role }) {
   return (
     <div className="pb-8 ">
       <div className="w-full  lg:px-[50px] overflow-scroll">
-        <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50]">
+        <div className="font-bold not-italic text-[20px] leading-[28px] text-[#3E3F50] flex justify-between">
           Тикет: {ticketInfo.numTicket}
-        </div>
-
-        <div className="mt-[13px] px-2 flex justify-between font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50] ">
-          {ticketInfo.descr}
           {ticketInfo.status === "ok" ? (
             <a
               className={` not-italic text-[16px] leading-[28px] text-[#3DCAA8] `}
@@ -85,10 +83,19 @@ export default function TicketOne({ ticketInfo, email, role }) {
             <a
               className={` not-italic text-[16px] leading-[28px] text-[#616E87]`}
             >
+              {console.log(ticketInfo.status)}
               Новый
             </a>
           )}
         </div>
+
+        <div className="mt-[13px] px-2  font-bold not-italic text-[16px] leading-[28px] text-[#3E3F50] break-all">
+          {ticketInfo.descr}
+         
+        </div>
+        {ticketInfo.correspondence.length === 0 ? 
+          <div className="text-red-600 flex justify-center my-8"> No correspondence yet</div>
+          :
         <div className="w-full mt-[17px] overflow-y-scroll px-2 items-center justify-end min-h-fit pb-8 bg-[#FFFFFF] rounded-[10px] lg:rounded-[30px]">
           {Object.keys(dates).map((item) => (
             <div key={item}>
@@ -128,6 +135,7 @@ export default function TicketOne({ ticketInfo, email, role }) {
             </div>
           ))}
         </div>
+        }
       </div>
       <div className="mt-[37px] lg:px-12 ">
         <Add
@@ -136,6 +144,12 @@ export default function TicketOne({ ticketInfo, email, role }) {
           loadNewMessage={loadNewMessage}
           openLoader={openLoader}
         />
+      </div>
+      <div className="flex m-2 ser:m-14 justify-end">
+      <Button onClick={()=>setOpenTicket()} type={"static"}>
+          {" "}
+        Вернуться назад
+        </Button>
       </div>
     </div>
   );

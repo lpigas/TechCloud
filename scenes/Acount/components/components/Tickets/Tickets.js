@@ -33,7 +33,7 @@ export default function Tickets({ email, role }) {
       ) : (
         <div className="mt-[83px] w-full ">
           {openTicket ? (
-            <TicketOne ticketInfo={openTicket} email={email} role={role} />
+            <TicketOne ticketInfo={openTicket} email={email} role={role} setOpenTicket={setOpenTicket}/>
           ) : (
             <TicketsAll
               email={email}

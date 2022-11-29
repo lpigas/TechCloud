@@ -1,9 +1,10 @@
 import React from "react";
 
 export default function FaqBlock({ FAQdata, opened, setOpened }) {
+
   return (
     <div
-      onClick={() => (opened ? setOpened("") : setOpened(FAQdata.title))}
+      onClick={() => (opened === FAQdata.title  ? setOpened("") : setOpened(FAQdata.title))}
       className={`sm:w-full lg:w-1/2 mb-[13px] ${
         opened !== FAQdata.title
           ? "min-h-[85px] bg-[#F9F9FC] border-[#F9F9FC]"

@@ -12,9 +12,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Upload({ uploadData, setUploadData }) {
+export default function Upload({ uploadData, setUploadData, isThatImage, setIsThatImage }) {
   const [imageSrc, setImageSrc] = useState();
   const classes = useStyles();
+  const [uploadName, setUploadName] = useState()
+
 
   /**
    * handleOnChange
@@ -30,6 +32,7 @@ export default function Upload({ uploadData, setUploadData }) {
       };
 
       reader.readAsDataURL(changeEvent.target.files[0]);
+      setUploadName(changeEvent.target.files[0].name)
       handleOnSubmit(changeEvent);
     }
   }
@@ -54,20 +57,34 @@ export default function Upload({ uploadData, setUploadData }) {
     }
 
     formData.append("upload_preset", "uploads");
+    try {
+      const data = await fetch(
+        "https://api.cloudinary.com/v1_1/dzix3j1li/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const datas = await data.json();
+  
+      setImageSrc(datas.secure_url);
+      const isImage = datas.format === 'jpg' || 
+      datas.format === 'apng' || 
+      datas.format === 'avif' || 
+      datas.format === ' gif' || 
+      datas.format === 'jpeg' || 
+      datas.format === 'png' || 
+      datas.format === 'svg' || 
+      datas.format === 'webp'
+      setIsThatImage(isImage)
+      
+    } catch (error) {
+      alert(error)
+    }
 
-    const data = await fetch(
-      "https://api.cloudinary.com/v1_1/dzix3j1li/image/upload",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-    const datas = await data.json();
-
-    setImageSrc(datas.secure_url);
   }
   useEffect(() => {
-    setUploadData({ img: imageSrc, text: uploadData.text });
+    setUploadData({...uploadData, img: imageSrc});
   }, [imageSrc]);
 
   return (
@@ -84,12 +101,23 @@ export default function Upload({ uploadData, setUploadData }) {
       <label htmlFor="contained-button-file" className="flex">
         <img src="/image/Arrows/attach.svg" />
         {uploadData.img ? (
-          <img
-            src={uploadData.img}
-            className="mx-6 min-w-[45px] min-h-[45px]"
+          <div>
+            {isThatImage?
+            <img
+              src={uploadData.img}
+              className="mx-6 w-[100px] h-[100px]"
+            />
+            :
+            <img
+            src={'/image/files.png'}
+            className="mx-6 w-[100px] h-[150px]"
           />
+            }
+            {uploadName && uploadName}
+
+          </div>
         ) : (
-          "Прикрепить файл"
+          "Прикрепить фото"
         )}
       </label>
     </div>

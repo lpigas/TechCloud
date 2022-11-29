@@ -11,6 +11,7 @@ export default function Layout({
   children,
   component,
   bgcolor = "standart",
+  cartData,
 }) {
   return (
     <div className="flex flex-col h-full  overflow-hidden ">
@@ -20,7 +21,7 @@ export default function Layout({
           background: bgColor[bgcolor],
         }}
       >
-        <Header title={title} />
+        <Header title={title} cartData={cartData}/>
         {children}
       </div>
       {component}

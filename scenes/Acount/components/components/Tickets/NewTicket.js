@@ -16,7 +16,8 @@ export default function NewTicket({
     { value: "Проблемы с оплатой", label: "Проблемы с оплатой" },
     { value: "Проблемы с кабинетом", label: "Проблемы с кабинетом" },
   ];
-  const newTicketNum = allTickets[0] ? allTickets[0].numTicket.slice(1) : 0;
+  console.log(allTickets)
+  const newTicketNum = allTickets ? allTickets.length : 0;
   const normaldata = new Date().toLocaleDateString();
 
   const makeNum = (newTicketNum) => {
@@ -49,9 +50,10 @@ export default function NewTicket({
         placeholder={"Тема обращения"}
         options={groupe}
       />
-      <StandartInput
+      <textarea
         type={`text`}
         placeholder={"Enter your problem"}
+        className={'w-full m-1 mt-4 p-4 border-2 rounded-[10px]'}
         onChange={(e) => setNewTicket({ ...newTicket, descr: e.target.value })}
       />
       {isLoader && (

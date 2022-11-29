@@ -13,12 +13,23 @@ export default function Product({
   const changeCartData = (index, newvalue) => {
     const newCartData = cartData;
     newCartData[index].pcs = newvalue;
-    setCartData([...newCartData]);
-    if (typeof window !== "undefined") {
-      const data = window.localStorage.setItem(
-        "Cart",
-        JSON.stringify(newCartData)
-      );
+    if(newvalue === 0 ){
+      const filtredByNull = cartData.filter((item, i) => i !== index)
+      setCartData(filtredByNull)
+      if (typeof window !== "undefined") {
+        const data = window.localStorage.setItem(
+          "Cart",
+          JSON.stringify(filtredByNull)
+        );
+      }
+    } else{
+      setCartData([...newCartData]);
+      if (typeof window !== "undefined") {
+        const data = window.localStorage.setItem(
+          "Cart",
+          JSON.stringify(newCartData)
+        );
+      }
     }
     setFocus(index);
   };

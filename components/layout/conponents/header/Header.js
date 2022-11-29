@@ -8,7 +8,7 @@ import jwt from "jsonwebtoken";
 import Select from "react-select";
 import Menu from "../../../atoms/Menu/Menu";
 
-export default function Header({ title }) {
+export default function Header({ title, cartData=undefined }) {
   const lang = [{ value: "Русский", label: "Русский" }];
   const [cart, setCart] = useState();
   const links = [
@@ -29,6 +29,13 @@ export default function Header({ title }) {
       setCart(cart);
     }
   }, []);
+
+  useEffect(()=>{
+    if(cartData){
+      setCart(cartData)
+    }
+  },[cartData])
+
 
   return (
     <header className="flex  min-w-full">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import UploadButtons from "../../../../../components/atoms/Upload/Upload";
 import Button from "../../../../../components/atoms/Buttons/Button";
 import Loader from "../../../../../components/atoms/Loader/Loader";
@@ -9,6 +9,7 @@ export default function Qdd({
   loadNewMessage,
   openLoader,
 }) {
+  const [isThatImage, setIsThatImage] = useState(true)
   return (
     <div className="px-2">
       <textarea
@@ -18,9 +19,9 @@ export default function Qdd({
         onChange={(e) => setUploadData({ ...uploadData, text: e.target.value })}
       ></textarea>
       <div className="mt-[42px] flex justify-between items-center">
-        <UploadButtons uploadData={uploadData} setUploadData={setUploadData} />
+        <UploadButtons uploadData={uploadData} setUploadData={setUploadData} isThatImage={isThatImage} setIsThatImage={setIsThatImage}/>
         {openLoader && <Loader />}
-        <Button onClick={loadNewMessage} type={"static"}>
+        <Button onClick={loadNewMessage} type={"static"} disabled={isThatImage !== true}>
           {" "}
           Отправить
         </Button>

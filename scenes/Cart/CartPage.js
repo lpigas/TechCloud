@@ -67,11 +67,18 @@ export default function CartPage() {
       }, 3000);
     }
   }, [errorMessage]);
+
+
+  useEffect(()=>{
+    const filtred = 1
+  },[cartData])
+
+
   return (
-    <Layout>
+    <Layout cartData={cartData}>
       <TitleBlock partname={partname} />
       <div className="flex px-1 w-full">
-        {!cartData ? (
+        {!cartData || cartData.length < 1 ? (
           <Empty />
         ) : nextStage === "product" ? (
           <div className="flex flex-col ser:flex-row px-1 w-full">

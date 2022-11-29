@@ -100,13 +100,6 @@ export default function Personalblock({
             })
           }
         />
-        <StandartInput
-          type={"email"}
-          placeholder={`Email`}
-          styles={"border-red-500"}
-          disabled={true}
-          value={user.email}
-        />
 
         <Select
           id="react-select-2-live-region"
