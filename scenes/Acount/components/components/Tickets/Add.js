@@ -9,7 +9,7 @@ export default function Qdd({
   loadNewMessage,
   openLoader,
 }) {
-  const [isThatImage, setIsThatImage] = useState(true)
+  const [isThatImage, setIsThatImage] = useState(false)
   return (
     <div className="px-2">
       <textarea
