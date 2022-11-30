@@ -41,6 +41,7 @@ export default function user() {
         balance: userdata.balance,
         country: userdata.country,
         city: userdata.city,
+        okpo: user.okpo,
       });
     }
   };

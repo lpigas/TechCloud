@@ -37,7 +37,7 @@ export default function Personalblock({
   useEffect(() => {
     getCountrys();
   }, []);
-  console.log(user.urfis)
+
 
   return (
     <div className="w-9/10 lg:w-4/5 pt-[56px] lg:mr-10 px-2 lg:px-[50px] rounded-[20px] pb-8 lg:rounded-[50px] bg-[#ffffff]">
@@ -118,12 +118,14 @@ export default function Personalblock({
           value={user.city}
           onChange={(e) => setUser({ ...user, city: e.target.value })}
         />
+        {user.urfis === 'Юридическое лицо'&&
         <StandartInput
           type={"text"}
           placeholder={`ОКПО`}
           value={user.okpo}
           onChange={(e) => setUser({ ...user, okpo: e.target.value })}
         />
+        }
 
         {openLoader && (
           <div className="mt-2">

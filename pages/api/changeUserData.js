@@ -37,6 +37,7 @@ export default async function (req, res) {
       city: newUserData.city || "",
       orders: newUserData.orders || "",
       tickets: newUserData.tickets || "",
+      okpo: newUserData.okpo || "",
     },
     process.env.SECRET_KEY
   );

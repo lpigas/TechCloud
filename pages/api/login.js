@@ -23,6 +23,7 @@ export default async function (req, res) {
       urfis: userAuth.urfis || "",
       phone: userAuth.phone,
       cart: userAuth.cart || [],
+      okpo: userAuth.okpo || ''
     };
     await db.collection("users").insertOne(userIn);
   }
@@ -41,6 +42,7 @@ export default async function (req, res) {
       orders: user.orders,
       tickets: user.tickets,
       cart: user.cart || [],
+      okpo: user.okpo || ''
     },
     process.env.SECRET_KEY
   );
