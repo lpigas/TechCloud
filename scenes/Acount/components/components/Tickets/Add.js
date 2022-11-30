@@ -8,7 +8,8 @@ export default function Qdd({
   setUploadData,
   loadNewMessage,
   openLoader,
-  isThatImage
+  isThatImage,
+  setIsThatImage
 }) {
   
 
