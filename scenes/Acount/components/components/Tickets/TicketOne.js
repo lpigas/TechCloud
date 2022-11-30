@@ -12,7 +12,6 @@ export default function TicketOne({ ticketInfo, email, role,setOpenTicket }) {
       dates[item.date] = [item];
     }
   });
-  console.log(ticketInfo.status)
 
   const [uploadData, setUploadData] = useState({
     img: "",
@@ -83,7 +82,6 @@ export default function TicketOne({ ticketInfo, email, role,setOpenTicket }) {
             <a
               className={` not-italic text-[16px] leading-[28px] text-[#616E87]`}
             >
-              {console.log(ticketInfo.status)}
               Новый
             </a>
           )}
