@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 const { connectToDatabase } = require("../../lib/mongodb");
 
 export default async function (req, res) {
-  const { email, name, surname, urfis, phone, country, city } = JSON.parse(
+  const { email, name, surname, urfis, phone, country, city, okpo } = JSON.parse(
     req.body
   );
   if (name.length < 2) {
@@ -20,7 +20,7 @@ export default async function (req, res) {
     .collection("users")
     .updateOne(
       { email: email },
-      { $set: { email, name, surname, urfis, phone, country, city } }
+      { $set: { email, name, surname, urfis, phone, country, city, okpo } }
     );
   const newUserData = await db.collection("users").findOne({ email: email });
   const token = jwt.sign(
