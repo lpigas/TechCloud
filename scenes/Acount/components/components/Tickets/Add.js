@@ -21,7 +21,7 @@ export default function Qdd({
       <div className="mt-[42px] flex justify-between items-center">
         <UploadButtons uploadData={uploadData} setUploadData={setUploadData} isThatImage={isThatImage} setIsThatImage={setIsThatImage}/>
         {openLoader && <Loader />}
-        <Button onClick={loadNewMessage} type={"static"} disabled={isThatImage === true ? false : uploadData.text.length <= 0 ? true: false}>
+        <Button onClick={loadNewMessage} type={"static"} disabled={isThatImage !== true && uploadData.text.length <= 0 }>
           {" "}
           Отправить
         </Button>
