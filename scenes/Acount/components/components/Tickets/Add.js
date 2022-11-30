@@ -8,11 +8,10 @@ export default function Qdd({
   setUploadData,
   loadNewMessage,
   openLoader,
+  isThatImage
 }) {
-  const [isThatImage, setIsThatImage] = useState(false)
-  console.log(isThatImage !== true && uploadData.text.length <= 0)
-  console.log(isThatImage)
-  console.log(uploadData.text.length)
+  
+
   return (
     <div className="px-2">
       <textarea

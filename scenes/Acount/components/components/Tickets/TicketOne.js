@@ -4,7 +4,7 @@ import Button from "components/atoms/Buttons/Button";
 
 export default function TicketOne({ ticketInfo, email, role,setOpenTicket }) {
   const dates = {};
-
+  const [isThatImage, setIsThatImage] = useState(false)
   ticketInfo.correspondence.forEach((item) => {
     if (dates[item.date]) {
       dates[item.date] = [...dates[item.date], item];
@@ -38,6 +38,7 @@ export default function TicketOne({ ticketInfo, email, role,setOpenTicket }) {
       console.log(error);
     }
     setOpenLOader(false);
+    setIsThatImage(false)
   };
 
   const loadNewMessage = () => {
@@ -141,6 +142,8 @@ export default function TicketOne({ ticketInfo, email, role,setOpenTicket }) {
           setUploadData={setUploadData}
           loadNewMessage={loadNewMessage}
           openLoader={openLoader}
+          isThatImage={isThatImage}
+          setIsThatImage={setIsThatImage}
         />
       </div>
       <div className="flex m-2 ser:m-14 justify-end">
