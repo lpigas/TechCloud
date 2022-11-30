@@ -37,6 +37,7 @@ export default function Personalblock({
   useEffect(() => {
     getCountrys();
   }, []);
+  console.log(user.urfis)
 
   return (
     <div className="w-9/10 lg:w-4/5 pt-[56px] lg:mr-10 px-2 lg:px-[50px] rounded-[20px] pb-8 lg:rounded-[50px] bg-[#ffffff]">

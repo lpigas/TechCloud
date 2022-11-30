@@ -144,12 +144,12 @@ export default function TicketOne({ ticketInfo, email, role,setOpenTicket }) {
           loadNewMessage={loadNewMessage}
           openLoader={openLoader}
         />
+      </div>
       <div className="flex m-2 ser:m-14 justify-end">
       <Button onClick={()=>setOpenTicket()} type={"static"}>
           {" "}
         Вернуться назад
         </Button>
-      </div>
       </div>
     </div>
   );
