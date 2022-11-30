@@ -118,6 +118,12 @@ export default function Personalblock({
           value={user.city}
           onChange={(e) => setUser({ ...user, city: e.target.value })}
         />
+        <StandartInput
+          type={"text"}
+          placeholder={`ОКПО`}
+          value={user.okpo}
+          onChange={(e) => setUser({ ...user, okpo: e.target.value })}
+        />
 
         {openLoader && (
           <div className="mt-2">
