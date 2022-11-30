@@ -89,6 +89,7 @@ export default function Personal({
           phone: newUserData.phone,
           country: newUserData.country,
           city: newUserData.city,
+          okpo: newUserData.okpo,
         }),
       });
       const tokenJson = await data.json();
